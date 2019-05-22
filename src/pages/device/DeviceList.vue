@@ -10,6 +10,6 @@ export default {
 
 <style lang="scss" scoped>
 .class{
-  display: none;
+  display: none
 }
 </style>
