@@ -1,0 +1,53 @@
+// fonts
+@font-face {
+  font-family: YaHei;
+  src: url('~@/assets/fonts/Microsoft YaHei.ttf');
+}
+
+// colors
+$no-color: transparent;
+$white: #ffffff;
+$black-dark: #0e1726;
+$black-primary: #000000;
+$grey-light: #eef0f5;
+$blue-dark: #3492ff;
+$blue-primary: #0f7bf9;
+$blue-light: #3492ff;
+$green-primary: #64db76;
+$orange-primary: #fd7b4d;
+$red-primary: #fe6869;
+$pink-primary: #d524ef;
+
+// screen sizes
+$desktop-lg: 1920px;
+$desktop-md: 1458px;
+$tablet: 952px;
+$ipad: 722px;
+$iphone: 460px;
+$min-width: 350px;
+
+@mixin desktop-lg {
+  @media (max-width: #{$desktop-lg}) {
+    @content;
+  }
+}
+@mixin desktop-md {
+  @media (max-width: #{$desktop-md}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+@mixin ipad {
+  @media (max-width: #{$ipad}) {
+    @content;
+  }
+}
+@mixin iphone {
+  @media (max-width: #{$iphone}) {
+    @content;
+  }
+}
