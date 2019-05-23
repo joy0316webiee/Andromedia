@@ -13,6 +13,6 @@ export default {
 <style lang="scss" scoped>
 .container {
   display: flex;
-  min-height: 561px;
+  flex: auto;
 }
 </style>

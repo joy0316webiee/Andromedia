@@ -18,10 +18,6 @@ body {
   overflow-x: hidden;
   min-width: $min-width;
   font-family: YaHei;
-
-  @media (min-width: #{$tablet}) {
-    width: $tablet;
-  }
 }
 
 * {

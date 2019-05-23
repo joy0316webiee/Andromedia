@@ -2,7 +2,7 @@
   <div class="layout">
     <Header/>
     <Container>
-      <!-- <Sidebar/> -->
+      <Sidebar/>
       <router-view/>
     </Container>
   </div>
@@ -27,5 +27,8 @@ export default {
 @import "@/assets/sass/base.scss";
 
 .layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 </style>
