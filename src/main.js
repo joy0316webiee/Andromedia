@@ -1,4 +1,6 @@
 import Vue from 'vue'
+// Components
+import './components'
 import App from './App.vue'
 import router from './router'
 import store from './store'
