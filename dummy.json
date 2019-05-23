@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 7240,
-      "img": "/img/avatar.png",
+      "img": "/img/avatar/avatar1.png",
       "t1": 13088888888,
       "t2": "微信",
       "t3": 13088888888,
@@ -11,7 +11,7 @@
     },
     {
       "id": 7240,
-      "img": "/img/avatar.png",
+      "img": "/img/avatar/avatar2.png",
       "t1": 13088888888,
       "t2": "微信",
       "t3": 13088888888,
@@ -20,7 +20,7 @@
     },
     {
       "id": 7240,
-      "img": "/img/avatar.png",
+      "img": "/img/avatar/avatar3.png",
       "t1": 13088888888,
       "t2": "微信",
       "t3": 13088888888,
@@ -29,7 +29,7 @@
     },
     {
       "id": 7240,
-      "img": "/img/avatar.png",
+      "img": "/img/avatar/avatar4.png",
       "t1": 13088888888,
       "t2": "微信",
       "t3": 13088888888,
@@ -38,7 +38,7 @@
     },
     {
       "id": 7240,
-      "img": "/img/avatar.png",
+      "img": "/img/avatar/avatar5.png",
       "t1": 13088888888,
       "t2": "微信",
       "t3": 13088888888,
@@ -48,56 +48,254 @@
   ],
   "friends": [
     {
-      "img": "/img/avatar.png",
-      "name": "qweqw",
-      "alias": "xcxc",
+      "img": "/img/avatar/avatar1.png",
+      "name": "Pinter",
+      "alias": "accimal",
       "online": true,
       "vip": true,
-      "desc": "adfafdafdafsafd"
+      "desc": "Strength"
     },
     {
-      "img": "/img/avatar.png",
-      "name": "qweqw",
-      "alias": "xcxc",
+      "img": "/img/avatar/avatar2.png",
+      "name": "Poker",
+      "alias": "card",
       "online": false,
       "vip": false,
-      "desc": "adfafdafdafsafd"
+      "desc": "HeadHunter"
     },
     {
-      "img": "/img/avatar.png",
-      "name": "qweqw",
-      "alias": "xcxc",
+      "img": "/img/avatar/avatar3.png",
+      "name": "Nathan",
+      "alias": "satan",
       "online": false,
       "vip": false,
-      "desc": "adfafdafdafsafd"
+      "desc": "wolf"
     },
     {
-      "img": "/img/avatar.png",
-      "name": "qweqw",
-      "alias": "xcxc",
+      "img": "/img/avatar/avatar4.png",
+      "name": "william",
+      "alias": "novan",
       "online": false,
       "vip": false,
-      "desc": "adfafdafdafsafd"
+      "desc": "self-running"
+    },
+    {
+      "img": "/img/avatar/avatar1.png",
+      "name": "Pinter",
+      "alias": "accimal",
+      "online": true,
+      "vip": true,
+      "desc": "Strength"
+    },
+    {
+      "img": "/img/avatar/avatar2.png",
+      "name": "Poker",
+      "alias": "card",
+      "online": false,
+      "vip": false,
+      "desc": "HeadHunter"
+    },
+    {
+      "img": "/img/avatar/avatar3.png",
+      "name": "Nathan",
+      "alias": "satan",
+      "online": false,
+      "vip": false,
+      "desc": "wolf"
+    },
+    {
+      "img": "/img/avatar/avatar4.png",
+      "name": "william",
+      "alias": "novan",
+      "online": false,
+      "vip": false,
+      "desc": "self-running"
+    },
+    {
+      "img": "/img/avatar/avatar1.png",
+      "name": "Pinter",
+      "alias": "accimal",
+      "online": true,
+      "vip": true,
+      "desc": "Strength"
+    },
+    {
+      "img": "/img/avatar/avatar2.png",
+      "name": "Poker",
+      "alias": "card",
+      "online": false,
+      "vip": false,
+      "desc": "HeadHunter"
+    },
+    {
+      "img": "/img/avatar/avatar3.png",
+      "name": "Nathan",
+      "alias": "satan",
+      "online": false,
+      "vip": false,
+      "desc": "wolf"
+    },
+    {
+      "img": "/img/avatar/avatar4.png",
+      "name": "william",
+      "alias": "novan",
+      "online": false,
+      "vip": false,
+      "desc": "self-running"
+    },
+    {
+      "img": "/img/avatar/avatar1.png",
+      "name": "Pinter",
+      "alias": "accimal",
+      "online": true,
+      "vip": true,
+      "desc": "Strength"
+    },
+    {
+      "img": "/img/avatar/avatar2.png",
+      "name": "Poker",
+      "alias": "card",
+      "online": false,
+      "vip": false,
+      "desc": "HeadHunter"
+    },
+    {
+      "img": "/img/avatar/avatar3.png",
+      "name": "Nathan",
+      "alias": "satan",
+      "online": false,
+      "vip": false,
+      "desc": "wolf"
+    },
+    {
+      "img": "/img/avatar/avatar4.png",
+      "name": "william",
+      "alias": "novan",
+      "online": false,
+      "vip": false,
+      "desc": "self-running"
+    },
+    {
+      "img": "/img/avatar/avatar1.png",
+      "name": "Pinter",
+      "alias": "accimal",
+      "online": true,
+      "vip": true,
+      "desc": "Strength"
+    },
+    {
+      "img": "/img/avatar/avatar2.png",
+      "name": "Poker",
+      "alias": "card",
+      "online": false,
+      "vip": false,
+      "desc": "HeadHunter"
+    },
+    {
+      "img": "/img/avatar/avatar3.png",
+      "name": "Nathan",
+      "alias": "satan",
+      "online": false,
+      "vip": false,
+      "desc": "wolf"
+    },
+    {
+      "img": "/img/avatar/avatar4.png",
+      "name": "william",
+      "alias": "novan",
+      "online": false,
+      "vip": false,
+      "desc": "self-running"
+    },
+    {
+      "img": "/img/avatar/avatar1.png",
+      "name": "Pinter",
+      "alias": "accimal",
+      "online": true,
+      "vip": true,
+      "desc": "Strength"
+    },
+    {
+      "img": "/img/avatar/avatar2.png",
+      "name": "Poker",
+      "alias": "card",
+      "online": false,
+      "vip": false,
+      "desc": "HeadHunter"
+    },
+    {
+      "img": "/img/avatar/avatar3.png",
+      "name": "Nathan",
+      "alias": "satan",
+      "online": false,
+      "vip": false,
+      "desc": "wolf"
+    },
+    {
+      "img": "/img/avatar/avatar4.png",
+      "name": "william",
+      "alias": "novan",
+      "online": false,
+      "vip": false,
+      "desc": "self-running"
+    },
+    {
+      "img": "/img/avatar/avatar1.png",
+      "name": "Pinter",
+      "alias": "accimal",
+      "online": true,
+      "vip": true,
+      "desc": "Strength"
+    },
+    {
+      "img": "/img/avatar/avatar2.png",
+      "name": "Poker",
+      "alias": "card",
+      "online": false,
+      "vip": false,
+      "desc": "HeadHunter"
+    },
+    {
+      "img": "/img/avatar/avatar3.png",
+      "name": "Nathan",
+      "alias": "satan",
+      "online": false,
+      "vip": false,
+      "desc": "wolf"
+    },
+    {
+      "img": "/img/avatar/avatar4.png",
+      "name": "william",
+      "alias": "novan",
+      "online": false,
+      "vip": false,
+      "desc": "self-running"
     }
   ],
   "blogs": [
     {
-      "writerImg": "/img/avatar.png",
-      "writer": "af",
-      "content": "afdafda<br /><img src='/img/avatar.png'>",
-      "time": "afda"
+      "writerImg": "/img/user/user1.png",
+      "writer": "Lina",
+      "content": "<img src='/img/blog_img/blog_img_1.png' width='100%'>",
+      "time": "47 minutes ago"
     },
     {
-      "writerImg": "/img/avatar.png",
-      "writer": "af",
-      "content": "afdafda<br /><img src='/img/avatar.png' height=100>",
-      "time": "afda"
+      "writerImg": "/img/user/user2.png",
+      "writer": "Elaine",
+      "content": "<img src='/img/blog_img/blog_img_2.png' width='60%'>",
+      "time": "25 minutes ago"
     },
     {
-      "writerImg": "/img/avatar.png",
-      "writer": "af",
-      "content": "afdafda<br /><img src='/img/avatar.png' height=200>",
-      "time": "afda"
+      "writerImg": "/img/user/user3.png",
+      "writer": "Umber",
+      "content": "<img src='/img/blog_img/blog_img_3.png' width='60%'>",
+      "time": "17 minutes ago"
+    },
+    {
+      "writerImg": "/img/user/user4.png",
+      "writer": "Wiki",
+      "content": "<img src='/img/blog_img/blog_img_4.png' width='60%'>",
+      "time": "10 minutes ago"
     }
   ]
 }
