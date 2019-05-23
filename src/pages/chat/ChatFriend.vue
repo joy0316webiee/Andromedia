@@ -79,8 +79,7 @@
       </div>
       <div class="list">
         <div class="list-item" v-for="friend in friends">
-          <!-- <img class="avatar" :src="friend.img" /> -->
-          <img class="avatar" src="@/assets/images/avatar.png" />
+          <img class="avatar" :src="friend.img" />
           <img class="online" src="@/assets/images/ic_phone.png" v-if="friend.online" />
           <div>
             <div>
@@ -274,12 +273,13 @@ button:hover {
 }
 .list-item {
   position: relative;
-  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   display: flex;
   align-items: center;
   .avatar {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     margin-right: 10px;
   }
@@ -290,13 +290,13 @@ button:hover {
     position: absolute;
     width: 10px;
     height: 16px;
-    left: 38px;
+    left: 30px;
     top: 34px;
   }
 }
 .blog-list {
   padding: 0 10px;
-  flex: auto;
+  width: 400px;
   .panel-title {
     padding: 14px 40px;
     width: unset;
@@ -326,6 +326,9 @@ button:hover {
       font-size: 16px;
       .blog-content {
         margin-top: 10px;
+        img {
+          width: calc(100% - 200px);
+        }
       }
     }
     .more {
@@ -367,6 +370,11 @@ button:hover {
   button:hover {
     background-color: #F1F5F8;
     opacity: 1;
+  }
+}
+.blog-content {
+  img {
+    width: calc(100% - 200px);
   }
 }
 </style>
