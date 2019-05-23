@@ -1,133 +1,242 @@
 <template>
-  <sidebar-menu
-    :menu="menu"
-    :collapsed="collapsed"
-    :theme="selectedTheme"
-    :show-one-child="true"
-    @collapse="onCollapse"
-    @itemClick="onItemClick"
-  />
+  <div class="sidebar">
+    <div class="sidebar-list">
+      <div class="sidebar-list-item" v-for="(item, index) in menuItems" :key="index">
+        <a
+          :class="[item.class, {active: activeIndex === index}]"
+          href="#"
+          @click="handleChangeMenu(index)"
+        >
+          <img :src="imgUrl(item.image)" :alt="item.image">
+          <span :class="{collapse: collapse}">{{item.text}}</span>
+        </a>
+      </div>
+    </div>
+    <div class="toggle">
+      <a href="#" @click="onCollaspe()">
+        <img src="@/assets/images/ic_collapse_blue.png" alt="collapse">
+      </a>
+    </div>
+  </div>
 </template>
 
 <script>
-import Vue from "vue";
-import VueSidebarMenu from "vue-sidebar-menu";
-
-Vue.use(VueSidebarMenu);
-
-const separator = {
-  template: `<hr style="border-color: rgba(0, 0, 0, 0.1); margin: 20px;">`
-};
-
 export default {
   name: "Sidebar",
   data() {
     return {
-      menu: [
+      collapse: false,
+      activeIndex: 0,
+      menuItems: [
         {
-          href: "/",
-          title: "Installation",
-          icon: "fa fa-download"
+          class: "list-home",
+          image: "ic_home",
+          text: "首页"
         },
         {
-          href: "/basic-usage",
-          title: "Basic Usage",
-          icon: "fa fa-code"
+          class: "list-chat",
+          image: "ic_chat",
+          text: "聊天室"
         },
         {
-          href: "/props",
-          title: "Props",
-          icon: "fa fa-cogs"
+          class: "list-user",
+          image: "ic_user",
+          text: "用户"
         },
         {
-          href: "/events",
-          title: "Events",
-          icon: "fa fa-bell"
+          class: "list-ecommerce",
+          image: "ic_ecommerce",
+          text: "电商"
         },
         {
-          href: "/styling",
-          title: "Styling",
-          icon: "fa fa-palette"
+          class: "list-content",
+          image: "ic_content",
+          text: "内容"
         },
         {
-          href: "/disabled",
-          title: "Disabled page",
-          icon: "fa fa-lock",
-          disabled: true
+          class: "list-label",
+          image: "ic_label",
+          text: "标签"
         },
         {
-          title: "Badge",
-          icon: "fa fa-cog",
-          badge: {
-            text: "new",
-            class: "badge-danger"
-          }
+          class: "list-auto",
+          image: "ic_auto",
+          text: "自动回复"
         },
         {
-          href: "/page",
-          title: "Dropdown Page",
-          icon: "fa fa-list-ul"
+          class: "list-task",
+          image: "ic_task",
+          text: "标配任务"
+        },
+        {
+          class: "list-script",
+          image: "ic_script",
+          text: "自定义脚本"
+        },
+        {
+          class: "list-bigdata",
+          image: "ic_bigdata",
+          text: "大数据"
         }
-      ],
-      collapsed: false,
-      themes: ["", "white-theme"],
-      selectedTheme: "white-theme"
+      ]
     };
   },
   methods: {
-    onCollapse(collapsed) {
-      console.log(collapsed);
-      this.collapsed = collapsed;
+    onCollaspe() {
+      this.collapse = !this.collapse;
+      console.log("###", this.collapse);
     },
-    onItemClick(event, item) {
-      console.log("onItemClick");
-      // console.log(event)
-      // console.log(item)
+    imgUrl(imgName) {
+      return require("@/assets/images/" + imgName + "_blue.png");
+    },
+    handleChangeMenu(index) {
+      this.activeIndex = index;
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-@import "vue-sidebar-menu/src/scss/vue-sidebar-menu.scss";
 @import "@/assets/sass/base.scss";
 
-.v-sidebar-menu {
-}
-.v-sidebar-menu.vsm-default {
-}
-.v-sidebar-menu.vsm-collapsed {
-}
-.v-sidebar-menu .vsm-header {
-}
-.v-sidebar-menu .vsm-list {
-}
-.v-sidebar-menu .vsm-dropdown > .vsm-list {
-}
-.v-sidebar-menu .vsm-item {
-}
-.v-sidebar-menu .vsm-item.first-item {
-}
-.v-sidebar-menu .vsm-item.mobile-item {
-}
-.v-sidebar-menu .vsm-item.open-item {
-}
-.v-sidebar-menu .vsm-item.active-item {
-}
-.v-sidebar-menu .vsm-item.parent-active-item {
-}
-.v-sidebar-menu .vsm-link {
-}
-.v-sidebar-menu .vsm-title {
-}
-.v-sidebar-menu .vsm-icon {
-}
-.v-sidebar-menu .vsm-arrow {
-}
-.v-sidebar-menu .vsm-arrow.open-arrow {
-}
-.v-sidebar-menu .vsm-mobile-bg {
-}
-.v-sidebar-menu .vsm-badge {
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-right: 1px solid #eef0f5;
+
+  .sidebar-list {
+    transition: width 1s ease-out;
+    .sidebar-list-item {
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+        height: 44px;
+        padding: 14px 0px;
+        overflow: hidden;
+
+        &:hover {
+          background: #eef0f5;
+        }
+
+        img {
+          width: 16px;
+          height: 16px;
+          margin: 0px 24px;
+        }
+        span {
+          width: 76px;
+          height: 16px;
+          font-size: 12px;
+          transition: width 0.5s ease-out;
+          overflow: hidden;
+
+          &.collapse {
+            width: 0px;
+          }
+        }
+
+        &.active {
+          background: #0f7bf9;
+          color: white;
+
+          &.list-home {
+            img {
+              display: block;
+              background: url("~@/assets/images/ic_home_white.png") no-repeat;
+              background-size: contain;
+              padding-left: 16px;
+            }
+          }
+          &.list-chat {
+            img {
+              display: block;
+              background: url("~@/assets/images/ic_chat_white.png") no-repeat;
+              background-size: contain;
+              padding-left: 16px;
+            }
+          }
+          &.list-user {
+            img {
+              display: block;
+              background: url("~@/assets/images/ic_user_white.png") no-repeat;
+              background-size: contain;
+              padding-left: 16px;
+            }
+          }
+          &.list-ecommerce {
+            img {
+              display: block;
+              background: url("~@/assets/images/ic_ecommerce_white.png")
+                no-repeat;
+              background-size: contain;
+              padding-left: 16px;
+            }
+          }
+          &.list-content {
+            img {
+              display: block;
+              background: url("~@/assets/images/ic_content_white.png") no-repeat;
+              background-size: contain;
+              padding-left: 16px;
+            }
+          }
+          &.list-label {
+            img {
+              display: block;
+              background: url("~@/assets/images/ic_label_white.png") no-repeat;
+              background-size: contain;
+              padding-left: 16px;
+            }
+          }
+          &.list-auto {
+            img {
+              display: block;
+              background: url("~@/assets/images/ic_auto_white.png") no-repeat;
+              background-size: contain;
+              padding-left: 16px;
+            }
+          }
+          &.list-task {
+            img {
+              display: block;
+              background: url("~@/assets/images/ic_task_white.png") no-repeat;
+              background-size: contain;
+              padding-left: 16px;
+            }
+          }
+          &.list-script {
+            img {
+              display: block;
+              background: url("~@/assets/images/ic_script_white.png") no-repeat;
+              background-size: contain;
+              padding-left: 16px;
+            }
+          }
+          &.list-bigdata {
+            img {
+              display: block;
+              background: url("~@/assets/images/ic_bigdata_white.png") no-repeat;
+              background-size: contain;
+              padding-left: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .toggle {
+    margin-bottom: 17px;
+
+    a {
+      img {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
 }
 </style>

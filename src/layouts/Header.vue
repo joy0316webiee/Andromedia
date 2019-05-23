@@ -11,7 +11,7 @@
         </div>
         <div class="dropdown">
           <div class="dropdown-toggle">
-            <img src="@/assets/images/ic_down.png" alt="arrow-down">
+            <img src="@/assets/images/dropdown.png" alt="arrow-down">
           </div>
           <div class="dropdown-menu"></div>
         </div>
@@ -50,11 +50,11 @@ export default {
 
   .header-logo {
     background: #0f7bf9;
-    padding: 8px 14px 9px 18px;
+    padding: 16px 28px 18px 36px;
     cursor: pointer;
 
     span {
-      font-size: 8px;
+      font-size: 16px;
       font-weight: bold;
       display: block;
       color: white;
@@ -63,26 +63,26 @@ export default {
   .header-menubar {
     display: flex;
     align-items: center;
-    margin-right: 31px;
+    margin-right: 62px;
 
     .header-menubar-profile {
       display: flex;
       align-items: center;
-      margin-right: 10px;
+      margin-right: 20px;
 
       .userinfo {
         display: flex;
         align-items: center;
-        margin-right: 5px;
+        margin-right: 10px;
 
         img {
-          width: 15px;
-          height: 15px;
+          width: 30px;
+          height: 30px;
         }
         span {
           color: #71716c;
-          margin-left: 3px;
-          font-size: 8px;
+          margin-left: 6px;
+          font-size: 16px;
         }
       }
       .dropdown {
@@ -103,18 +103,18 @@ export default {
 
       .member-center {
         display: flex;
-        margin-right: 10px;
+        margin-right: 20px;
 
         button {
-          width: 33px;
-          height: 12px;
+          width: 66px;
+          height: 24px;
           padding: 0;
           border: 0px;
-          border-radius: 6px;
+          border-radius: 12px;
           background: #0f7bf9;
           color: white;
-          font-size: 6px;
-          font-weight: 400;
+          font-size: 12px;
+          font-weight: 800;
           cursor: pointer;
 
           &:hover {
@@ -130,36 +130,36 @@ export default {
 
         .btn {
           border: none;
-          width: 5px;
-          height: 5px;
+          width: 13px;
+          height: 13px;
           padding: 0px;
-          margin: 0px 5px;
+          margin: 0px 10px;
           cursor: pointer;
 
           &.btn-inbox {
-            background: url("~@/assets/images/ic_close.png") no-repeat;
+            background: url("~@/assets/images/ic_inbox.png") no-repeat center;
             background-size: contain;
           }
           &.btn-setting {
-            background: url("~@/assets/images/ic_close.png") no-repeat;
+            background: url("~@/assets/images/ic_setting.png") no-repeat center;
             background-size: contain;
           }
           &.btn-hide {
-            background: url("~@/assets/images/ic_close.png") no-repeat;
+            background: url("~@/assets/images/ic_hide.png") no-repeat center;
             background-size: contain;
           }
           &.btn-expand {
-            background: url("~@/assets/images/ic_close.png") no-repeat;
+            background: url("~@/assets/images/ic_expand.png") no-repeat center;
             background-size: contain;
           }
           &.btn-close {
-            background: url("~@/assets/images/ic_close.png") no-repeat;
+            background: url("~@/assets/images/ic_close.png") no-repeat center;
             background-size: contain;
           }
         }
         .divider {
           width: 1px;
-          height: 10px;
+          height: 20px;
           border-left: 1px solid #eef0f5;
         }
       }
