@@ -37,17 +37,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="user in users">
+          <tr v-for="(user, index) in users" :key="index">
             <td>{{user.id}}</td>
             <td>
               {{user.t1}}
               <br>
-              {{user.t2}}<img :src="user.img" alt="arrow-down">
+              {{user.t2}}
+              <img :src="user.img" alt="arrow-down">
             </td>
             <td>{{user.t3}}</td>
             <td>{{user.t4}}</td>
             <td>{{user.t5}}</td>
-            <td><button>设置</button></td>
+            <td>
+              <button>设置</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -75,35 +78,33 @@
         </v-button>
       </div>
       <div class="search-status">
-        <span>好友总数（34）</span><img src="@/assets/images/ic_search.png" />
+        <span>好友总数（34）</span>
+        <img src="@/assets/images/ic_search.png">
       </div>
       <div class="list">
-        <div class="list-item" v-for="friend in friends">
+        <div class="list-item" v-for="(friend, index) in friends" :key="index">
           <!-- <img class="avatar" :src="friend.img" /> -->
-          <img class="avatar" src="@/assets/images/avatar.png" />
-          <img class="online" src="@/assets/images/ic_phone.png" v-if="friend.online" />
+          <img class="avatar" src="@/assets/images/avatar.png">
+          <img class="online" src="@/assets/images/ic_phone.png" v-if="friend.online">
           <div>
             <div>
-              <span :class="friend.vip ? 'red' : ''">{{ friend.name }}</span>({{ friend.alias }})
+              <span :class="friend.vip ? 'red' : ''">{{ friend.name }}</span>
+              ({{ friend.alias }})
               <span v-if="friend.vip" class="vip">&nbsp;VIP&nbsp;</span>
             </div>
-            
+
             <div class="item-desc">{{ friend.desc }}</div>
           </div>
         </div>
       </div>
     </div>
     <div class="panel blog-list">
-      <div class="panel-title">
-        朋友圈
-      </div>
-      <div class="blog" v-for="blog in blogs">
+      <div class="panel-title">朋友圈</div>
+      <div class="blog" v-for="(blog, index) in blogs" :key="index">
         <img class="avatar" :src="blog.writerImg">
         <div class="blog-container">
           <div class="writer">{{ blog.writer }}</div>
-          <div class="blog-content" v-html="blog.content">
-            
-          </div>
+          <div class="blog-content" v-html="blog.content"></div>
           <div class="blog-footer">
             <span class="time">{{ blog.time }}</span>
             <button class="more">..</button>
@@ -115,44 +116,41 @@
 </template>
 
 <script>
-  export default {
-    name: "ChatFriend",
-    data() {
-      return {
-        users: [],
-        friends: [],
-        blogs: []
-      }
+export default {
+  name: "ChatFriend",
+  data() {
+    return {
+      users: [],
+      friends: [],
+      blogs: []
+    };
+  },
+  methods: {
+    fetchUsers: function() {
+      const baseURI = "http://localhost:3000/users";
+      this.$http.get(baseURI).then(result => {
+        this.users = result.data;
+      });
     },
-    methods: {
-      fetchUsers: function() {
-        const baseURI = 'http://localhost:3000/users'
-        this.$http.get(baseURI)
-        .then((result) => {
-          this.users = result.data
-        })
-      },
-      fetchFriends: function() {
-        const baseURI = 'http://localhost:3000/friends'
-        this.$http.get(baseURI)
-        .then((result) => {
-          this.friends = result.data
-        })
-      },
-      fetchBlogs: function() {
-        const baseURI = 'http://localhost:3000/blogs'
-        this.$http.get(baseURI)
-        .then((result) => {
-          this.blogs = result.data
-        })
-      },
+    fetchFriends: function() {
+      const baseURI = "http://localhost:3000/friends";
+      this.$http.get(baseURI).then(result => {
+        this.friends = result.data;
+      });
     },
-    mounted: function () {
-      this.fetchUsers();
-      this.fetchFriends();
-      this.fetchBlogs();
+    fetchBlogs: function() {
+      const baseURI = "http://localhost:3000/blogs";
+      this.$http.get(baseURI).then(result => {
+        this.blogs = result.data;
+      });
     }
-  };
+  },
+  mounted: function() {
+    this.fetchUsers();
+    this.fetchFriends();
+    this.fetchBlogs();
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -178,7 +176,7 @@
   font-size: 18px;
   font-family: PingFang-SC-Bold;
   font-weight: bold;
-  color: rgba(56,59,59,1);
+  color: rgba(56, 59, 59, 1);
   margin-left: 48px;
   margin-top: 34px;
 }
@@ -186,7 +184,8 @@ table {
   border-spacing: 0;
   font-size: 12px;
   width: 100%;
-  th, td {
+  th,
+  td {
     text-align: center;
     padding: 10px;
   }
@@ -195,21 +194,21 @@ table {
     text-align: left;
   }
   thead {
-    background-color: #F4F5F9;
+    background-color: #f4f5f9;
   }
   button {
     font-size: 12px;
     width: 92px;
     height: 32px;
-    background: rgba(255,255,255,1);
-    border: 1px solid rgba(238,240,245,1);
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(238, 240, 245, 1);
     border-radius: 4px;
   }
   tr:hover {
-    background-color: #F1F5F8;
+    background-color: #f1f5f8;
   }
   tr.selected {
-    background-color: #F1F5F8;
+    background-color: #f1f5f8;
   }
   td > img {
     width: 22px;
@@ -228,7 +227,7 @@ button:hover {
 }
 .my-group {
   width: 410px;
-  border: 2px solid #F1F5F8;
+  border: 2px solid #f1f5f8;
   padding: 6px 12px;
   .button-bar {
     .btn-1 {
@@ -243,7 +242,7 @@ button:hover {
       font-size: 12px;
       font-family: MicrosoftYaHeiLight;
       font-weight: 300;
-      color:rgba(0,0,0,1);
+      color: rgba(0, 0, 0, 1);
     }
     img {
       width: 16px;
@@ -257,12 +256,12 @@ button:hover {
     position: relative;
   }
   .panel-title {
-    width:36px;
-    height:12px;
-    font-size:12px;
-    font-family:MicrosoftYaHeiLight;
-    font-weight:300;
-    color:rgba(0,0,0,1);
+    width: 36px;
+    height: 12px;
+    font-size: 12px;
+    font-family: MicrosoftYaHeiLight;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 1);
   }
   .vip {
     background-color: red;
@@ -306,7 +305,7 @@ button:hover {
   .blog {
     padding: 10px 5px;
     display: flex;
-    border-bottom: 2px solid #F7F7F7;
+    border-bottom: 2px solid #f7f7f7;
     .avatar {
       width: 50px;
       height: 50px;
@@ -329,7 +328,7 @@ button:hover {
       }
     }
     .more {
-      background-color: #F8F8F8;
+      background-color: #f8f8f8;
       float: right;
     }
   }
@@ -339,11 +338,11 @@ button:hover {
   opacity: 1 !important;
   z-index: 1;
 }
-.dropdown:hover .dropdown-menu{
+.dropdown:hover .dropdown-menu {
   display: block;
 }
 .dropdown-menu::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -10px;
   right: 5px;
@@ -353,19 +352,19 @@ button:hover {
   border-bottom: 10px solid white;
 }
 .dropdown-menu {
-  display:none;
+  display: none;
   background-color: white;
   position: absolute;
   width: 100%;
   left: 0;
   top: 40px;
-  box-shadow:0px 2px 15px 0px rgba(0, 0, 0, 0.11);
-  button{
+  box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.11);
+  button {
     background-color: white;
     border-radius: 0;
   }
   button:hover {
-    background-color: #F1F5F8;
+    background-color: #f1f5f8;
     opacity: 1;
   }
 }
