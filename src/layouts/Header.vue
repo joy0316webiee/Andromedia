@@ -9,11 +9,29 @@
           <img src="@/assets/images/avatar.png" alt="avatar">
           <span>lola8713</span>
         </div>
-        <div class="dropdown">
-          <div class="dropdown-toggle">
+        <div class="dropdown" v-click-outside="hide">
+          <div class="dropdown-toggle" @click="toggle()">
             <img src="@/assets/images/dropdown.png" alt="arrow-down">
           </div>
-          <div class="dropdown-menu"></div>
+          <div class="dropdown-menu" v-show="opened">
+            <div class="dropdown-menu-body">
+              <div class="item">
+                <img src="@/assets/images/avatar_01.png" alt="avatar">
+                <span>以上ahfdsif</span>
+              </div>
+              <div class="item">
+                <img src="@/assets/images/avatar.png" alt="avatar">
+                <span>Lola8713</span>
+              </div>
+              <div class="item">
+                <img src="@/assets/images/avatar_02.png" alt="avatar">
+                <span>刘海</span>
+              </div>
+            </div>
+            <div class="dropdown-menu-foot">
+              <button>设置账号</button>
+            </div>
+          </div>
         </div>
       </div>
       <div class="header-menubar-controls">
@@ -34,8 +52,26 @@
 </template>
 
 <script>
+import ClickOutside from "vue-click-outside";
+
 export default {
-  name: "Header"
+  name: "Header",
+  data() {
+    return {
+      opened: false
+    };
+  },
+  methods: {
+    toggle() {
+      this.opened = true;
+    },
+    hide() {
+      this.opened = false;
+    }
+  },
+  directives: {
+    ClickOutside
+  }
 };
 </script>
 
@@ -86,14 +122,67 @@ export default {
         }
       }
       .dropdown {
+        position: relative;
+
         .dropdown-toggle {
           display: flex;
           cursor: pointer;
 
           img {
+            margin-right: 3px;
           }
         }
         .dropdown-menu {
+          width: 149px;
+          height: 170px;
+          position: absolute;
+          right: 0;
+          top: 30px;
+          z-index: 9;
+          box-shadow: 0 3px 7px rgba(0, 0, 0, 0.24);
+          border-radius: 3px;
+          background-color: #ffffff;
+
+          .dropdown-menu-body {
+            .item {
+              display: flex;
+              align-items: center;
+              height: 35px;
+              border-bottom: 1px solid #f2f5fa;
+              padding: 6px 0px 6px 23px;
+              cursor: pointer;
+
+              &:hover {
+                background-color: #f2f5fa;
+              }
+
+              img {
+                width: 22px;
+                height: 22px;
+              }
+              span {
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 40px;
+                margin-left: 14px;
+              }
+            }
+          }
+          .dropdown-menu-foot {
+            margin-top: 24px;
+            text-align: center;
+
+            button {
+              width: 93px;
+              height: 28px;
+              border-radius: 3px;
+              background-color: #0f7bf9;
+              color: #ffffff;
+              font-size: 12px;
+              font-weight: 400;
+              cursor: pointer;
+            }
+          }
         }
       }
     }

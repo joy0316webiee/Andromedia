@@ -131,7 +131,7 @@ export default {
           width: 76px;
           height: 16px;
           font-size: 12px;
-          transition: width 0.5s ease-out;
+          transition: width 0.3s ease-out;
           overflow: hidden;
 
           &.collapse {
