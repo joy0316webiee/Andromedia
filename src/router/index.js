@@ -32,6 +32,16 @@ export default new Router({
           component: () => import('@/pages/device/DeviceManage.vue')
         }
       ]
+    },
+    {
+      path: '/chat',
+      component: () => import('@/layouts/Layout.vue'),
+      children: [
+        {
+          path: 'friend',
+          component: () => import('@/pages/chat/ChatFriend.vue')
+        }
+      ]
     }
   ]
 });
