@@ -5,19 +5,24 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      primary: Boolean
-    },
-    computed: {
-      classes: function classes() {
-        var baseObj = { 'v-button': true }
-        baseObj['v-button-default'] = !this.primary
-        baseObj['v-button-primary'] = this.primary
-        return baseObj
-      }
+export default {
+  props: {
+    default: Boolean,
+    primary: Boolean,
+    info: Boolean,
+    light: Boolean
+  },
+  computed: {
+    classes: function classes() {
+      return [
+        "v-button",
+        { "v-button-primary": this.primary },
+        { "v-button-info": this.info },
+        { "v-button-light": this.light }
+      ];
     }
   }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -28,11 +33,22 @@
   border-radius: 4px;
   font-family: MicrosoftYaHeiLight;
   font-weight: 300;
-  background-color: #F1F5F8;
-  border: none;
+  background-color: #f1f5f8;
+  border-color: #f1f5f8;
+  cursor: pointer;
 }
 .v-button-primary {
-  background-color: #0F7BF9;
-  color: #FFFFFF;
+  background-color: #0f7bf9;
+  border-color: #0f7bf9;
+  color: #ffffff;
+}
+.v-button-info {
+  background-color: #0395f9;
+  border-color: #0395f9;
+  color: #ffffff;
+}
+.v-button-light {
+  background-color: white;
+  color: #6c6c6c;
 }
 </style>

@@ -1,0 +1,16 @@
+@import "./variables";
+
+@mixin placeholder($color) {
+  ::-webkit-input-placeholder {
+    color: $color !important;
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: $color !important;
+  }
+
+  ::placeholder {
+    color: $color !important;
+  }
+}
