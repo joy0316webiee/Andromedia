@@ -3,28 +3,9 @@
     <div class="panel account-management">
       <span class="panel-title">账号管理</span>
       <v-button class="btn-1" primary>添加账号</v-button>
-      <v-button class="btn-2 dropdown">
-        推送消息
-        <div class="dropdown-menu">
-          <div>
-            <v-button>推送图文消息</v-button>
-          </div>
-          <div>
-            <v-button>推送小程序</v-button>
-          </div>
-        </div>
-      </v-button>
-      <v-button class="btn-3 dropdown">
-        设置自动回复
-        <div class="dropdown-menu">
-          <div>
-            <v-button>群聊自动回复</v-button>
-          </div>
-          <div>
-            <v-button>入群欢迎词</v-button>
-          </div>
-        </div>
-      </v-button>
+      <v-dropdown class="dd-btn-1" text="推送消息" :items="dropdownItems1"></v-dropdown>
+      <v-dropdown class="dd-btn-2" text="设置自动回复" :items="dropdownItems2"></v-dropdown>
+      
       <table style="margin-top: 20px;">
         <thead>
           <tr>
@@ -57,25 +38,9 @@
     </div>
     <div class="panel my-group">
       <div class="button-bar">
-        <v-button>我的好友</v-button>
+        <v-button class="btn-1">我的好友</v-button>
         <span class="panel-title">我的群</span>
-        <v-button primary class="btn-1 dropdown">
-          <span class="plus-symbol">+</span>好友
-          <div class="dropdown-menu">
-            <div>
-              <v-button>加好友</v-button>
-            </div>
-            <div>
-              <v-button>加群</v-button>
-            </div>
-            <div>
-              <v-button>群里加好友</v-button>
-            </div>
-            <div>
-              <v-button>附近加好友</v-button>
-            </div>
-          </div>
-        </v-button>
+        <v-dropdown class="dd-btn-3" text="<span class='plus-symbol'>+</span>好友" :items="dropdownItems3"></v-dropdown>
       </div>
       <div class="search-status">
         <span>好友总数（34）</span>
@@ -83,16 +48,14 @@
       </div>
       <div class="list">
         <div class="list-item" v-for="(friend, index) in friends" :key="index">
-          <!-- <img class="avatar" :src="friend.img" /> -->
-          <img class="avatar" src="@/assets/images/avatar.png">
-          <img class="online" src="@/assets/images/ic_phone.png" v-if="friend.online">
+          <img class="avatar" :src="friend.img" />
+          <img class="online" src="/img/icons/ic_phone.png" v-if="friend.online">
           <div>
             <div>
               <span :class="friend.vip ? 'red' : ''">{{ friend.name }}</span>
               ({{ friend.alias }})
               <span v-if="friend.vip" class="vip">&nbsp;VIP&nbsp;</span>
             </div>
-
             <div class="item-desc">{{ friend.desc }}</div>
           </div>
         </div>
@@ -100,16 +63,25 @@
     </div>
     <div class="panel blog-list">
       <div class="panel-title">朋友圈</div>
-      <div class="blog" v-for="(blog, index) in blogs" :key="index">
-        <img class="avatar" :src="blog.writerImg">
-        <div class="blog-container">
-          <div class="writer">{{ blog.writer }}</div>
-          <div class="blog-content" v-html="blog.content"></div>
-          <div class="blog-footer">
-            <span class="time">{{ blog.time }}</span>
-            <button class="more">..</button>
+      <div class="blogs">
+        <div class="blog" v-for="(blog, index) in blogs" :key="index">
+          <img class="blog-avatar" :src="blog.writerImg">
+          <div class="blog-container">
+            <div class="blog-writer">{{ blog.writer }}</div>
+            <div class="blog-content" v-html="blog.content"></div>
+            <div class="blog-footer">
+              <span class="time">{{ blog.time }}</span>
+              <button class="more">..</button>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="popup add-friend">
+      <div class="popup-header">
+        <span class="popup-header-title"></span>
+        <button class="popup-close-btn"></button>
       </div>
     </div>
   </div>
@@ -122,7 +94,22 @@ export default {
     return {
       users: [],
       friends: [],
-      blogs: []
+      blogs: [],
+      popupAddFriend: false,
+      dropdownItems1: [
+        { text: "推送图文消息", action: () => this.popupAddFriend = true },
+        { text: "推送小程序", action: undefined }
+      ],
+      dropdownItems2: [
+        { text: "群聊自动回复", action: undefined },
+        { text: "入群欢迎词", action: undefined }
+      ],
+      dropdownItems3: [
+        { text: "加好友", action: undefined },
+        { text: "加群", action: undefined },
+        { text: "群里加好友", action: undefined },
+        { text: "附近加好友", action: undefined }
+      ]
     };
   },
   methods: {
@@ -159,8 +146,12 @@ export default {
 }
 .account-management {
   width: 720px;
+
   .btn-1 {
     margin-left: 32px;
+  }
+  .dd-btn-1 {
+    margin-left: 18px;
   }
   .btn-2 {
     margin-left: 18px;
@@ -184,6 +175,7 @@ table {
   border-spacing: 0;
   font-size: 12px;
   width: 100%;
+
   th,
   td {
     text-align: center;
@@ -228,14 +220,24 @@ button:hover {
 .my-group {
   width: 410px;
   border: 2px solid #f1f5f8;
-  padding: 6px 12px;
+  padding: 6px 0px;
+
   .button-bar {
     .btn-1 {
+      margin-right: 6px;
+    }
+    .btn-2 {
       float: right;
+    }
+    .dd-btn-3 {
+      button: {
+        background-color: #227BF9;
+      }
     }
   }
   .search-status {
     margin-top: 16px;
+
     span {
       width: 78px;
       height: 12px;
@@ -271,110 +273,100 @@ button:hover {
     font-weight: bold;
   }
 }
-.list-item {
-  position: relative;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  display: flex;
-  align-items: center;
-  .avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  .red {
-    color: red;
-  }
-  .online {
-    position: absolute;
-    width: 10px;
-    height: 16px;
-    left: 30px;
-    top: 34px;
+.list {
+  height: calc(100vh - 150px);
+  overflow-y: auto;
+
+  .list-item {
+    padding-left: 6px;
+    cursor: pointer;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .red {
+      color: red;
+    }
+    .online {
+      position: absolute;
+      width: 10px;
+      height: 16px;
+      left: 30px;
+      top: 34px;
+    }
+    &:hover {
+      background-color: #EBEBEB;
+    }
   }
 }
 .blog-list {
   padding: 0 10px;
+  padding-right: 20px;
   width: 400px;
+
   .panel-title {
     padding: 14px 40px;
     width: unset;
     margin: 0;
     font-size: 12px;
   }
-  .blog {
-    padding: 10px 5px;
-    display: flex;
-    border-bottom: 2px solid #f7f7f7;
-    .avatar {
-      width: 50px;
-      height: 50px;
-      margin-right: 10px;
-      border-radius: 5px;
-    }
-    .writer {
-      font-size: 30px;
-      color: #537098;
-    }
-    .time {
-      font-size: 12px;
-      color: #929292;
-    }
-    .blog-container {
-      flex: auto;
-      font-size: 16px;
-      .blog-content {
-        margin-top: 10px;
-        img {
-          width: calc(100% - 200px);
+  .blogs {
+    height: calc(100vh - 102px);
+    overflow-y: auto;
+
+    .blog {
+      padding: 10px 5px;
+      display: flex;
+      border-bottom: 2px solid #f7f7f7;
+
+      .blog-avatar {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        border-radius: 5px;
+      }
+      .blog-writer {
+        font-size: 20px;
+        color: #537098;
+      }
+      .time {
+        font-size: 12px;
+        color: #929292;
+      }
+      .blog-container {
+        flex: auto;
+        font-size: 16px;
+
+        .blog-content {
+          margin-top: 20px;
+          img {
+            width: calc(100% - 200px);
+          }
         }
       }
+      .more {
+        background-color: #f8f8f8;
+        float: right;
+      }
     }
-    .more {
-      background-color: #f8f8f8;
-      float: right;
-    }
-  }
-}
-.dropdown {
-  position: relative;
-  opacity: 1 !important;
-  z-index: 1;
-}
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-.dropdown-menu::before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  right: 5px;
-  border-top: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid white;
-}
-.dropdown-menu {
-  display: none;
-  background-color: white;
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 40px;
-  box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.11);
-  button {
-    background-color: white;
-    border-radius: 0;
-  }
-  button:hover {
-    background-color: #f1f5f8;
-    opacity: 1;
   }
 }
 .blog-content {
   img {
     width: calc(100% - 200px);
   }
+}
+.popup.add-friend {
+  width: 424px;
+  height: 468px;
+  background-color: white;
 }
 </style>

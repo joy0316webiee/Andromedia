@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown" v-click-outside="hide">
     <div class="dropdown-toggle" @click="toggle()">
-      <v-button>{{text}}</v-button>
+      <v-button v-html="text"></v-button>
     </div>
     <div class="dropdown-menu" v-show="opened">
       <div v-for="(item, index) in items" :key="index">{{item.text}}</div>

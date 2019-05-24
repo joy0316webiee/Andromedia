@@ -234,7 +234,7 @@ export default {
       batchDropdown: [
         {
           text: "配置设备",
-          action: "#"
+          action: this.test
         },
         {
           text: "删除",
@@ -290,6 +290,11 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    test() {
+      console.log("this is a test!");
+    }
   }
 };
 </script>
