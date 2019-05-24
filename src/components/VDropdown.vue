@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdown dropdown-batch" v-click-outside="hide">
+  <div class="dropdown" v-click-outside="hide">
     <div class="dropdown-toggle" @click="toggle()">
       <v-button>{{text}}</v-button>
     </div>
@@ -43,6 +43,8 @@ export default {
   position: relative;
 
   .dropdown-toggle {
+    width: fit-content;
+
     button {
       background-image: url("~@/assets/images/ic_down.png");
       background-repeat: no-repeat;
@@ -56,6 +58,7 @@ export default {
     background: white;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.24);
     border-radius: 2px;
+    z-index: 8;
 
     > div {
       height: 35px;

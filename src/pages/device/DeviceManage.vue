@@ -21,41 +21,41 @@
         <div class="label-group">
           <div class="label">
             <span>深圳</span>
-            <button>X</button>
+            <button>&times;</button>
           </div>
           <div class="label">
             <span>123组</span>
-            <button>X</button>
+            <button>&times;</button>
           </div>
           <div class="label">
             <span>深圳</span>
-            <button>X</button>
+            <button>&times;</button>
           </div>
           <div class="label">
             <span>123组</span>
-            <button>X</button>
+            <button>&times;</button>
           </div>
         </div>
         <div class="label-group">
           <div class="label">
             <span>深圳</span>
-            <button>X</button>
+            <button>&times;</button>
           </div>
           <div class="label">
             <span>123组</span>
-            <button>X</button>
+            <button>&times;</button>
           </div>
         </div>
       </div>
       <div class="manage-header-toggle">
-        <img src="#" alt="toggle">
+        <img src="@/assets/images/ic_menu.png" alt="toggle">
       </div>
     </div>
     <div class="manage-body">
       <div class="manage-table">
         <div class="manage-table-header">
           <div class="column">
-            <input class="check-all" type="checkbox">
+            <v-round-check class="check-all"/>
             <label>序列号</label>
           </div>
           <div class="column">
@@ -68,6 +68,9 @@
             <label>unknown</label>
           </div>
           <div class="column">
+            <label>unknown</label>
+          </div>
+          <div class="column">
             <label>设备</label>
           </div>
           <div class="column"></div>
@@ -75,7 +78,7 @@
         <div class="manage-table-body">
           <div class="row">
             <div class="column">
-              <input class="check-one" type="checkbox">
+              <v-round-check class="check-one"/>
               <label>1</label>
             </div>
             <div class="column">
@@ -99,7 +102,7 @@
           </div>
           <div class="row">
             <div class="column">
-              <input class="check-one" type="checkbox">
+              <v-round-check class="check-one"/>
               <label>1</label>
             </div>
             <div class="column">
@@ -123,7 +126,7 @@
           </div>
           <div class="row">
             <div class="column">
-              <input class="check-one" type="checkbox">
+              <v-round-check class="check-one"/>
               <label>1</label>
             </div>
             <div class="column">
@@ -147,7 +150,7 @@
           </div>
           <div class="row">
             <div class="column">
-              <input class="check-one" type="checkbox">
+              <v-round-check class="check-one"/>
               <label>1</label>
             </div>
             <div class="column">
@@ -171,7 +174,7 @@
           </div>
           <div class="row">
             <div class="column">
-              <input class="check-one" type="checkbox">
+              <v-round-check class="check-one"/>
               <label>1</label>
             </div>
             <div class="column">
@@ -195,7 +198,7 @@
           </div>
           <div class="row">
             <div class="column">
-              <input class="check-one" type="checkbox">
+              <v-round-check class="check-one"/>
               <label>1</label>
             </div>
             <div class="column">
@@ -296,11 +299,23 @@ export default {
 @import "@/assets/sass/placeholder.scss";
 
 @include placeholder(#aeaeae);
+@mixin grid {
+  height: 40px;
+  padding-left: 46px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 153px 159px 117px 117px 161px auto auto;
+  color: #767c91;
+  font-size: 12px;
+  font-family: PingFang;
+  font-weight: 400;
+}
 
 .page-device-manage {
   .manage-header {
     padding-top: 24px;
     padding-left: 26px;
+    position: relative;
 
     .manage-header-controls {
       display: flex;
@@ -355,39 +370,76 @@ export default {
       }
     }
     .manage-header-labels {
+      margin-top: 14px;
+
       .label-group {
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+
         .label {
+          width: 100px;
+          height: 24px;
+          padding-left: 6px;
+          padding-right: 8px;
+          margin-right: 14px;
+          background: #f4f9ff;
+          border-radius: 4px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
           span {
+            font-size: 12px;
+            font-weight: 400;
+            color: #0f7bf9;
+            line-height: 20px;
           }
           button {
+            width: 16px;
+            height: 16px;
+            background: #0f7bf9;
+            border: 1px solid #0f7bf9;
+            border-radius: 50%;
+            color: white;
+            padding: 0 0 1px;
+            font-size: 13px;
+            line-height: 15px;
+
+            &:hover {
+              color: #0f7bf9;
+              background: white;
+            }
           }
         }
       }
     }
     .manage-header-toggle {
+      position: absolute;
+      top: 74px;
+      right: 78px;
+      cursor: pointer;
+
       img {
+        width: 18px;
+        height: 18px;
       }
     }
   }
   .manage-body {
     .manage-table {
-      .manage-table-header {
+      .manage-table-header,
+      .row {
+        @include grid;
+
         .column {
-          .check-all {
-          }
           label {
+            margin-left: 16px;
           }
         }
       }
-      .manage-table-body {
-        .row {
-          .column {
-            .check-one {
-            }
-            label {
-            }
-          }
-        }
+      .manage-table-header {
+        background: #f1f5f8;
       }
     }
   }
