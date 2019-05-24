@@ -4,7 +4,7 @@
       <v-button>{{text}}</v-button>
     </div>
     <div class="dropdown-menu" v-show="opened">
-      <div v-for="(item, index) in items" :key="index">{{item.text}}</div>
+      <div v-for="(item, index) in items" :key="index" @click="item.action">{{item.text}}</div>
     </div>
   </div>
 </template>

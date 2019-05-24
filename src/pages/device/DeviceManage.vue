@@ -55,7 +55,7 @@
       <div class="manage-table">
         <div class="manage-table-header">
           <div class="column">
-            <v-round-check class="check-all"/>
+            <v-round-check class="check-all" :onChange="onChangeCheckAll"/>
             <label>序列号</label>
           </div>
           <div class="column">
@@ -65,10 +65,10 @@
             <label>分组</label>
           </div>
           <div class="column">
-            <label>unknown</label>
+            <label>undefined</label>
           </div>
           <div class="column">
-            <label>unknown</label>
+            <label>undefined</label>
           </div>
           <div class="column">
             <label>设备</label>
@@ -76,145 +76,13 @@
           <div class="column"></div>
         </div>
         <div class="manage-table-body">
-          <div class="row">
+          <div class="row" v-for="(device, index) in devices" :key="index">
             <div class="column">
-              <v-round-check class="check-one"/>
-              <label>1</label>
+              <v-round-check class="check-one" :initState="checkedAll"/>
+              <label>{{index + 1}}</label>
             </div>
-            <div class="column">
-              <label>1 配置脚本21374947</label>
-            </div>
-            <div class="column">
-              <label>配1</label>
-            </div>
-            <div class="column">
-              <label>脚本213</label>
-            </div>
-            <div class="column">
-              <label>2011.08.09</label>
-            </div>
-            <div class="column">
-              <label>设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24</label>
-            </div>
-            <div class="column">
-              <v-dropdown class="dropdown-group" text="操作" :items="groupDropdown"/>
-            </div>
-          </div>
-          <div class="row">
-            <div class="column">
-              <v-round-check class="check-one"/>
-              <label>1</label>
-            </div>
-            <div class="column">
-              <label>1 配置脚本21374947</label>
-            </div>
-            <div class="column">
-              <label>配1</label>
-            </div>
-            <div class="column">
-              <label>脚本213</label>
-            </div>
-            <div class="column">
-              <label>2011.08.09</label>
-            </div>
-            <div class="column">
-              <label>设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24</label>
-            </div>
-            <div class="column">
-              <v-dropdown class="dropdown-group" text="操作" :items="groupDropdown"/>
-            </div>
-          </div>
-          <div class="row">
-            <div class="column">
-              <v-round-check class="check-one"/>
-              <label>1</label>
-            </div>
-            <div class="column">
-              <label>1 配置脚本21374947</label>
-            </div>
-            <div class="column">
-              <label>配1</label>
-            </div>
-            <div class="column">
-              <label>脚本213</label>
-            </div>
-            <div class="column">
-              <label>2011.08.09</label>
-            </div>
-            <div class="column">
-              <label>设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24</label>
-            </div>
-            <div class="column">
-              <v-dropdown class="dropdown-group" text="操作" :items="groupDropdown"/>
-            </div>
-          </div>
-          <div class="row">
-            <div class="column">
-              <v-round-check class="check-one"/>
-              <label>1</label>
-            </div>
-            <div class="column">
-              <label>1 配置脚本21374947</label>
-            </div>
-            <div class="column">
-              <label>配1</label>
-            </div>
-            <div class="column">
-              <label>脚本213</label>
-            </div>
-            <div class="column">
-              <label>2011.08.09</label>
-            </div>
-            <div class="column">
-              <label>设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24</label>
-            </div>
-            <div class="column">
-              <v-dropdown class="dropdown-group" text="操作" :items="groupDropdown"/>
-            </div>
-          </div>
-          <div class="row">
-            <div class="column">
-              <v-round-check class="check-one"/>
-              <label>1</label>
-            </div>
-            <div class="column">
-              <label>1 配置脚本21374947</label>
-            </div>
-            <div class="column">
-              <label>配1</label>
-            </div>
-            <div class="column">
-              <label>脚本213</label>
-            </div>
-            <div class="column">
-              <label>2011.08.09</label>
-            </div>
-            <div class="column">
-              <label>设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24</label>
-            </div>
-            <div class="column">
-              <v-dropdown class="dropdown-group" text="操作" :items="groupDropdown"/>
-            </div>
-          </div>
-          <div class="row">
-            <div class="column">
-              <v-round-check class="check-one"/>
-              <label>1</label>
-            </div>
-            <div class="column">
-              <label>1 配置脚本21374947</label>
-            </div>
-            <div class="column">
-              <label>配1</label>
-            </div>
-            <div class="column">
-              <label>脚本213</label>
-            </div>
-            <div class="column">
-              <label>2011.08.09</label>
-            </div>
-            <div class="column">
-              <label>设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24</label>
+            <div class="column" v-for="(value, key) in device" :key="key">
+              <label>{{value}}</label>
             </div>
             <div class="column">
               <v-dropdown class="dropdown-group" text="操作" :items="groupDropdown"/>
@@ -223,6 +91,9 @@
         </div>
       </div>
     </div>
+    <v-modal-device-create v-show="openedModal === 1" @close="closeModal"/>
+    <v-modal-device-config v-show="openedModal === 2" @close="closeModal"/>
+    <v-modal-device-select v-show="openedModal === 3" @close="closeModal"/>
   </div>
 </template>
 
@@ -231,18 +102,20 @@ export default {
   name: "DeviceManage",
   data() {
     return {
+      checkedAll: false,
+      openedModal: -1,
       batchDropdown: [
         {
           text: "配置设备",
-          action: "#"
+          action: this.onCreateDevice
         },
         {
           text: "删除",
-          action: "#"
+          action: this.onSelectDevice
         },
         {
           text: "分组",
-          action: "#"
+          action: this.onConfigDevice
         },
         {
           text: "打标签",
@@ -270,26 +143,53 @@ export default {
       actionDropdown: [
         {
           text: "配置设备",
-          action: "#"
+          action: undefined
         },
         {
           text: "删除",
-          action: "#"
+          action: undefined
         },
         {
           text: "删除",
-          action: "#"
+          action: undefined
         },
         {
           text: "重命名",
-          action: "#"
+          action: undefined
         },
         {
           text: "打标签",
-          action: "#"
+          action: undefined
         }
-      ]
+      ],
+      devices: []
     };
+  },
+  methods: {
+    closeModal() {
+      this.openedModal = -1;
+    },
+    onChangeCheckAll() {
+      this.checkedAll = !this.checkedAll;
+    },
+    onCreateDevice() {
+      this.openedModal = 1;
+    },
+    onConfigDevice() {
+      this.openedModal = 2;
+    },
+    onSelectDevice() {
+      this.openedModal = 3;
+    },
+    fetchDevices() {
+      const baseURI = "http://localhost:3000/devices";
+      this.$http.get(baseURI).then(result => {
+        this.devices = result.data;
+      });
+    }
+  },
+  mounted: function() {
+    this.fetchDevices();
   }
 };
 </script>

@@ -7,14 +7,24 @@
 
 <script>
 export default {
+  props: {
+    initState: Boolean,
+    onChange: Function
+  },
   data() {
     return {
-      checked: false
+      checked: this.initState
     };
+  },
+  watch: {
+    initState() {
+      this.checked = this.initState;
+    }
   },
   methods: {
     toggle() {
       this.checked = !this.checked;
+      this.onChange && this.onChange();
     }
   }
 };
