@@ -78,10 +78,22 @@
       </div>
     </div>
 
-    <div class="popup add-friend">
-      <div class="popup-header">
-        <span class="popup-header-title"></span>
-        <button class="popup-close-btn"></button>
+    <div class="popup-wrapper" v-if="popupAddFriend">
+      <div class="popup add-friend">
+        <div class="popup-header">
+          <span class="popup-header-title">添加好友</span>
+          <button class="popup-close-btn"><img src="/img/icons/ic_close.png"></button>
+        </div>
+        <div class="popup-body">
+          <div class="row">
+            <label for="number">输入账号：</label>
+            <input type="text" id="number" placeholder="输入账号/手机号" />
+            <img class="search-icon" src="@/assets/images/ic_search.png" />
+          </div>
+          <div class="row">
+
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -97,18 +109,18 @@ export default {
       blogs: [],
       popupAddFriend: false,
       dropdownItems1: [
-        { text: "推送图文消息", action: () => this.popupAddFriend = true },
-        { text: "推送小程序", action: undefined }
+        { text: "推送图文消息", action: () => {} },
+        { text: "推送小程序", action: () => {} }
       ],
       dropdownItems2: [
-        { text: "群聊自动回复", action: undefined },
-        { text: "入群欢迎词", action: undefined }
+        { text: "群聊自动回复", action: () => {} },
+        { text: "入群欢迎词", action: () => {} }
       ],
       dropdownItems3: [
-        { text: "加好友", action: undefined },
-        { text: "加群", action: undefined },
-        { text: "群里加好友", action: undefined },
-        { text: "附近加好友", action: undefined }
+        { text: "加好友", action: () => { this.popupAddFriend = true } },
+        { text: "加群", action: () => {} },
+        { text: "群里加好友", action: () => {} },
+        { text: "附近加好友", action: () => {} }
       ]
     };
   },
@@ -146,6 +158,7 @@ export default {
 }
 .account-management {
   width: 720px;
+  padding-top: 30px;
 
   .btn-1 {
     margin-left: 32px;
@@ -153,11 +166,7 @@ export default {
   .dd-btn-1 {
     margin-left: 18px;
   }
-  .btn-2 {
-    margin-left: 18px;
-    margin-top: 30px;
-  }
-  .btn-3 {
+  .dd-btn-2 {
     margin-left: 18px;
   }
 }
@@ -224,12 +233,12 @@ button:hover {
 
   .button-bar {
     .btn-1 {
-      margin-right: 6px;
-    }
-    .btn-2 {
-      float: right;
+      margin-left: 6px;
     }
     .dd-btn-3 {
+      float: right;
+      margin-right: 6px;
+
       button: {
         background-color: #227BF9;
       }
@@ -237,6 +246,7 @@ button:hover {
   }
   .search-status {
     margin-top: 16px;
+    padding: 0 6px;
 
     span {
       width: 78px;
@@ -364,9 +374,71 @@ button:hover {
     width: calc(100% - 200px);
   }
 }
-.popup.add-friend {
+</style>
+
+<style lang="scss">
+.popup-wrapper {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, .6);
+  z-index: 10;
+
+  .popup {
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.11);
+
+    .popup-header {
+      padding: 28px;
+
+      .popup-header-title {
+        margin-left: 14px;
+        font-size: 16px;
+        font-family: MicrosoftYaHei-Bold;
+        font-weight: bold;
+      }
+      .popup-close-btn {
+        float: right;
+      }
+    }
+    .popup-body {
+      padding: 10px 42px;
+
+      .row {
+        padding: 10px;
+
+        label {
+          font-size: 14px;
+          font-family: MicrosoftYaHei-Bold;
+          font-weight: bold;
+        }
+        input {
+          height: 30px;
+          font-size: 12px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
+
+
+.add-friend {
   width: 424px;
-  height: 468px;
   background-color: white;
+  #number {
+    width: 232px;
+    background-color: #F1F5F8;
+    margin-left: 10px;
+  }
+  .search-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+  }
 }
 </style>
