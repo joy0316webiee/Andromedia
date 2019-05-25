@@ -9,7 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: 'device/manage'
+      redirect: 'device/list'
     },
     {
       path: '/device',
