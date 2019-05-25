@@ -73,9 +73,9 @@
         </div>
       </div>
     </div>
-    <v-modal-device-create v-show="openedModal === 1" @close="closeModal"/>
-    <v-modal-device-config v-show="openedModal === 2" @close="closeModal"/>
-    <v-modal-device-select v-show="openedModal === 3" @close="closeModal"/>
+    <device-modal-create v-show="openedModal === 1" @close="closeModal"/>
+    <device-modal-config v-show="openedModal === 2" @close="closeModal"/>
+    <device-modal-select v-show="openedModal === 3" @close="closeModal"/>
   </div>
 </template>
 
