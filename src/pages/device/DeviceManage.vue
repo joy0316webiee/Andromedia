@@ -19,32 +19,14 @@
       </div>
       <div class="manage-header-labels">
         <div class="label-group">
-          <div class="label">
-            <span>深圳</span>
-            <button>&times;</button>
-          </div>
-          <div class="label">
-            <span>123组</span>
-            <button>&times;</button>
-          </div>
-          <div class="label">
-            <span>深圳</span>
-            <button>&times;</button>
-          </div>
-          <div class="label">
-            <span>123组</span>
-            <button>&times;</button>
-          </div>
+          <v-label text="深圳"/>
+          <v-label text="123组"/>
+          <v-label text="深圳"/>
+          <v-label text="123组"/>
         </div>
         <div class="label-group">
-          <div class="label">
-            <span>深圳</span>
-            <button>&times;</button>
-          </div>
-          <div class="label">
-            <span>123组</span>
-            <button>&times;</button>
-          </div>
+          <v-label text="深圳"/>
+          <v-label text="123组"/>
         </div>
       </div>
       <div class="manage-header-toggle">
@@ -65,10 +47,10 @@
             <label>分组</label>
           </div>
           <div class="column">
-            <label>undefined</label>
+            <label>标签</label>
           </div>
           <div class="column">
-            <label>undefined</label>
+            <label>时间</label>
           </div>
           <div class="column">
             <label>设备</label>
@@ -276,42 +258,6 @@ export default {
         margin-bottom: 16px;
         display: flex;
         align-items: center;
-
-        .label {
-          width: 100px;
-          height: 24px;
-          padding-left: 6px;
-          padding-right: 8px;
-          margin-right: 14px;
-          background: #f4f9ff;
-          border-radius: 4px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-
-          span {
-            font-size: 12px;
-            font-weight: 400;
-            color: #0f7bf9;
-            line-height: 20px;
-          }
-          button {
-            width: 16px;
-            height: 16px;
-            background: #0f7bf9;
-            border: 1px solid #0f7bf9;
-            border-radius: 50%;
-            color: white;
-            padding: 0 0 1px;
-            font-size: 13px;
-            line-height: 15px;
-
-            &:hover {
-              color: #0f7bf9;
-              background: white;
-            }
-          }
-        }
       }
     }
     .manage-header-toggle {

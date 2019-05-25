@@ -1,7 +1,7 @@
 <template>
   <div class="round">
     <input type="checkbox" :checked="checked">
-    <label @click="toggle"></label>
+    <label @click="toggle" :class="classes"></label>
   </div>
 </template>
 
@@ -9,7 +9,8 @@
 export default {
   props: {
     initState: Boolean,
-    onChange: Function
+    onChange: Function,
+    success: Boolean
   },
   data() {
     return {
@@ -25,6 +26,11 @@ export default {
     toggle() {
       this.checked = !this.checked;
       this.onChange && this.onChange();
+    }
+  },
+  computed: {
+    classes() {
+      return { success: this.success };
     }
   }
 };
@@ -66,6 +72,11 @@ export default {
     &:checked + label {
       background-color: #0f7bf9;
       border-color: #0f7bf9;
+
+      &.success {
+        background-color: #37ac18;
+        border-color: #37ac18;
+      }
 
       &:after {
         opacity: 1;

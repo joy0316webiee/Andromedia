@@ -21,7 +21,7 @@
       </div>
       <div class="modal-footer">
         <v-button primary class="btn-confirm">确定</v-button>
-        <v-button light class="btn-cancel" @click="close" aria-label="Close modal">取消</v-button>
+        <v-button light class="btn-cancel" :onClick="close" aria-label="Close modal">取消</v-button>
       </div>
     </div>
   </div>

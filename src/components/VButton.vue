@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes">
+  <button :class="classes" @click="() => {onClick && onClick()}">
     <slot></slot>
   </button>
 </template>
@@ -7,18 +7,21 @@
 <script>
 export default {
   props: {
+    onClick: Function,
     default: Boolean,
     primary: Boolean,
     info: Boolean,
-    light: Boolean
+    light: Boolean,
+    transparent: Boolean
   },
   computed: {
-    classes: function classes() {
+    classes() {
       return [
         "v-button",
         { "v-button-primary": this.primary },
         { "v-button-info": this.info },
-        { "v-button-light": this.light }
+        { "v-button-light": this.light },
+        { "v-button-transparent": this.transparent }
       ];
     }
   }
@@ -51,5 +54,12 @@ export default {
   background-color: white;
   border-color: #e9e9e9;
   color: #6c6c6c;
+}
+.v-button-transparent {
+  background-color: transparent;
+  border: none;
+  color: #414a60;
+  font-size: 14px;
+  font-family: PingFang;
 }
 </style>
