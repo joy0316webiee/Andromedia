@@ -4,7 +4,11 @@
       <v-button v-html="text"></v-button>
     </div>
     <div class="dropdown-menu" v-show="opened">
-      <div v-for="(item, index) in items" :key="index" @click="item.action">{{item.text}}</div>
+      <div
+        v-for="(item, index) in items"
+        :key="index"
+        @click="() => {item.action(); toggle(); }"
+      >{{item.text}}</div>
     </div>
   </div>
 </template>
@@ -15,7 +19,8 @@ import ClickOutside from "vue-click-outside";
 export default {
   props: {
     text: String,
-    items: Array
+    items: Array,
+    transparent: Boolean
   },
   data() {
     return {
@@ -28,6 +33,11 @@ export default {
     },
     hide() {
       this.opened = false;
+    }
+  },
+  computed: {
+    classes() {
+      return [{ "v-button-transparent": this.transparent }];
     }
   },
   directives: {
@@ -63,7 +73,6 @@ export default {
 
     > div {
       height: 35px;
-      border-bottom: 1px solid #f2f5fa;
       padding: 6px 0px 6px 20px;
       font-size: 12px;
       font-weight: 400;
