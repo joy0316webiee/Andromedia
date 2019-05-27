@@ -7,7 +7,7 @@
         :class="classes(index)"
         @click="tagging(index)"
       >
-        <label>{{item}}</label>
+        <label :class="type">{{item}}</label>
         <span></span>
       </div>
     </div>
@@ -16,7 +16,10 @@
 
 <script>
 export default {
-  props: ["items"],
+  props: {
+    items: Array,
+    primary: Boolean
+  },
   data() {
     return {
       activeIndex: 1
@@ -34,6 +37,11 @@ export default {
           last: index === this.items.length - 1
         }
       ];
+    }
+  },
+  computed: {
+    type() {
+      return [{ primary: this.primary }];
     }
   }
 };
@@ -71,9 +79,14 @@ export default {
         font-family: PingFang;
         font-weight: 400;
         cursor: pointer;
+
+        &.primary {
+          font-size: 12px;
+          font-family: YeHei;
+        }
       }
       span {
-        width: 30px;
+        width: 100%;
         height: 2px;
         background: #0f7bf9;
         visibility: hidden;

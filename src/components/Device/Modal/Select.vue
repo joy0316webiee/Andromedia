@@ -29,7 +29,7 @@
             </div>
           </div>
           <div class="content-body">
-            <v-tree :checked="checkedAll"/>
+            <v-tree-folder :checked="checkedAll"/>
           </div>
         </div>
       </div>
