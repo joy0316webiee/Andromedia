@@ -103,6 +103,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/sass/base.scss";
+@import "@/assets/sass/placeholder.scss";
+
+@include placeholder(#aeaeae);
+
 .device-container {
   width: 100%;
 

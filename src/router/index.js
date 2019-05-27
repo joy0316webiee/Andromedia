@@ -30,6 +30,18 @@ export default new Router({
         {
           path: 'manage',
           component: () => import('@/pages/device/DeviceManage.vue')
+        },
+        {
+          path: 'editscript',
+          component: () => import('@/pages/device/DeviceEditScript.vue')
+        },
+        {
+          path: 'runscript',
+          component: () => import('@/pages/device/DeviceRunScript.vue')
+        },
+        {
+          path: 'restore',
+          component: () => import('@/pages/device/DeviceRestore.vue')
         }
       ]
     },
@@ -40,6 +52,52 @@ export default new Router({
         {
           path: 'friend',
           component: () => import('@/pages/chat/ChatFriend.vue')
+        }
+      ]
+    },
+    {
+      path: '/auto',
+      component: () => import('@/layouts/Layout.vue'),
+      children: [
+        {
+          path: 'replyblast',
+          component: () => import('@/pages/auto/AutoReplyBlast.vue')
+        },
+        {
+          path: 'replyrobot',
+          component: () => import('@/pages/auto/AutoReplyRobot.vue')
+        }
+      ]
+    },
+    {
+      path: '/bigdata',
+      component: () => import('@/layouts/Layout.vue'),
+      children: [
+        {
+          path: 'search',
+          component: () => import('@/pages/bigdata/BigDataSearch.vue')
+        }
+      ]
+    },
+    {
+      path: '/personal',
+      component: () => import('@/layouts/Layout.vue'),
+      children: [
+        {
+          path: 'basic',
+          component: () => import('@/pages/personal/PersonalBasic.vue')
+        },
+        {
+          path: 'user',
+          component: () => import('@/pages/personal/PersonalUser.vue')
+        },
+        {
+          path: 'customer',
+          component: () => import('@/pages/personal/PersonalCustomer.vue')
+        },
+        {
+          path: 'client',
+          component: () => import('@/pages/personal/PersonalClient.vue')
         }
       ]
     }
