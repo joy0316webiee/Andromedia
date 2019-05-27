@@ -14,8 +14,11 @@
         <input class="search" type="text" placeholder="请输入你想输入的关键词">
         <v-button info class="btn-create">新加配置</v-button>
         <v-button class="btn-import">导入配置</v-button>
-        <v-dropdown class="dropdown-batch" text="批量操作" :items="batchDropdown"/>
-        <v-dropdown class="dropdown-group" text="分组" :items="groupDropdown"/>
+        <v-dropdown class="dropdown-batch" text="批量操作" :nodes="batchDropdown"/>
+        <v-dropdown class="dropdown-group" text="分组" :nodes="groupDropdown"/>
+      </div>
+      <div class="device-header-tabs">
+        <v-tabs primary :items="tabs"/>
       </div>
       <div class="device-header-labels">
         <div class="label-group">
@@ -47,39 +50,84 @@ export default {
   data() {
     return {
       openedModal: -1,
+      tabs: [
+        "全部",
+        "已连接：100",
+        "未连接：100",
+        "连接中：00",
+        "空闲：00",
+        "已连接：100",
+        "未连接：100",
+        "连接中：00",
+        "空闲：00"
+      ],
       batchDropdown: [
         {
-          text: "配置设备",
+          label: "停止运行",
           action: this.onCreateDevice
         },
         {
-          text: "删除",
-          action: this.onSelectDevice
-        },
-        {
-          text: "分组",
+          label: "启用",
           action: this.onConfigDevice
         },
         {
-          text: "打标签",
+          label: "删除",
+          action: this.onSelectDevice
+        },
+        {
+          label: "授权",
           action: "#"
+        },
+        {
+          label: "运行脚本",
+          nodes: [
+            {
+              label: "脚本1",
+              nodes: [
+                {
+                  label: "本脚1",
+                  action: this.onConfigDevice
+                },
+                {
+                  label: "本脚2",
+                  action: "#"
+                }
+              ]
+            },
+            {
+              label: "脚本2",
+              action: "#"
+            },
+            {
+              label: "脚本3",
+              action: "#"
+            },
+            {
+              label: "脚本4",
+              action: "#"
+            },
+            {
+              label: "脚本5",
+              action: "#"
+            }
+          ]
         }
       ],
       groupDropdown: [
         {
-          text: "配置设备",
+          label: "配置设备",
           action: "#"
         },
         {
-          text: "删除",
+          label: "删除",
           action: "#"
         },
         {
-          text: "分组",
+          label: "分组",
           action: "#"
         },
         {
-          text: "打标签",
+          label: "打标签",
           action: "#"
         }
       ]
@@ -167,6 +215,9 @@ export default {
       .dropdown-group {
         margin-left: 20px;
       }
+    }
+    .device-header-tabs {
+      margin-top: 24px;
     }
     .device-header-labels {
       margin-top: 14px;

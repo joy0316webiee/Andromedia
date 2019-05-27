@@ -14,23 +14,23 @@ export default {
       dimens: ["153px", "159px", "117px", "117px", "161px", "1.7fr", "1fr"],
       actions: [
         {
-          text: "配置设备",
+          label: "配置设备",
           action: undefined
         },
         {
-          text: "删除",
+          label: "删除",
           action: undefined
         },
         {
-          text: "删除",
+          label: "删除",
           action: undefined
         },
         {
-          text: "重命名",
+          label: "重命名",
           action: undefined
         },
         {
-          text: "打标签",
+          label: "打标签",
           action: undefined
         }
       ]

@@ -42,27 +42,27 @@ export default {
       ],
       actions: [
         {
-          text: "复制账号",
+          label: "复制账号",
           action: undefined
         },
         {
-          text: "删除",
+          label: "删除",
           action: undefined
         },
         {
-          text: "分组",
+          label: "分组",
           action: undefined
         },
         {
-          text: "编辑",
+          label: "编辑",
           action: undefined
         },
         {
-          text: "多选",
+          label: "多选",
           action: undefined
         },
         {
-          text: "运行",
+          label: "运行",
           action: undefined
         }
       ]

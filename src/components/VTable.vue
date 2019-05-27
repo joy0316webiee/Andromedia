@@ -16,7 +16,7 @@
           <label>{{value}}</label>
         </div>
         <div class="column">
-          <v-dropdown class="dropdown-action" text="操作" :items="actions"/>
+          <v-dropdown class="dropdown-action" text="操作" :nodes="actions"/>
         </div>
       </div>
     </div>

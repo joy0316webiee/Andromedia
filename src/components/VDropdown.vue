@@ -4,22 +4,19 @@
       <v-button :class="classes">{{text}}</v-button>
     </div>
     <div class="dropdown-menu" v-show="opened">
-      <div
-        v-for="(item, index) in items"
-        :key="index"
-        @click="() => {item.action(); toggle(); }"
-      >{{item.text}}</div>
+      <v-tree-menu :nodes="nodes" :depth="0" :toggle="toggle"/>
     </div>
   </div>
 </template>
 
 <script>
 import ClickOutside from "vue-click-outside";
+import { close } from "fs";
 
 export default {
   props: {
     text: String,
-    items: Array,
+    nodes: Array,
     transparent: Boolean
   },
   data() {
@@ -64,23 +61,7 @@ export default {
   .dropdown-menu {
     position: absolute;
     top: 33px;
-    width: 142px;
-    background: white;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.24);
-    border-radius: 2px;
     z-index: 8;
-
-    > div {
-      height: 35px;
-      padding: 6px 0px 6px 20px;
-      font-size: 12px;
-      font-weight: 400;
-      cursor: pointer;
-
-      &:hover {
-        background: #f2f5fa;
-      }
-    }
   }
 }
 </style>
