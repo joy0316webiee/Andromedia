@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown" v-click-outside="hide">
     <div class="dropdown-toggle" @click="toggle()">
-      <v-button :class="classes">{{text}}</v-button>
+      <v-button v-html="text"></v-button>
     </div>
     <div class="dropdown-menu" v-show="opened">
       <div
@@ -51,6 +51,7 @@ export default {
 
 .dropdown {
   position: relative;
+  display: inline-block;
 
   .dropdown-toggle {
     width: fit-content;
