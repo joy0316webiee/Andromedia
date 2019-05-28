@@ -3,22 +3,22 @@
     <div class="restore">
       <div class="group-button">
         <div class="btn btn-plus">
-          <img src="@/assets/images/plus_grey.png" alt="plus">
+          <img src="@/assets/images/ic_plus_grey.png" alt="plus">
         </div>
         <div class="separator"></div>
         <div class="btn btn-refresh">
-          <img src="@/assets/images/refresh_grey.png" alt="refresh">
+          <img src="@/assets/images/ic_refresh_grey.png" alt="refresh">
         </div>
         <div class="separator"></div>
         <div class="btn btn-remove">
-          <img src="@/assets/images/remove_grey.png" alt="remove">
+          <img src="@/assets/images/ic_remove_grey.png" alt="remove">
         </div>
       </div>
       <div class="restore-gallery">
         <div class="restore-gallery-item" v-for="index in 3" :key="index">
           <img class="img-mobile" src="@/assets/images/mobile.png" alt="mobile">
           <button class="btn-play">
-            <img src="@/assets/images/play.png" alt="play">
+            <img src="@/assets/images/ic_play_blue.png" alt="play">
             <span>12:44:44</span>
           </button>
         </div>
