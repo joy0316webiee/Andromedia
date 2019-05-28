@@ -18,11 +18,11 @@
       <div class="detail-image">
         <img src="@/assets/images/mobile.png" alt="mobile">
         <button class="btn-play">
-          <img src="@/assets/images/play.png" alt="play">
+          <img src="@/assets/images/ic_play_blue.png" alt="play">
           <span>12:44:44</span>
         </button>
         <button class="btn-stop">
-          <img src="@/assets/images/stop.png" alt="stop">
+          <img src="@/assets/images/ic_stop_blue.png" alt="stop">
           <span>12:44:44</span>
         </button>
       </div>
