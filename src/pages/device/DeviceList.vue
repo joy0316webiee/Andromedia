@@ -1,5 +1,5 @@
 <template>
-  <device-container>
+  <device-container :labels="labels">
     <v-table :header="header" :data="devices" :dimens="dimens" :actions="actions" checkbox/>
   </device-container>
 </template>
@@ -9,6 +9,7 @@ export default {
   name: "DeviceList",
   data() {
     return {
+      labels: [["深圳", "123组"]],
       header: [
         "序列号",
         "设备",

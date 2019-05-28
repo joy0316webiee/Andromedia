@@ -19,9 +19,9 @@
         <div class="content">
           <div class="content-top">
             <div class="dropdown-group">
-              <v-dropdown transparent text="标签" :items="labelDropdown"/>
-              <v-dropdown transparent text="分组" :items="groupDropdown"/>
-              <v-dropdown transparent text="应用账号" :items="accountDropdown"/>
+              <v-dropdown transparent text="标签" :nodes="labelDropdown"/>
+              <v-dropdown transparent text="分组" :nodes="groupDropdown"/>
+              <v-dropdown transparent text="应用账号" :nodes="accountDropdown"/>
             </div>
             <div class="check-all">
               <span>全部</span>
@@ -67,56 +67,56 @@ export default {
       checkedAll: false,
       labelDropdown: [
         {
-          text: "微信",
-          action: "#"
+          label: "微信",
+          action: undefined
         },
         {
-          text: "QQ",
-          action: "#"
+          label: "QQ",
+          action: undefined
         },
         {
-          text: "微博",
-          action: "#"
+          label: "微博",
+          action: undefined
         },
         {
-          text: "facebook",
-          action: "#"
+          label: "facebook",
+          action: undefined
         }
       ],
       groupDropdown: [
         {
-          text: "微信",
-          action: "#"
+          label: "微信",
+          action: undefined
         },
         {
-          text: "QQ",
-          action: "#"
+          label: "QQ",
+          action: undefined
         },
         {
-          text: "微博",
-          action: "#"
+          label: "微博",
+          action: undefined
         },
         {
-          text: "facebook",
-          action: "#"
+          label: "facebook",
+          action: undefined
         }
       ],
       accountDropdown: [
         {
-          text: "微信",
-          action: "#"
+          label: "微信",
+          action: undefined
         },
         {
-          text: "QQ",
-          action: "#"
+          label: "QQ",
+          action: undefined
         },
         {
-          text: "微博",
-          action: "#"
+          label: "微博",
+          action: undefined
         },
         {
-          text: "facebook",
-          action: "#"
+          label: "facebook",
+          action: undefined
         }
       ]
     };

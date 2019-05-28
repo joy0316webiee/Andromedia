@@ -1,5 +1,5 @@
 <template>
-  <div class="device-container">
+  <div class="device-container" :class="containerClasses">
     <div class="device-header">
       <div class="device-header-controls">
         <div class="config-select">
@@ -13,23 +13,16 @@
         </div>
         <input class="search" type="text" placeholder="请输入你想输入的关键词">
         <v-button info class="btn-create">新加配置</v-button>
-        <v-button class="btn-import">导入配置</v-button>
-        <v-dropdown class="dropdown-batch" text="批量操作" :nodes="batchDropdown"/>
-        <v-dropdown class="dropdown-group" text="分组" :nodes="groupDropdown"/>
+        <v-button :light="lightButton" class="btn-import">导入配置</v-button>
+        <v-dropdown class="dropdown-batch" text="批量操作" :light="lightButton" :nodes="batchDropdown"/>
+        <v-dropdown class="dropdown-group" text="分组" :light="lightButton" :nodes="groupDropdown"/>
       </div>
       <div class="device-header-tabs">
         <v-tabs primary :items="tabs"/>
       </div>
       <div class="device-header-labels">
-        <div class="label-group">
-          <v-label text="深圳"/>
-          <v-label text="123组"/>
-          <v-label text="深圳"/>
-          <v-label text="123组"/>
-        </div>
-        <div class="label-group">
-          <v-label text="深圳"/>
-          <v-label text="123组"/>
+        <div class="label-group" v-for="(group, n) in labels" :key="n">
+          <v-label v-for="(label, index) in group" :key="index" :text="label"/>
         </div>
       </div>
       <div class="device-header-toggle">
@@ -47,6 +40,11 @@
 
 <script>
 export default {
+  props: {
+    labels: Array,
+    bgGrey: Boolean,
+    lightButton: Boolean
+  },
   data() {
     return {
       openedModal: -1,
@@ -76,7 +74,7 @@ export default {
         },
         {
           label: "授权",
-          action: "#"
+          action: undefined
         },
         {
           label: "运行脚本",
@@ -90,25 +88,25 @@ export default {
                 },
                 {
                   label: "本脚2",
-                  action: "#"
+                  action: undefined
                 }
               ]
             },
             {
               label: "脚本2",
-              action: "#"
+              action: undefined
             },
             {
               label: "脚本3",
-              action: "#"
+              action: undefined
             },
             {
               label: "脚本4",
-              action: "#"
+              action: undefined
             },
             {
               label: "脚本5",
-              action: "#"
+              action: undefined
             }
           ]
         }
@@ -116,19 +114,19 @@ export default {
       groupDropdown: [
         {
           label: "配置设备",
-          action: "#"
+          action: undefined
         },
         {
           label: "删除",
-          action: "#"
+          action: undefined
         },
         {
           label: "分组",
-          action: "#"
+          action: undefined
         },
         {
           label: "打标签",
-          action: "#"
+          action: undefined
         }
       ]
     };
@@ -146,6 +144,11 @@ export default {
     onSelectDevice() {
       this.openedModal = 3;
     }
+  },
+  computed: {
+    containerClasses() {
+      return [{ "bg-grey": this.bgGrey }];
+    }
   }
 };
 </script>
@@ -158,6 +161,12 @@ export default {
 
 .device-container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &.bg-grey {
+    background-color: #f1f5f8;
+  }
 
   .device-header {
     padding-top: 24px;
@@ -239,6 +248,9 @@ export default {
         height: 18px;
       }
     }
+  }
+  .device-page {
+    flex: auto;
   }
 }
 </style>

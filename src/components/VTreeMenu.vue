@@ -1,7 +1,7 @@
 <template>
-  <div class="tree-menu" @mouseover="showChildren" @mouseout="hideChildren">
+  <div class="tree-menu" :class="menuClasses" @mouseover="showChildren" @mouseout="hideChildren">
     <div class="menu-item">
-      <div class="label" v-if="depth > 0" :class="iconClasses" @click="onClick">{{ label }}</div>
+      <div class="label" v-if="depth > 0" :class="iconClasses" @click="onClickMenu">{{ label }}</div>
       <div v-if="opened || depth === 0" :class="{ submenu: depth > 0}">
         <v-tree-menu
           v-for="(node, index) in nodes"
@@ -12,6 +12,7 @@
           :depth="depth + 1"
           :toggle="toggle"
         ></v-tree-menu>
+        <!-- :primary="primary" -->
       </div>
     </div>
   </div>
@@ -19,7 +20,13 @@
 
 <script>
 export default {
-  props: ["nodes", "label", "depth", "action", "toggle"],
+  props: {
+    nodes: Array,
+    label: String,
+    depth: Number,
+    action: Function,
+    toggle: Function
+  },
   data() {
     return {
       opened: false,
@@ -30,6 +37,12 @@ export default {
     iconClasses() {
       return {
         "has-children": this.nodes
+      };
+    },
+    menuClasses() {
+      return {
+        primary: this.primary,
+        "box-shadow": this.depth === 0
       };
     }
   },
@@ -46,7 +59,7 @@ export default {
         }
       }, 100);
     },
-    onClick() {
+    onClickMenu() {
       typeof this.action === "function" && this.action && this.action();
       typeof this.toggle === "function" &&
         this.toggle &&
@@ -63,17 +76,30 @@ export default {
 .tree-menu {
   width: 142px;
   background: white;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.24);
   border-radius: 2px;
   z-index: 8;
 
+  &.primary {
+    width: 100px;
+
+    .label {
+      color: black !important;
+    }
+  }
+
+  &.box-shadow {
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.24);
+  }
+
   .menu-item {
     position: relative;
+
     .label {
       height: 35px;
-      padding: 6px 0px 6px 20px;
-      color: #414a60;
-      font-family: YaHei;
+      padding: 11px 0px 11px 20px;
+      // color: #414a60;
+      color: black;
+      font-family: MicrosoftYaHeiLight;
       font-size: 12px;
       font-weight: 400;
       cursor: pointer;
@@ -84,8 +110,9 @@ export default {
     }
     .submenu {
       position: absolute;
-      left: calc(100% + 5px);
+      left: calc(100% + 1px);
       top: 0px;
+      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.24);
     }
     .has-children {
       background: white url("~@/assets/images/ic_right.png") no-repeat 95% 50%;

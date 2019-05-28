@@ -52,13 +52,14 @@ export default {
 }
 .v-button-light {
   background-color: white;
-  border-color: #e9e9e9;
+  // border-color: #e9e9e9;
+  border-color: #f1f5f8;
   color: #6c6c6c;
 }
 .v-button-transparent {
   background-color: transparent;
   border: none;
-  color: #414a60;
+  // color: #414a60;
   font-size: 14px;
   font-family: PingFang;
 }
