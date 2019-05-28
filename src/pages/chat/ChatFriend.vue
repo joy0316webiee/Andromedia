@@ -5,7 +5,7 @@
       <v-button class="btn-1" primary>添加账号</v-button>
       <v-dropdown class="dd-btn-1" text="推送消息" :items="dropdownItems1"></v-dropdown>
       <v-dropdown class="dd-btn-2" text="设置自动回复" :items="dropdownItems2"></v-dropdown>
-      
+
       <table style="margin-top: 20px;">
         <thead>
           <tr>
@@ -40,7 +40,11 @@
       <div class="button-bar">
         <v-button class="btn-1">我的好友</v-button>
         <span class="panel-title">我的群</span>
-        <v-dropdown class="dd-btn-3" text="<span class='plus-symbol'>+</span>好友" :items="dropdownItems3"></v-dropdown>
+        <v-dropdown
+          class="dd-btn-3"
+          text="<span class='plus-symbol'>+</span>好友"
+          :items="dropdownItems3"
+        ></v-dropdown>
       </div>
       <div class="search-status">
         <span>好友总数（34）</span>
@@ -48,7 +52,7 @@
       </div>
       <div class="list">
         <div class="list-item" v-for="(friend, index) in friends" :key="index">
-          <img class="avatar" :src="friend.img" />
+          <img class="avatar" :src="friend.img">
           <img class="online" src="/img/icons/ic_phone.png" v-if="friend.online">
           <div class="list-item-content">
             <div>
@@ -59,7 +63,7 @@
             <div class="item-desc">{{ friend.desc }}</div>
           </div>
           <div class="list-item-menu">
-            <span>
+            <span></span>
           </div>
         </div>
       </div>
@@ -80,8 +84,6 @@
         </div>
       </div>
     </div>
-
-    
   </div>
 </template>
 
@@ -103,7 +105,12 @@ export default {
         { text: "入群欢迎词", action: () => {} }
       ],
       dropdownItems3: [
-        { text: "加好友", action: () => { this.popupAddFriend = true } },
+        {
+          text: "加好友",
+          action: () => {
+            this.popupAddFriend = true;
+          }
+        },
         { text: "加群", action: () => {} },
         { text: "群里加好友", action: () => {} },
         { text: "附近加好友", action: () => {} }
@@ -226,7 +233,7 @@ button:hover {
       margin-right: 6px;
 
       button: {
-        background-color: #227BF9;
+        background-color: #227bf9;
       }
     }
   }
@@ -299,7 +306,7 @@ button:hover {
       top: 34px;
     }
     &:hover {
-      background-color: #EBEBEB;
+      background-color: #ebebeb;
     }
   }
 }
@@ -369,7 +376,7 @@ button:hover {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 10;
 
   .popup {
@@ -412,13 +419,12 @@ button:hover {
   }
 }
 
-
 .add-friend {
   width: 424px;
   background-color: white;
   #number {
     width: 232px;
-    background-color: #F1F5F8;
+    background-color: #f1f5f8;
     margin-left: 10px;
   }
   .search-icon {
