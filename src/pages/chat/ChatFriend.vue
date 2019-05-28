@@ -3,8 +3,8 @@
     <div class="panel account-management">
       <span class="panel-title">账号管理</span>
       <v-button class="btn-1" primary>添加账号</v-button>
-      <v-dropdown class="dd-btn-1" text="推送消息" :items="dropdownItems1"></v-dropdown>
-      <v-dropdown class="dd-btn-2" text="设置自动回复" :items="dropdownItems2"></v-dropdown>
+      <v-dropdown class="dd-btn-1" text="推送消息" :nodes="dropdownItems1"></v-dropdown>
+      <v-dropdown class="dd-btn-2" text="设置自动回复" :nodes="dropdownItems2"></v-dropdown>
 
       <table style="margin-top: 20px;">
         <thead>
@@ -39,11 +39,11 @@
     <div class="panel my-group">
       <div class="button-bar">
         <v-button class="btn-1">我的好友</v-button>
-        <span class="panel-title">我的群</span>
+        <v-button class="btn-2">我的群</v-button>
         <v-dropdown
           class="dd-btn-3"
           text="<span class='plus-symbol'>+</span>好友"
-          :items="dropdownItems3"
+          :nodes="dropdownItems3"
         ></v-dropdown>
       </div>
       <div class="search-status">
@@ -62,9 +62,15 @@
             </div>
             <div class="item-desc">{{ friend.desc }}</div>
           </div>
-          <div class="list-item-menu">
-            <span></span>
-          </div>
+          <button class="list-item-menu" @click="menuclick(index)">
+            <img src="/img/icons/ic_arrow_down.png">
+          </button>
+          <v-tree-menu
+            v-if="clickedMenu == index"
+            class="dropdown4"
+            :nodes="dropdownItems4"
+            :depth="0"
+          ></v-tree-menu>
         </div>
       </div>
     </div>
@@ -97,24 +103,30 @@ export default {
       blogs: [],
       popupAddFriend: false,
       dropdownItems1: [
-        { text: "推送图文消息", action: () => {} },
-        { text: "推送小程序", action: () => {} }
+        { label: "推送图文消息", action: () => {} },
+        { label: "推送小程序", action: () => {} }
       ],
       dropdownItems2: [
-        { text: "群聊自动回复", action: () => {} },
-        { text: "入群欢迎词", action: () => {} }
+        { label: "群聊自动回复", action: () => {} },
+        { label: "入群欢迎词", action: () => {} }
       ],
       dropdownItems3: [
         {
-          text: "加好友",
+          label: "加好友",
           action: () => {
             this.popupAddFriend = true;
           }
         },
-        { text: "加群", action: () => {} },
-        { text: "群里加好友", action: () => {} },
-        { text: "附近加好友", action: () => {} }
-      ]
+        { label: "加群", action: () => {} },
+        { label: "群里加好友", action: () => {} },
+        { label: "附近加好友", action: () => {} }
+      ],
+      dropdownItems4: [
+        { label: "推送消息", action: () => {} },
+        { label: "看朋友圈", action: () => {} },
+        { label: "删除好友", action: () => {} }
+      ],
+      clickedMenu: -1
     };
   },
   methods: {
@@ -135,6 +147,9 @@ export default {
       this.$http.get(baseURI).then(result => {
         this.blogs = result.data;
       });
+    },
+    menuclick(index) {
+      this.clickedMenu = this.clickedMenu == -1 ? index : -1;
     }
   },
   mounted: function() {
@@ -228,6 +243,9 @@ button:hover {
     .btn-1 {
       margin-left: 6px;
     }
+    .btn-2 {
+      margin-left: 18px;
+    }
     .dd-btn-3 {
       float: right;
       margin-right: 6px;
@@ -282,7 +300,6 @@ button:hover {
 
   .list-item {
     padding-left: 6px;
-    cursor: pointer;
     position: relative;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -307,6 +324,36 @@ button:hover {
     }
     &:hover {
       background-color: #ebebeb;
+    }
+    .list-item-menu {
+      position: absolute;
+      right: 10px;
+      background-color: inherit;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: 5px;
+        display: none;
+      }
+      &:hover {
+        background-color: white;
+        cursor: pointer;
+
+        img {
+          display: inline;
+        }
+      }
+    }
+
+    .dropdown4 {
+      position: absolute;
+      top: 50px;
+      right: 10px;
     }
   }
 }
