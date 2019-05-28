@@ -50,13 +50,16 @@
         <div class="list-item" v-for="(friend, index) in friends" :key="index">
           <img class="avatar" :src="friend.img" />
           <img class="online" src="/img/icons/ic_phone.png" v-if="friend.online">
-          <div>
+          <div class="list-item-content">
             <div>
               <span :class="friend.vip ? 'red' : ''">{{ friend.name }}</span>
               ({{ friend.alias }})
               <span v-if="friend.vip" class="vip">&nbsp;VIP&nbsp;</span>
             </div>
             <div class="item-desc">{{ friend.desc }}</div>
+          </div>
+          <div class="list-item-menu">
+            <span>
           </div>
         </div>
       </div>
@@ -78,24 +81,7 @@
       </div>
     </div>
 
-    <div class="popup-wrapper" v-if="popupAddFriend">
-      <div class="popup add-friend">
-        <div class="popup-header">
-          <span class="popup-header-title">添加好友</span>
-          <button class="popup-close-btn"><img src="/img/icons/ic_close.png"></button>
-        </div>
-        <div class="popup-body">
-          <div class="row">
-            <label for="number">输入账号：</label>
-            <input type="text" id="number" placeholder="输入账号/手机号" />
-            <img class="search-icon" src="@/assets/images/ic_search.png" />
-          </div>
-          <div class="row">
-
-          </div>
-        </div>
-      </div>
-    </div>
+    
   </div>
 </template>
 
