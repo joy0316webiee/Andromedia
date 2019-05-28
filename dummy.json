@@ -300,191 +300,1332 @@
   ],
   "devices": [
     {
-      "name": "1 配置脚本21374947",
-      "grouping": "配1",
-      "unknown1": "脚本213",
-      "date": "2011.08.09",
-      "equips": "设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24"
+      "name": [
+        {
+          "type": "text",
+          "value": "1 配置脚本21374947"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "text",
+          "value": "配1"
+        }
+      ],
+      "unknown1": [
+        {
+          "type": "text",
+          "value": "脚本213"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2011.08.09"
+        }
+      ],
+      "equips": [
+        {
+          "type": "text",
+          "value": "设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24"
+        }
+      ]
     },
     {
-      "name": "1 配置脚本21374947",
-      "grouping": "配1",
-      "unknown1": "脚本213",
-      "date": "2011.08.09",
-      "equips": "设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24"
+      "name": [
+        {
+          "type": "text",
+          "value": "1 配置脚本21374947"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "text",
+          "value": "配1"
+        }
+      ],
+      "unknown1": [
+        {
+          "type": "text",
+          "value": "脚本213"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2011.08.09"
+        }
+      ],
+      "equips": [
+        {
+          "type": "text",
+          "value": "设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24"
+        }
+      ]
     },
     {
-      "name": "1 配置脚本21374947",
-      "grouping": "配1",
-      "unknown1": "脚本213",
-      "date": "2011.08.09",
-      "equips": "设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24"
+      "name": [
+        {
+          "type": "text",
+          "value": "1 配置脚本21374947"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "text",
+          "value": "配1"
+        }
+      ],
+      "unknown1": [
+        {
+          "type": "text",
+          "value": "脚本213"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2011.08.09"
+        }
+      ],
+      "equips": [
+        {
+          "type": "text",
+          "value": "设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24"
+        }
+      ]
     },
     {
-      "name": "1 配置脚本21374947",
-      "grouping": "配1",
-      "unknown1": "脚本213",
-      "date": "2011.08.09",
-      "equips": "设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24"
+      "name": [
+        {
+          "type": "text",
+          "value": "1 配置脚本21374947"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "text",
+          "value": "配1"
+        }
+      ],
+      "unknown1": [
+        {
+          "type": "text",
+          "value": "脚本213"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2011.08.09"
+        }
+      ],
+      "equips": [
+        {
+          "type": "text",
+          "value": "设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24"
+        }
+      ]
     },
     {
-      "name": "1 配置脚本21374947",
-      "grouping": "配1",
-      "unknown1": "脚本213",
-      "date": "2011.08.09",
-      "equips": "设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24"
+      "name": [
+        {
+          "type": "text",
+          "value": "1 配置脚本21374947"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "text",
+          "value": "配1"
+        }
+      ],
+      "unknown1": [
+        {
+          "type": "text",
+          "value": "脚本213"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2011.08.09"
+        }
+      ],
+      "equips": [
+        {
+          "type": "text",
+          "value": "设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24"
+        }
+      ]
     },
     {
-      "name": "1 配置脚本21374947",
-      "grouping": "配1",
-      "unknown1": "脚本213",
-      "date": "2011.08.09",
-      "equips": "设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24"
+      "name": [
+        {
+          "type": "text",
+          "value": "1 配置脚本21374947"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "text",
+          "value": "配1"
+        }
+      ],
+      "unknown1": [
+        {
+          "type": "text",
+          "value": "脚本213"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2011.08.09"
+        }
+      ],
+      "equips": [
+        {
+          "type": "text",
+          "value": "设备1, 设备2, 设备1 1, 设备22, 设备143, 设备24, 设备14, 设备24"
+        }
+      ]
     }
   ],
   "devicelist": [
     {
-      "equip": "设备21374947",
-      "grouping": "组1",
-      "id": "BHD3",
-      "alias": "188265626887",
-      "ip": "大123",
-      "version": "V6s",
-      "lock": "组",
-      "charging": "30%",
-      "run": "大组",
-      "connect": "组大组",
-      "time": "2019.04.05"
+      "equip": [
+        {
+          "type": "text",
+          "value": "设备21374947"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "text",
+          "value": "组1"
+        }
+      ],
+      "id": [
+        {
+          "type": "text",
+          "value": "BHD3"
+        }
+      ],
+      "alias": [
+        {
+          "type": "text",
+          "value": "188265626887"
+        }
+      ],
+      "ip": [
+        {
+          "type": "text",
+          "value": "大123"
+        }
+      ],
+      "version": [
+        {
+          "type": "text",
+          "value": "V6s"
+        }
+      ],
+      "lock": [
+        {
+          "type": "text",
+          "value": "组"
+        }
+      ],
+      "charging": [
+        {
+          "type": "text",
+          "value": "30%"
+        }
+      ],
+      "run": [
+        {
+          "type": "text",
+          "value": "大组"
+        }
+      ],
+      "connect": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ],
+      "time": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ]
     },
     {
-      "equip": "设备21374947",
-      "grouping": "组1",
-      "id": "BHD3",
-      "alias": "188265626887",
-      "ip": "大123",
-      "version": "V6s",
-      "lock": "组",
-      "charging": "30%",
-      "run": "大组",
-      "connect": "组大组",
-      "time": "2019.04.05"
+      "equip": [
+        {
+          "type": "text",
+          "value": "设备21374947"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "text",
+          "value": "组1"
+        }
+      ],
+      "id": [
+        {
+          "type": "text",
+          "value": "BHD3"
+        }
+      ],
+      "alias": [
+        {
+          "type": "text",
+          "value": "188265626887"
+        }
+      ],
+      "ip": [
+        {
+          "type": "text",
+          "value": "大123"
+        }
+      ],
+      "version": [
+        {
+          "type": "text",
+          "value": "V6s"
+        }
+      ],
+      "lock": [
+        {
+          "type": "text",
+          "value": "组"
+        }
+      ],
+      "charging": [
+        {
+          "type": "text",
+          "value": "30%"
+        }
+      ],
+      "run": [
+        {
+          "type": "text",
+          "value": "大组"
+        }
+      ],
+      "connect": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ],
+      "time": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ]
     },
     {
-      "equip": "设备21374947",
-      "grouping": "组1",
-      "id": "BHD3",
-      "alias": "188265626887",
-      "ip": "大123",
-      "version": "V6s",
-      "lock": "组",
-      "charging": "30%",
-      "run": "大组",
-      "connect": "组大组",
-      "time": "2019.04.05"
+      "equip": [
+        {
+          "type": "text",
+          "value": "设备21374947"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "text",
+          "value": "组1"
+        }
+      ],
+      "id": [
+        {
+          "type": "text",
+          "value": "BHD3"
+        }
+      ],
+      "alias": [
+        {
+          "type": "text",
+          "value": "188265626887"
+        }
+      ],
+      "ip": [
+        {
+          "type": "text",
+          "value": "大123"
+        }
+      ],
+      "version": [
+        {
+          "type": "text",
+          "value": "V6s"
+        }
+      ],
+      "lock": [
+        {
+          "type": "text",
+          "value": "组"
+        }
+      ],
+      "charging": [
+        {
+          "type": "text",
+          "value": "30%"
+        }
+      ],
+      "run": [
+        {
+          "type": "text",
+          "value": "大组"
+        }
+      ],
+      "connect": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ],
+      "time": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ]
     },
     {
-      "equip": "设备21374947",
-      "grouping": "组1",
-      "id": "BHD3",
-      "alias": "188265626887",
-      "ip": "大123",
-      "version": "V6s",
-      "lock": "组",
-      "charging": "30%",
-      "run": "大组",
-      "connect": "组大组",
-      "time": "2019.04.05"
+      "equip": [
+        {
+          "type": "text",
+          "value": "设备21374947"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "text",
+          "value": "组1"
+        }
+      ],
+      "id": [
+        {
+          "type": "text",
+          "value": "BHD3"
+        }
+      ],
+      "alias": [
+        {
+          "type": "text",
+          "value": "188265626887"
+        }
+      ],
+      "ip": [
+        {
+          "type": "text",
+          "value": "大123"
+        }
+      ],
+      "version": [
+        {
+          "type": "text",
+          "value": "V6s"
+        }
+      ],
+      "lock": [
+        {
+          "type": "text",
+          "value": "组"
+        }
+      ],
+      "charging": [
+        {
+          "type": "text",
+          "value": "30%"
+        }
+      ],
+      "run": [
+        {
+          "type": "text",
+          "value": "大组"
+        }
+      ],
+      "connect": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ],
+      "time": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ]
     },
     {
-      "equip": "设备21374947",
-      "grouping": "组1",
-      "id": "BHD3",
-      "alias": "188265626887",
-      "ip": "大123",
-      "version": "V6s",
-      "lock": "组",
-      "charging": "30%",
-      "run": "大组",
-      "connect": "组大组",
-      "time": "2019.04.05"
+      "equip": [
+        {
+          "type": "text",
+          "value": "设备21374947"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "text",
+          "value": "组1"
+        }
+      ],
+      "id": [
+        {
+          "type": "text",
+          "value": "BHD3"
+        }
+      ],
+      "alias": [
+        {
+          "type": "text",
+          "value": "188265626887"
+        }
+      ],
+      "ip": [
+        {
+          "type": "text",
+          "value": "大123"
+        }
+      ],
+      "version": [
+        {
+          "type": "text",
+          "value": "V6s"
+        }
+      ],
+      "lock": [
+        {
+          "type": "text",
+          "value": "组"
+        }
+      ],
+      "charging": [
+        {
+          "type": "text",
+          "value": "30%"
+        }
+      ],
+      "run": [
+        {
+          "type": "text",
+          "value": "大组"
+        }
+      ],
+      "connect": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ],
+      "time": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ]
     },
     {
-      "equip": "设备21374947",
-      "grouping": "组1",
-      "id": "BHD3",
-      "alias": "188265626887",
-      "ip": "大123",
-      "version": "V6s",
-      "lock": "组",
-      "charging": "30%",
-      "run": "大组",
-      "connect": "组大组",
-      "time": "2019.04.05"
+      "equip": [
+        {
+          "type": "text",
+          "value": "设备21374947"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "text",
+          "value": "组1"
+        }
+      ],
+      "id": [
+        {
+          "type": "text",
+          "value": "BHD3"
+        }
+      ],
+      "alias": [
+        {
+          "type": "text",
+          "value": "188265626887"
+        }
+      ],
+      "ip": [
+        {
+          "type": "text",
+          "value": "大123"
+        }
+      ],
+      "version": [
+        {
+          "type": "text",
+          "value": "V6s"
+        }
+      ],
+      "lock": [
+        {
+          "type": "text",
+          "value": "组"
+        }
+      ],
+      "charging": [
+        {
+          "type": "text",
+          "value": "30%"
+        }
+      ],
+      "run": [
+        {
+          "type": "text",
+          "value": "大组"
+        }
+      ],
+      "connect": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ],
+      "time": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ]
     },
     {
-      "equip": "设备21374947",
-      "grouping": "组1",
-      "id": "BHD3",
-      "alias": "188265626887",
-      "ip": "大123",
-      "version": "V6s",
-      "lock": "组",
-      "charging": "30%",
-      "run": "大组",
-      "connect": "组大组",
-      "time": "2019.04.05"
+      "equip": [
+        {
+          "type": "text",
+          "value": "设备21374947"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "text",
+          "value": "组1"
+        }
+      ],
+      "id": [
+        {
+          "type": "text",
+          "value": "BHD3"
+        }
+      ],
+      "alias": [
+        {
+          "type": "text",
+          "value": "188265626887"
+        }
+      ],
+      "ip": [
+        {
+          "type": "text",
+          "value": "大123"
+        }
+      ],
+      "version": [
+        {
+          "type": "text",
+          "value": "V6s"
+        }
+      ],
+      "lock": [
+        {
+          "type": "text",
+          "value": "组"
+        }
+      ],
+      "charging": [
+        {
+          "type": "text",
+          "value": "30%"
+        }
+      ],
+      "run": [
+        {
+          "type": "text",
+          "value": "大组"
+        }
+      ],
+      "connect": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ],
+      "time": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ]
     },
     {
-      "equip": "设备21374947",
-      "grouping": "组1",
-      "id": "BHD3",
-      "alias": "188265626887",
-      "ip": "大123",
-      "version": "V6s",
-      "lock": "组",
-      "charging": "30%",
-      "run": "大组",
-      "connect": "组大组",
-      "time": "2019.04.05"
+      "equip": [
+        {
+          "type": "text",
+          "value": "设备21374947"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "text",
+          "value": "组1"
+        }
+      ],
+      "id": [
+        {
+          "type": "text",
+          "value": "BHD3"
+        }
+      ],
+      "alias": [
+        {
+          "type": "text",
+          "value": "188265626887"
+        }
+      ],
+      "ip": [
+        {
+          "type": "text",
+          "value": "大123"
+        }
+      ],
+      "version": [
+        {
+          "type": "text",
+          "value": "V6s"
+        }
+      ],
+      "lock": [
+        {
+          "type": "text",
+          "value": "组"
+        }
+      ],
+      "charging": [
+        {
+          "type": "text",
+          "value": "30%"
+        }
+      ],
+      "run": [
+        {
+          "type": "text",
+          "value": "大组"
+        }
+      ],
+      "connect": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ],
+      "time": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ]
     },
     {
-      "equip": "设备21374947",
-      "grouping": "组1",
-      "id": "BHD3",
-      "alias": "188265626887",
-      "ip": "大123",
-      "version": "V6s",
-      "lock": "组",
-      "charging": "30%",
-      "run": "大组",
-      "connect": "组大组",
-      "time": "2019.04.05"
+      "equip": [
+        {
+          "type": "text",
+          "value": "设备21374947"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "text",
+          "value": "组1"
+        }
+      ],
+      "id": [
+        {
+          "type": "text",
+          "value": "BHD3"
+        }
+      ],
+      "alias": [
+        {
+          "type": "text",
+          "value": "188265626887"
+        }
+      ],
+      "ip": [
+        {
+          "type": "text",
+          "value": "大123"
+        }
+      ],
+      "version": [
+        {
+          "type": "text",
+          "value": "V6s"
+        }
+      ],
+      "lock": [
+        {
+          "type": "text",
+          "value": "组"
+        }
+      ],
+      "charging": [
+        {
+          "type": "text",
+          "value": "30%"
+        }
+      ],
+      "run": [
+        {
+          "type": "text",
+          "value": "大组"
+        }
+      ],
+      "connect": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ],
+      "time": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ]
     },
     {
-      "equip": "设备21374947",
-      "grouping": "组1",
-      "id": "BHD3",
-      "alias": "188265626887",
-      "ip": "大123",
-      "version": "V6s",
-      "lock": "组",
-      "charging": "30%",
-      "run": "大组",
-      "connect": "组大组",
-      "time": "2019.04.05"
+      "equip": [
+        {
+          "type": "text",
+          "value": "设备21374947"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "text",
+          "value": "组1"
+        }
+      ],
+      "id": [
+        {
+          "type": "text",
+          "value": "BHD3"
+        }
+      ],
+      "alias": [
+        {
+          "type": "text",
+          "value": "188265626887"
+        }
+      ],
+      "ip": [
+        {
+          "type": "text",
+          "value": "大123"
+        }
+      ],
+      "version": [
+        {
+          "type": "text",
+          "value": "V6s"
+        }
+      ],
+      "lock": [
+        {
+          "type": "text",
+          "value": "组"
+        }
+      ],
+      "charging": [
+        {
+          "type": "text",
+          "value": "30%"
+        }
+      ],
+      "run": [
+        {
+          "type": "text",
+          "value": "大组"
+        }
+      ],
+      "connect": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ],
+      "time": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ]
     },
     {
-      "equip": "设备21374947",
-      "grouping": "组1",
-      "id": "BHD3",
-      "alias": "188265626887",
-      "ip": "大123",
-      "version": "V6s",
-      "lock": "组",
-      "charging": "30%",
-      "run": "大组",
-      "connect": "组大组",
-      "time": "2019.04.05"
+      "equip": [
+        {
+          "type": "text",
+          "value": "设备21374947"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "text",
+          "value": "组1"
+        }
+      ],
+      "id": [
+        {
+          "type": "text",
+          "value": "BHD3"
+        }
+      ],
+      "alias": [
+        {
+          "type": "text",
+          "value": "188265626887"
+        }
+      ],
+      "ip": [
+        {
+          "type": "text",
+          "value": "大123"
+        }
+      ],
+      "version": [
+        {
+          "type": "text",
+          "value": "V6s"
+        }
+      ],
+      "lock": [
+        {
+          "type": "text",
+          "value": "组"
+        }
+      ],
+      "charging": [
+        {
+          "type": "text",
+          "value": "30%"
+        }
+      ],
+      "run": [
+        {
+          "type": "text",
+          "value": "大组"
+        }
+      ],
+      "connect": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ],
+      "time": [
+        {
+          "type": "text",
+          "value": "组大组"
+        }
+      ]
+    }
+  ],
+  "robots": [
+    {
+      "id": [
+        {
+          "type": "text",
+          "value": "12 csdd"
+        }
+      ],
+      "name": [
+        {
+          "type": "text",
+          "value": "首次进群自动回复"
+        }
+      ],
+      "problem": [
+        {
+          "type": "text",
+          "value": "233746875"
+        }
+      ],
+      "reply": [
+        {
+          "type": "text",
+          "value": "欢迎新好友"
+        }
+      ],
+      "robot": [
+        {
+          "type": "image",
+          "value": "avatars/avatar001.png"
+        },
+        {
+          "type": "image",
+          "value": "avatars/avatar002.png"
+        }
+      ],
+      "object": [
+        {
+          "type": "text",
+          "value": "微信群1"
+        }
+      ],
+      "status": [
+        {
+          "type": "text",
+          "value": "启用"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2019.06.06"
+        }
+      ],
+      "replies": [
+        {
+          "type": "text",
+          "value": "290 次"
+        }
+      ]
+    },
+    {
+      "id": [
+        {
+          "type": "text",
+          "value": "12 csdd"
+        }
+      ],
+      "name": [
+        {
+          "type": "text",
+          "value": "首次进群自动回复"
+        }
+      ],
+      "problem": [
+        {
+          "type": "text",
+          "value": "233746875"
+        }
+      ],
+      "reply": [
+        {
+          "type": "text",
+          "value": "欢迎新好友"
+        }
+      ],
+      "robot": [
+        {
+          "type": "image",
+          "value": "avatars/avatar001.png"
+        },
+        {
+          "type": "image",
+          "value": "avatars/avatar002.png"
+        },
+        {
+          "type": "image",
+          "value": "avatars/avatar003.png"
+        }
+      ],
+      "object": [
+        {
+          "type": "text",
+          "value": "微信群1"
+        }
+      ],
+      "status": [
+        {
+          "type": "text",
+          "value": "启用"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2019.06.06"
+        }
+      ],
+      "replies": [
+        {
+          "type": "text",
+          "value": "290 次"
+        }
+      ]
+    },
+    {
+      "id": [
+        {
+          "type": "text",
+          "value": "12 csdd"
+        }
+      ],
+      "name": [
+        {
+          "type": "text",
+          "value": "首次进群自动回复"
+        }
+      ],
+      "problem": [
+        {
+          "type": "text",
+          "value": "233746875"
+        }
+      ],
+      "reply": [
+        {
+          "type": "icon",
+          "value": "ic_sound_grey.png"
+        }
+      ],
+      "robot": [
+        {
+          "type": "image",
+          "value": "avatars/avatar001.png"
+        },
+        {
+          "type": "image",
+          "value": "avatars/avatar002.png"
+        },
+        {
+          "type": "image",
+          "value": "avatars/avatar003.png"
+        },
+        {
+          "type": "image",
+          "value": "avatars/avatar004.png"
+        }
+      ],
+      "object": [
+        {
+          "type": "text",
+          "value": "微信群1"
+        }
+      ],
+      "status": [
+        {
+          "type": "text",
+          "value": "启用"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2019.06.06"
+        }
+      ],
+      "replies": [
+        {
+          "type": "text",
+          "value": "290 次"
+        }
+      ]
+    },
+    {
+      "id": [
+        {
+          "type": "text",
+          "value": "12 csdd"
+        }
+      ],
+      "name": [
+        {
+          "type": "text",
+          "value": "首次进群自动回复"
+        }
+      ],
+      "problem": [
+        {
+          "type": "text",
+          "value": "233746875"
+        }
+      ],
+      "reply": [
+        {
+          "type": "icon",
+          "value": "ic_video_orange.png"
+        }
+      ],
+      "robot": [
+        {
+          "type": "image",
+          "value": "avatars/avatar001.png"
+        },
+        {
+          "type": "image",
+          "value": "avatars/avatar002.png"
+        },
+        {
+          "type": "image",
+          "value": "avatars/avatar004.png"
+        }
+      ],
+      "object": [
+        {
+          "type": "text",
+          "value": "微信群1"
+        }
+      ],
+      "status": [
+        {
+          "type": "text",
+          "value": "启用"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2019.06.06"
+        }
+      ],
+      "replies": [
+        {
+          "type": "text",
+          "value": "290 次"
+        }
+      ]
+    },
+    {
+      "id": [
+        {
+          "type": "text",
+          "value": "12 csdd"
+        }
+      ],
+      "name": [
+        {
+          "type": "text",
+          "value": "首次进群自动回复"
+        }
+      ],
+      "problem": [
+        {
+          "type": "text",
+          "value": "233746875"
+        }
+      ],
+      "reply": [
+        {
+          "type": "text",
+          "value": "欢迎新好友"
+        }
+      ],
+      "robot": [
+        {
+          "type": "image",
+          "value": "avatars/avatar001.png"
+        },
+        {
+          "type": "image",
+          "value": "avatars/avatar002.png"
+        }
+      ],
+      "object": [
+        {
+          "type": "text",
+          "value": "微信群1"
+        }
+      ],
+      "status": [
+        {
+          "type": "text",
+          "value": "启用"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2019.06.06"
+        }
+      ],
+      "replies": [
+        {
+          "type": "text",
+          "value": "290 次"
+        }
+      ]
+    },
+    {
+      "id": [
+        {
+          "type": "text",
+          "value": "12 csdd"
+        }
+      ],
+      "name": [
+        {
+          "type": "text",
+          "value": "首次进群自动回复"
+        }
+      ],
+      "problem": [
+        {
+          "type": "text",
+          "value": "233746875"
+        }
+      ],
+      "reply": [
+        {
+          "type": "text",
+          "value": "欢迎新好友"
+        }
+      ],
+      "robot": [
+        {
+          "type": "image",
+          "value": "avatars/avatar001.png"
+        },
+        {
+          "type": "image",
+          "value": "avatars/avatar002.png"
+        },
+        {
+          "type": "image",
+          "value": "avatars/avatar004.png"
+        },
+        {
+          "type": "image",
+          "value": "avatars/avatar003.png"
+        }
+      ],
+      "object": [
+        {
+          "type": "text",
+          "value": "微信群1"
+        }
+      ],
+      "status": [
+        {
+          "type": "text",
+          "value": "启用"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2019.06.06"
+        }
+      ],
+      "replies": [
+        {
+          "type": "text",
+          "value": "290 次"
+        }
+      ]
     }
   ]
 }

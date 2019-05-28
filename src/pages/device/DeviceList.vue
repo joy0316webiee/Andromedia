@@ -1,6 +1,6 @@
 <template>
   <device-container :labels="labels">
-    <v-table :header="header" :data="devices" :dimens="dimens" :actions="actions" checkbox/>
+    <v-table-ex :header="header" :data="devices" :dimens="dimens" :actions="actions" checkbox/>
   </device-container>
 </template>
 
