@@ -1,5 +1,5 @@
 <template>
-  <device-container>
+  <device-container :labels="labels">
     <v-table :header="header" :data="devices" :dimens="dimens" :actions="actions" checkbox/>
   </device-container>
 </template>
@@ -9,6 +9,10 @@ export default {
   name: "DeviceManage",
   data() {
     return {
+      labels: [
+        ["深圳", "123组", "深圳", "123组", "深圳", "123组"],
+        ["深圳", "123组"]
+      ],
       header: ["序列号", "配置名称", "分组", "标签", "时间", "设备", "操作"],
       devices: [],
       dimens: ["153px", "159px", "117px", "117px", "161px", "1.7fr", "1fr"],

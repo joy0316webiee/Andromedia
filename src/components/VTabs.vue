@@ -58,7 +58,7 @@ export default {
     .item {
       display: flex;
       flex-direction: column;
-      padding-right: 80px;
+      padding-right: 35px;
 
       &.active {
         label {

@@ -1,15 +1,18 @@
 <template>
   <div class="sidebar">
     <div class="sidebar-list">
-      <div class="sidebar-list-item" v-for="(item, index) in menuItems" :key="index">
+      <div class="sidebar-list-item" v-for="(item, index) in menu" :key="index">
         <a
           :class="[item.class, {active: activeIndex === index}]"
           href="#"
           @click="handleChangeMenu(index)"
         >
           <img :src="imgUrl(item.image)" :alt="item.image">
-          <span :class="{collapse: collapse}">{{item.text}}</span>
+          <span :class="{collapse: collapse}">{{item.label}}</span>
         </a>
+        <!-- <div class="submenu">
+          <v-tree-menu primary :nodes="item.submenu" :depth="0"/>
+        </div>-->
       </div>
     </div>
     <div class="toggle">
@@ -27,56 +30,66 @@ export default {
     return {
       collapse: false,
       activeIndex: 0,
-      menuItems: [
+      menu: [
         {
           class: "list-home",
           image: "ic_home",
-          text: "首页"
+          label: "首页"
         },
         {
           class: "list-chat",
           image: "ic_chat",
-          text: "聊天室"
+          label: "聊天室"
         },
         {
           class: "list-user",
           image: "ic_user",
-          text: "用户"
+          label: "用户"
         },
         {
           class: "list-ecommerce",
           image: "ic_ecommerce",
-          text: "电商"
+          label: "电商"
         },
         {
           class: "list-content",
           image: "ic_content",
-          text: "内容"
+          label: "内容"
         },
         {
           class: "list-label",
           image: "ic_label",
-          text: "标签"
+          label: "标签"
         },
         {
           class: "list-auto",
           image: "ic_auto",
-          text: "自动回复"
+          label: "自动回复"
+          // submenu: [
+          //   {
+          //     label: "弹窗",
+          //     action: undefined
+          //   },
+          //   {
+          //     label: "首页",
+          //     action: undefined
+          //   }
+          // ]
         },
         {
           class: "list-task",
           image: "ic_task",
-          text: "标配任务"
+          label: "标配任务"
         },
         {
           class: "list-script",
           image: "ic_script",
-          text: "自定义脚本"
+          label: "自定义脚本"
         },
         {
           class: "list-bigdata",
           image: "ic_bigdata",
-          text: "大数据"
+          label: "大数据"
         }
       ]
     };
@@ -109,6 +122,8 @@ export default {
   .sidebar-list {
     transition: width 1s ease-out;
     .sidebar-list-item {
+      position: relative;
+
       a {
         display: flex;
         align-items: center;
@@ -128,7 +143,7 @@ export default {
           margin: 0px 24px;
         }
         span {
-          width: 76px;
+          width: 78px;
           height: 16px;
           font-size: 12px;
           transition: width 0.3s ease-out;
@@ -226,6 +241,18 @@ export default {
           }
         }
       }
+
+      // .submenu {
+      //   position: absolute;
+      //   top: 0px;
+      //   left: calc(100% + 1px);
+      //   z-index: 8;
+      //   display: none;
+      // }
+
+      // &:hover .submenu {
+      //   display: block;
+      // }
     }
   }
   .toggle {

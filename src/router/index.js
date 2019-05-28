@@ -9,7 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: 'device/gallery'
+      redirect: 'device/suspension'
     },
     {
       path: '/device',
@@ -22,6 +22,10 @@ export default new Router({
         {
           path: 'gallery',
           component: () => import('@/pages/device/DeviceGallery.vue')
+        },
+        {
+          path: 'suspension',
+          component: () => import('@/pages/device/DeviceSuspension.vue')
         },
         {
           path: 'details',
