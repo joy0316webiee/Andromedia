@@ -30,7 +30,8 @@ export default {
   data() {
     return {
       opened: false,
-      hovered: false
+      hovered: false,
+      visibleMenu: true
     };
   },
   computed: {
@@ -93,6 +94,7 @@ export default {
 
   .menu-item {
     position: relative;
+    text-align: left;
 
     .label {
       height: 35px;

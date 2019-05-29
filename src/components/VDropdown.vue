@@ -11,7 +11,6 @@
 
 <script>
 import ClickOutside from "vue-click-outside";
-import { close } from "fs";
 
 export default {
   props: {

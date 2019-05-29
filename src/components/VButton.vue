@@ -1,5 +1,9 @@
 <template>
-  <button :class="classes" @click="() => {onClick && onClick()}">
+  <button
+    :class="classes"
+    @click="() => {onClick && onClick()}"
+    :style="width ? `width: ${width}` : ''"
+  >
     <slot></slot>
   </button>
 </template>
@@ -12,7 +16,8 @@ export default {
     primary: Boolean,
     info: Boolean,
     light: Boolean,
-    transparent: Boolean
+    transparent: Boolean,
+    width: String
   },
   computed: {
     classes() {
@@ -52,8 +57,8 @@ export default {
 }
 .v-button-light {
   background-color: white;
-  // border-color: #e9e9e9;
-  border-color: #f1f5f8;
+  border: 1px solid #e9e9e9;
+  // border-color: #f1f5f8;
   color: #6c6c6c;
 }
 .v-button-transparent {
