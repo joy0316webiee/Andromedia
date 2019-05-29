@@ -1,12 +1,28 @@
 <template>
-  <div style="width: 100%">
-    <v-table-ex withID grey :header="header" :data="robots" :dimens="dimens" :actions="actions"></v-table-ex>
-  </div>
+  <auto-container>
+    <div class="reply-robot">
+      <div class="reply-robot-header">
+        <img class="add" src="@/assets/images/ic_round_add_grey.png" alt="add">
+        <div class="image-group">
+          <img src="@/assets/images/avatars/avatar001.png" alt="avatar">
+          <img src="@/assets/images/avatars/avatar002.png" alt="avatar">
+          <img src="@/assets/images/avatars/avatar003.png" alt="avatar">
+          <img src="@/assets/images/avatars/avatar001.png" alt="avatar">
+          <img src="@/assets/images/avatars/avatar004.png" alt="avatar">
+        </div>
+        <span>+42</span>
+        <button>
+          <img src="@/assets/images/ic_right.png" alt="arr-right">
+        </button>
+      </div>
+      <v-table-ex withID grey :header="header" :data="robots" :dimens="dimens" :actions="actions"></v-table-ex>
+    </div>
+  </auto-container>
 </template>
 
 <script>
 export default {
-  name: "DeviceManage",
+  name: "AutoReplyRobot",
   data() {
     return {
       header: [
@@ -73,4 +89,43 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.reply-robot {
+  background-color: #f1f5f8;
+
+  .reply-robot-header {
+    height: 88px;
+    padding: 41px;
+    display: flex;
+    align-items: center;
+
+    .add {
+      width: 25px;
+      height: 25px;
+    }
+    .image-group {
+      margin-left: 32px;
+
+      img {
+        width: 36px;
+        height: 36px;
+        margin-right: 10px;
+      }
+    }
+    span {
+      font-size: 15px;
+      font-weight: bold;
+      color: #adefc2;
+      padding: 14px 17px;
+      border: 2px solid #adefc2;
+      border-radius: 24px;
+      display: inline-block;
+      cursor: pointer;
+    }
+    button {
+      background: transparent;
+      border: none;
+      margin-left: 15px;
+    }
+  }
+}
 </style>

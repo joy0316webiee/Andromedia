@@ -18,7 +18,8 @@
 export default {
   props: {
     items: Array,
-    primary: Boolean
+    primary: Boolean,
+    secondary: Boolean
   },
   data() {
     return {
@@ -33,6 +34,7 @@ export default {
       return [
         "item",
         { active: this.activeIndex === index },
+        { secondary: this.secondary },
         {
           last: index === this.items.length - 1
         }
@@ -41,7 +43,7 @@ export default {
   },
   computed: {
     type() {
-      return [{ primary: this.primary }];
+      return [{ primary: this.primary }, { secondary: this.secondary }];
     }
   }
 };
@@ -60,6 +62,9 @@ export default {
       flex-direction: column;
       padding-right: 35px;
 
+      &.secondary {
+        padding-right: 57px;
+      }
       &.active {
         label {
           color: #0f7bf9;
@@ -82,6 +87,10 @@ export default {
 
         &.primary {
           font-size: 12px;
+          font-family: YeHei;
+        }
+        &.secondary {
+          font-size: 14px;
           font-family: YeHei;
         }
       }
