@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown" v-click-outside="hide">
     <div class="dropdown-toggle" @click="toggle()">
-      <v-button v-html="text"></v-button>
+      <v-button :class="classes" v-html="text"></v-button>
     </div>
     <div class="dropdown-menu" :class="{right: right}" v-show="opened">
       <v-tree-menu :nodes="nodes" :depth="0" :toggle="toggle"/>
@@ -11,7 +11,6 @@
 
 <script>
 import ClickOutside from "vue-click-outside";
-import { close } from "fs";
 
 export default {
   props: {

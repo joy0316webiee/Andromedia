@@ -48,7 +48,7 @@
   ],
   "friends": [
     {
-      "img": "/img/avatar/avatar1.png",
+      "avatar": "/img/avatar/avatar1.png",
       "name": "Pinter",
       "alias": "accimal",
       "online": true,
@@ -56,7 +56,7 @@
       "desc": "Strength"
     },
     {
-      "img": "/img/avatar/avatar2.png",
+      "avatar": "/img/avatar/avatar2.png",
       "name": "Poker",
       "alias": "card",
       "online": false,
@@ -64,7 +64,7 @@
       "desc": "HeadHunter"
     },
     {
-      "img": "/img/avatar/avatar3.png",
+      "avatar": "/img/avatar/avatar3.png",
       "name": "Nathan",
       "alias": "satan",
       "online": false,
@@ -72,7 +72,7 @@
       "desc": "wolf"
     },
     {
-      "img": "/img/avatar/avatar4.png",
+      "avatar": "/img/avatar/avatar4.png",
       "name": "william",
       "alias": "novan",
       "online": false,
@@ -80,7 +80,7 @@
       "desc": "self-running"
     },
     {
-      "img": "/img/avatar/avatar1.png",
+      "avatar": "/img/avatar/avatar1.png",
       "name": "Pinter",
       "alias": "accimal",
       "online": true,
@@ -88,7 +88,7 @@
       "desc": "Strength"
     },
     {
-      "img": "/img/avatar/avatar2.png",
+      "avatar": "/img/avatar/avatar2.png",
       "name": "Poker",
       "alias": "card",
       "online": false,
@@ -96,7 +96,7 @@
       "desc": "HeadHunter"
     },
     {
-      "img": "/img/avatar/avatar3.png",
+      "avatar": "/img/avatar/avatar3.png",
       "name": "Nathan",
       "alias": "satan",
       "online": false,
@@ -104,7 +104,7 @@
       "desc": "wolf"
     },
     {
-      "img": "/img/avatar/avatar4.png",
+      "avatar": "/img/avatar/avatar4.png",
       "name": "william",
       "alias": "novan",
       "online": false,
@@ -112,7 +112,7 @@
       "desc": "self-running"
     },
     {
-      "img": "/img/avatar/avatar1.png",
+      "avatar": "/img/avatar/avatar1.png",
       "name": "Pinter",
       "alias": "accimal",
       "online": true,
@@ -120,7 +120,7 @@
       "desc": "Strength"
     },
     {
-      "img": "/img/avatar/avatar2.png",
+      "avatar": "/img/avatar/avatar2.png",
       "name": "Poker",
       "alias": "card",
       "online": false,
@@ -128,7 +128,7 @@
       "desc": "HeadHunter"
     },
     {
-      "img": "/img/avatar/avatar3.png",
+      "avatar": "/img/avatar/avatar3.png",
       "name": "Nathan",
       "alias": "satan",
       "online": false,
@@ -136,7 +136,7 @@
       "desc": "wolf"
     },
     {
-      "img": "/img/avatar/avatar4.png",
+      "avatar": "/img/avatar/avatar4.png",
       "name": "william",
       "alias": "novan",
       "online": false,
@@ -144,7 +144,7 @@
       "desc": "self-running"
     },
     {
-      "img": "/img/avatar/avatar1.png",
+      "avatar": "/img/avatar/avatar1.png",
       "name": "Pinter",
       "alias": "accimal",
       "online": true,
@@ -152,7 +152,7 @@
       "desc": "Strength"
     },
     {
-      "img": "/img/avatar/avatar2.png",
+      "avatar": "/img/avatar/avatar2.png",
       "name": "Poker",
       "alias": "card",
       "online": false,
@@ -160,7 +160,7 @@
       "desc": "HeadHunter"
     },
     {
-      "img": "/img/avatar/avatar3.png",
+      "avatar": "/img/avatar/avatar3.png",
       "name": "Nathan",
       "alias": "satan",
       "online": false,
@@ -168,7 +168,7 @@
       "desc": "wolf"
     },
     {
-      "img": "/img/avatar/avatar4.png",
+      "avatar": "/img/avatar/avatar4.png",
       "name": "william",
       "alias": "novan",
       "online": false,
@@ -176,7 +176,7 @@
       "desc": "self-running"
     },
     {
-      "img": "/img/avatar/avatar1.png",
+      "avatar": "/img/avatar/avatar1.png",
       "name": "Pinter",
       "alias": "accimal",
       "online": true,
@@ -184,7 +184,7 @@
       "desc": "Strength"
     },
     {
-      "img": "/img/avatar/avatar2.png",
+      "avatar": "/img/avatar/avatar2.png",
       "name": "Poker",
       "alias": "card",
       "online": false,
@@ -192,7 +192,7 @@
       "desc": "HeadHunter"
     },
     {
-      "img": "/img/avatar/avatar3.png",
+      "avatar": "/img/avatar/avatar3.png",
       "name": "Nathan",
       "alias": "satan",
       "online": false,
@@ -200,7 +200,7 @@
       "desc": "wolf"
     },
     {
-      "img": "/img/avatar/avatar4.png",
+      "avatar": "/img/avatar/avatar4.png",
       "name": "william",
       "alias": "novan",
       "online": false,
@@ -208,7 +208,7 @@
       "desc": "self-running"
     },
     {
-      "img": "/img/avatar/avatar1.png",
+      "avatar": "/img/avatar/avatar1.png",
       "name": "Pinter",
       "alias": "accimal",
       "online": true,
@@ -216,7 +216,7 @@
       "desc": "Strength"
     },
     {
-      "img": "/img/avatar/avatar2.png",
+      "avatar": "/img/avatar/avatar2.png",
       "name": "Poker",
       "alias": "card",
       "online": false,
@@ -224,7 +224,7 @@
       "desc": "HeadHunter"
     },
     {
-      "img": "/img/avatar/avatar3.png",
+      "avatar": "/img/avatar/avatar3.png",
       "name": "Nathan",
       "alias": "satan",
       "online": false,
@@ -232,7 +232,7 @@
       "desc": "wolf"
     },
     {
-      "img": "/img/avatar/avatar4.png",
+      "avatar": "/img/avatar/avatar4.png",
       "name": "william",
       "alias": "novan",
       "online": false,
@@ -240,7 +240,7 @@
       "desc": "self-running"
     },
     {
-      "img": "/img/avatar/avatar1.png",
+      "avatar": "/img/avatar/avatar1.png",
       "name": "Pinter",
       "alias": "accimal",
       "online": true,
@@ -248,7 +248,7 @@
       "desc": "Strength"
     },
     {
-      "img": "/img/avatar/avatar2.png",
+      "avatar": "/img/avatar/avatar2.png",
       "name": "Poker",
       "alias": "card",
       "online": false,
@@ -256,7 +256,7 @@
       "desc": "HeadHunter"
     },
     {
-      "img": "/img/avatar/avatar3.png",
+      "avatar": "/img/avatar/avatar3.png",
       "name": "Nathan",
       "alias": "satan",
       "online": false,
@@ -264,12 +264,74 @@
       "desc": "wolf"
     },
     {
-      "img": "/img/avatar/avatar4.png",
+      "avatar": "/img/avatar/avatar4.png",
       "name": "william",
       "alias": "novan",
       "online": false,
       "vip": false,
       "desc": "self-running"
+    }
+  ],
+  "groups": [
+    {
+      "avatar": "/img/avatar/avatar4.png",
+      "name": "Sports Group"
+    },
+    {
+      "avatar": "/img/avatar/avatar4.png",
+      "name": "Sports Group"
+    },
+    {
+      "avatar": "/img/avatar/avatar4.png",
+      "name": "Sports Group"
+    },
+    {
+      "avatar": "/img/avatar/avatar4.png",
+      "name": "Sports Group"
+    },
+    {
+      "avatar": "/img/avatar/avatar4.png",
+      "name": "Sports Group"
+    },
+    {
+      "avatar": "/img/avatar/avatar4.png",
+      "name": "Sports Group"
+    },
+    {
+      "avatar": "/img/avatar/avatar4.png",
+      "name": "Sports Group"
+    },
+    {
+      "avatar": "/img/avatar/avatar4.png",
+      "name": "Sports Group"
+    },
+    {
+      "avatar": "/img/avatar/avatar4.png",
+      "name": "Sports Group"
+    },
+    {
+      "avatar": "/img/avatar/avatar4.png",
+      "name": "Sports Group"
+    },
+    {
+      "avatar": "/img/avatar/avatar4.png",
+      "name": "Sports Group"
+    },
+    {
+      "avatar": "/img/avatar/avatar4.png",
+      "name": "Sports Group"
+    },
+    {
+      "avatar": "/img/avatar/avatar4.png",
+      "name": "Sports Group"
+    },
+    {
+      "avatar": "/img/avatar/avatar4.png",
+      "name": "Sports Group"
+    },
+    {
+      "avatar": "/img/avatar/avatar4.png",
+      "name": "Sports Group"
     }
   ],
   "blogs": [

@@ -22,7 +22,6 @@ body {
 
 * {
   box-sizing: border-box;
-  border: none;
 
   &:focus {
     outline: none !important;
