@@ -1389,7 +1389,7 @@
       "reply": [
         {
           "type": "icon",
-          "value": "ic_sound_grey.png"
+          "value": "ic_sound_green.png"
         }
       ],
       "robot": [
@@ -1618,6 +1618,308 @@
         {
           "type": "text",
           "value": "2019.06.06"
+        }
+      ],
+      "replies": [
+        {
+          "type": "text",
+          "value": "290 次"
+        }
+      ]
+    }
+  ],
+  "blasts": [
+    {
+      "id": [
+        {
+          "type": "text",
+          "value": "12 csdd"
+        }
+      ],
+      "name": [
+        {
+          "type": "text",
+          "value": "首次进群自动回复"
+        }
+      ],
+      "problem": [
+        {
+          "type": "text",
+          "value": "233746875"
+        }
+      ],
+      "reply": [
+        {
+          "type": "text",
+          "value": "欢迎新好友"
+        }
+      ],
+      "object": [
+        {
+          "type": "text",
+          "value": "微信 标签选择：大学生 | 深圳 | 20-30 | 女 | 设计 | 未婚 | 消费能力"
+        }
+      ],
+      "state": [
+        {
+          "type": "text",
+          "value": "启用"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2019.06.06 "
+        }
+      ],
+      "replies": [
+        {
+          "type": "text",
+          "value": "290 次"
+        }
+      ]
+    },
+    {
+      "id": [
+        {
+          "type": "text",
+          "value": "12 csdd"
+        }
+      ],
+      "name": [
+        {
+          "type": "text",
+          "value": "首次进群自动回复"
+        }
+      ],
+      "problem": [
+        {
+          "type": "text",
+          "value": "233746875"
+        }
+      ],
+      "reply": [
+        {
+          "type": "icon",
+          "value": "ic_sound_green.png"
+        }
+      ],
+      "object": [
+        {
+          "type": "text",
+          "value": "微信 标签选择：大学生 | 深圳 | 20-30 | 女 | 设计 | 未婚 | 消费能力"
+        }
+      ],
+      "state": [
+        {
+          "type": "text",
+          "value": "启用"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2019.06.06 "
+        }
+      ],
+      "replies": [
+        {
+          "type": "text",
+          "value": "290 次"
+        }
+      ]
+    },
+    {
+      "id": [
+        {
+          "type": "text",
+          "value": "12 csdd"
+        }
+      ],
+      "name": [
+        {
+          "type": "text",
+          "value": "首次进群自动回复"
+        }
+      ],
+      "problem": [
+        {
+          "type": "text",
+          "value": "233746875"
+        }
+      ],
+      "reply": [
+        {
+          "type": "icon",
+          "value": "ic_video_orange.png"
+        }
+      ],
+      "object": [
+        {
+          "type": "text",
+          "value": "微信 标签选择：大学生 | 深圳 | 20-30 | 女 | 设计 | 未婚 | 消费能力"
+        }
+      ],
+      "state": [
+        {
+          "type": "text",
+          "value": "启用"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2019.06.06 "
+        }
+      ],
+      "replies": [
+        {
+          "type": "text",
+          "value": "290 次"
+        }
+      ]
+    },
+    {
+      "id": [
+        {
+          "type": "text",
+          "value": "12 csdd"
+        }
+      ],
+      "name": [
+        {
+          "type": "text",
+          "value": "首次进群自动回复"
+        }
+      ],
+      "problem": [
+        {
+          "type": "text",
+          "value": "233746875"
+        }
+      ],
+      "reply": [
+        {
+          "type": "text",
+          "value": "欢迎新好友"
+        }
+      ],
+      "object": [
+        {
+          "type": "text",
+          "value": "微信 标签选择：大学生 | 深圳 | 20-30 | 女 | 设计 | 未婚 | 消费能力"
+        }
+      ],
+      "state": [
+        {
+          "type": "text",
+          "value": "启用"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2019.06.06 "
+        }
+      ],
+      "replies": [
+        {
+          "type": "text",
+          "value": "290 次"
+        }
+      ]
+    },
+    {
+      "id": [
+        {
+          "type": "text",
+          "value": "12 csdd"
+        }
+      ],
+      "name": [
+        {
+          "type": "text",
+          "value": "首次进群自动回复"
+        }
+      ],
+      "problem": [
+        {
+          "type": "text",
+          "value": "233746875"
+        }
+      ],
+      "reply": [
+        {
+          "type": "text",
+          "value": "欢迎新好友"
+        }
+      ],
+      "object": [
+        {
+          "type": "text",
+          "value": "微信 标签选择：大学生 | 深圳 | 20-30 | 女 | 设计 | 未婚 | 消费能力"
+        }
+      ],
+      "state": [
+        {
+          "type": "text",
+          "value": "启用"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2019.06.06 "
+        }
+      ],
+      "replies": [
+        {
+          "type": "text",
+          "value": "290 次"
+        }
+      ]
+    },
+    {
+      "id": [
+        {
+          "type": "text",
+          "value": "12 csdd"
+        }
+      ],
+      "name": [
+        {
+          "type": "text",
+          "value": "首次进群自动回复"
+        }
+      ],
+      "problem": [
+        {
+          "type": "text",
+          "value": "233746875"
+        }
+      ],
+      "reply": [
+        {
+          "type": "text",
+          "value": "欢迎新好友"
+        }
+      ],
+      "object": [
+        {
+          "type": "text",
+          "value": "微信 标签选择：大学生 | 深圳 | 20-30 | 女 | 设计 | 未婚 | 消费能力"
+        }
+      ],
+      "state": [
+        {
+          "type": "text",
+          "value": "启用"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2019.06.06 "
         }
       ],
       "replies": [
