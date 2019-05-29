@@ -56,6 +56,10 @@ export default new Router({
         {
           path: 'friend',
           component: () => import('@/pages/chat/ChatFriend.vue')
+        },
+        {
+          path: 'room',
+          component: () => import('@/pages/chat/ChatRoom.vue')
         }
       ]
     },

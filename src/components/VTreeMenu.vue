@@ -1,11 +1,5 @@
 <template>
-  <div
-    class="tree-menu"
-    :class="menuClasses"
-    @mouseover="showChildren"
-    @mouseout="hideChildren"
-    v-if="visibleMenu"
-  >
+  <div class="tree-menu" :class="menuClasses" @mouseover="showChildren" @mouseout="hideChildren">
     <div class="menu-item">
       <div class="label" v-if="depth > 0" :class="iconClasses" @click="onClickMenu">{{ label }}</div>
       <div v-if="opened || depth === 0" :class="{ submenu: depth > 0}">
@@ -31,8 +25,7 @@ export default {
     label: String,
     depth: Number,
     action: Function,
-    toggle: Function,
-    hideOnClick: { type: Boolean, default: false }
+    toggle: Function
   },
   data() {
     return {
@@ -73,7 +66,6 @@ export default {
         this.toggle &&
         !this.nodes &&
         this.toggle();
-      if (hideOnClick) visibleMenu = !visibleMenu;
     }
   }
 };
@@ -102,6 +94,7 @@ export default {
 
   .menu-item {
     position: relative;
+    text-align: left;
 
     .label {
       height: 35px;

@@ -30,7 +30,7 @@
             <td>{{user.t4}}</td>
             <td>{{user.t5}}</td>
             <td>
-              <button>设置</button>
+              <v-dropdown light text="设置" :nodes="dropdownItems5"></v-dropdown>
             </td>
           </tr>
         </tbody>
@@ -38,22 +38,25 @@
     </div>
     <div class="panel my-group">
       <div class="button-bar">
-        <v-button class="btn-1">我的好友</v-button>
-        <v-button class="btn-2">我的群</v-button>
+        <v-button class="btn-1" :onClick="() => this.showList = 1">我的好友</v-button>
+        <v-button class="btn-2" :onClick="() => this.showList = 2">我的群</v-button>
         <v-dropdown
+          v-show="showList === 1"
           class="dd-btn-3"
           text="<span class='plus-symbol'>+</span>好友"
           :nodes="dropdownItems3"
         ></v-dropdown>
+        <v-dropdown v-show="showList === 2" class="dd-btn-3 small" text="+" :nodes="dropdownItems6"></v-dropdown>
       </div>
       <div class="search-status">
-        <span>好友总数（34）</span>
+        <span v-show="showList === 1">好友总数（34）</span>
+        <span v-show="showList === 2">好友总数（34）</span>
         <img src="@/assets/images/ic_search.png">
       </div>
-      <div class="list">
+      <div class="list list-friends" v-if="showList === 1">
         <div class="list-item" v-for="(friend, index) in friends" :key="index">
-          <img class="avatar" :src="friend.img">
-          <img class="online" src="/img/icons/ic_phone.png" v-if="friend.online">
+          <img class="avatar" :src="friend.avatar">
+          <img class="online" src="@/assets/images/ic_phone.png" v-if="friend.online">
           <div class="list-item-content">
             <div>
               <span :class="friend.vip ? 'red' : ''">{{ friend.name }}</span>
@@ -62,19 +65,39 @@
             </div>
             <div class="item-desc">{{ friend.desc }}</div>
           </div>
-          <button class="list-item-menu" @click="menuclick(index)">
-            <img src="/img/icons/ic_arrow_down.png">
+          <button class="list-item-menu" @click="friendClick(index)">
+            <img src="@/assets/images/ic_arrow_down.png">
           </button>
           <v-tree-menu
-            v-if="clickedMenu == index"
+            v-if="clickedFriend == index && opendMenu"
             class="dropdown4"
             :nodes="dropdownItems4"
+            :toggle="toggleMenu"
+            :depth="0"
+          ></v-tree-menu>
+        </div>
+      </div>
+      <div class="list list-groups" v-if="showList === 2">
+        <div class="list-item" v-for="(group, index) in groups" :key="index">
+          <img class="avatar" :src="group.avatar">
+          <img class="online" src="@/assets/images/ic_phone.png">
+          <div class="list-item-content">
+            <div class="item-desc">{{ group.name }}</div>
+          </div>
+          <button class="list-item-menu" @click="groupClick(index)">
+            <img src="@/assets/images/ic_arrow_down.png">
+          </button>
+          <v-tree-menu
+            v-if="clickedGroup == index && opendMenu"
+            class="dropdown4"
+            :nodes="dropdownItems7"
+            :toggle="toggleMenu"
             :depth="0"
           ></v-tree-menu>
         </div>
       </div>
     </div>
-    <div class="panel blog-list">
+    <div class="panel blog-list" v-if="showBlogList">
       <div class="panel-title">朋友圈</div>
       <div class="blogs">
         <div class="blog" v-for="(blog, index) in blogs" :key="index">
@@ -90,18 +113,113 @@
         </div>
       </div>
     </div>
+    <div class="panel unknown1" v-if="!showBlogList">
+      <div class="panel-title">群信息</div>
+      <div class="dashboard">
+        <div class="row">Title1</div>
+        <div class="row">
+          Title2
+          <span class="success">Blue1</span>
+          <span class="success">Blue2</span>
+          <span class="success">Blue3</span>
+        </div>
+        <div class="row">String1</div>
+        <div class="row avatars">
+          <img src="/img/avatar/avatar1.png" alt>
+          <img src="/img/avatar/avatar1.png" alt>
+          <img src="/img/avatar/avatar1.png" alt>
+          <img src="/img/avatar/avatar1.png" alt>
+        </div>
+        <div class="row">Search Result (372/500)</div>
+        <div class="row">
+          <radial-progress-bar
+            :diameter="60"
+            :completed-steps="61"
+            :total-steps="100"
+            :strokeWidth="3"
+            startColor="#BDA3F1"
+            stopColor="#BDA3F1"
+            innerStrokeColor="#F3F3F4"
+          >
+            <p>61%</p>
+            <p class="radial-detail">afd-228</p>
+          </radial-progress-bar>
+          <radial-progress-bar
+            :diameter="60"
+            :completed-steps="7"
+            :total-steps="100"
+            :strokeWidth="3"
+            startColor="#92E2B9"
+            stopColor="#92E2B9"
+            innerStrokeColor="#F3F3F4"
+          >
+            <p>7%</p>
+            <p class="radial-detail">afd-28</p>
+          </radial-progress-bar>
+          <radial-progress-bar
+            :diameter="60"
+            :completed-steps="50"
+            :total-steps="100"
+            :strokeWidth="3"
+            startColor="#9ABDF0"
+            stopColor="#9ABDF0"
+            innerStrokeColor="#F3F3F4"
+          >
+            <p>61%</p>
+            <p class="radial-detail">90-188</p>
+          </radial-progress-bar>
+          <radial-progress-bar
+            :diameter="60"
+            :completed-steps="26"
+            :total-steps="100"
+            :strokeWidth="3"
+            startColor="#FAC067"
+            stopColor="#FAC067"
+            innerStrokeColor="#F3F3F4"
+          >
+            <p>26%</p>
+            <p class="radial-detail">99</p>
+          </radial-progress-bar>
+        </div>
+        <div class="row">
+          <v-button class="right-button" primary>添加好友</v-button>
+        </div>
+        <div class="row">
+          <v-round-check primary :onChange="onChangeCheckAll"/>
+          <label>群成员（112）</label>
+          <v-input-text label placeholder="搜索客户" width="200px"></v-input-text>
+          <v-button class="right-button2" primary>添加好友</v-button>
+        </div>
+        <div class="group-friends-list">
+          <div class="row" v-for="(friends, index) in 20">
+            <v-round-check primary :initState="index%5 === 0 ? false : true"/>
+            <img class="avatar" src="/img/avatar/avatar1.png">
+            <label class="friend-name">搜索客户</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Friend Dialog -->
+    <chat-modal-add-friend v-show="openModal === 1" @close="closeModal"></chat-modal-add-friend>
+    <chat-modal-add-group v-show="openModal === 2" @close="closeModal"></chat-modal-add-group>
+    <chat-modal-add-friends v-show="openModal === 3" @close="closeModal"></chat-modal-add-friends>
   </div>
 </template>
 
 <script>
+import RadialProgressBar from "vue-radial-progress";
 export default {
+  components: {
+    RadialProgressBar
+  },
   name: "ChatFriend",
   data() {
     return {
       users: [],
       friends: [],
+      groups: [],
       blogs: [],
-      popupAddFriend: false,
       dropdownItems1: [
         { label: "推送图文消息", action: () => {} },
         { label: "推送小程序", action: () => {} }
@@ -114,7 +232,7 @@ export default {
         {
           label: "加好友",
           action: () => {
-            this.popupAddFriend = true;
+            this.openModal = 1;
           }
         },
         { label: "加群", action: () => {} },
@@ -123,10 +241,55 @@ export default {
       ],
       dropdownItems4: [
         { label: "推送消息", action: () => {} },
-        { label: "看朋友圈", action: () => {} },
+        {
+          label: "看朋友圈",
+          action: () => {
+            this.showBlogList = true;
+          }
+        },
         { label: "删除好友", action: () => {} }
       ],
-      clickedMenu: -1
+      dropdownItems5: [
+        { label: "编辑账号", action: () => {} },
+        { label: "删除账号", action: () => {} },
+        { label: "看好友", action: () => {} },
+        { label: "看群", action: () => {} },
+        { label: "配置设备", action: () => {} },
+        { label: "停用", action: () => {} }
+      ],
+      dropdownItems6: [
+        { label: "加好友", action: () => {} },
+        {
+          label: "加群",
+          action: () => {
+            this.openModal = 2;
+          }
+        },
+        {
+          label: "从群里加好友",
+          action: () => {
+            this.openModal = 3;
+          }
+        }
+      ],
+      dropdownItems7: [
+        { label: "推送消息", action: () => {} },
+        {
+          label: "看朋友圈",
+          action: () => {
+            this.showBlogList = false;
+          }
+        },
+        { label: "删除好友", action: () => {} }
+      ],
+      clickedFriend: -1,
+      clickedGroup: -1,
+      opendMenu: false,
+      openModal: 0,
+      showBlogList: true,
+      showList: 1,
+      completedSteps: 61,
+      totalSteps: 100
     };
   },
   methods: {
@@ -142,19 +305,37 @@ export default {
         this.friends = result.data;
       });
     },
+    fetchGroups: function() {
+      const baseURI = "http://localhost:3000/groups";
+      this.$http.get(baseURI).then(result => {
+        this.groups = result.data;
+      });
+    },
     fetchBlogs: function() {
       const baseURI = "http://localhost:3000/blogs";
       this.$http.get(baseURI).then(result => {
         this.blogs = result.data;
       });
     },
-    menuclick(index) {
-      this.clickedMenu = this.clickedMenu == -1 ? index : -1;
+    friendClick(index) {
+      this.clickedFriend = index;
+      this.opendMenu = true;
+    },
+    groupClick(index) {
+      this.clickedGroup = index;
+      this.opendMenu = true;
+    },
+    toggleMenu() {
+      this.opendMenu = !this.opendMenu;
+    },
+    closeModal() {
+      this.openModal = 0;
     }
   },
   mounted: function() {
     this.fetchUsers();
     this.fetchFriends();
+    this.fetchGroups();
     this.fetchBlogs();
   }
 };
@@ -253,6 +434,11 @@ button:hover {
       button: {
         background-color: #227bf9;
       }
+      &.small {
+        button {
+          width: 30px;
+        }
+      }
     }
   }
   .search-status {
@@ -324,32 +510,27 @@ button:hover {
     }
     &:hover {
       background-color: #ebebeb;
+      .list-item-menu {
+        display: flex;
+      }
     }
     .list-item-menu {
+      display: none;
       position: absolute;
       right: 10px;
       background-color: inherit;
       border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      display: flex;
+      width: 20px;
+      height: 20px;
       justify-content: center;
       align-items: center;
+      background-color: white;
 
       img {
-        height: 5px;
-        display: none;
-      }
-      &:hover {
-        background-color: white;
+        height: 3px;
         cursor: pointer;
-
-        img {
-          display: inline;
-        }
       }
     }
-
     .dropdown4 {
       position: absolute;
       top: 50px;
@@ -414,70 +595,81 @@ button:hover {
     width: calc(100% - 200px);
   }
 }
-</style>
 
-<style lang="scss">
-.popup-wrapper {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 10;
+.unknown1 {
+  padding: 20px;
+  padding-bottom: 0;
 
-  .popup {
-    margin-top: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.11);
+  .panel-title {
+    margin: 0;
+  }
+  .dashboard {
+    margin-top: 20px;
 
-    .popup-header {
-      padding: 28px;
+    .row {
+      margin-bottom: 10px;
 
-      .popup-header-title {
-        margin-left: 14px;
-        font-size: 16px;
-        font-family: MicrosoftYaHei-Bold;
-        font-weight: bold;
+      .right-button {
+        margin-left: 350px;
       }
-      .popup-close-btn {
-        float: right;
+      .input-text {
+        display: inline-block;
+      }
+      label {
+        margin-left: 15px;
+      }
+      .right-button2 {
+        margin-top: -2px;
+        margin-left: 24px;
+      }
+      .avatar {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 10px;
+        margin-left: 10px;
+      }
+      .friend-name {
+        color: #6c6c6c;
       }
     }
-    .popup-body {
-      padding: 10px 42px;
-
-      .row {
-        padding: 10px;
-
-        label {
-          font-size: 14px;
-          font-family: MicrosoftYaHei-Bold;
-          font-weight: bold;
-        }
-        input {
-          height: 30px;
-          font-size: 12px;
-          padding: 10px;
-        }
+    .group-friends-list {
+      height: calc(100vh - 430px);
+      overflow-y: auto;
+    }
+    .success {
+      padding: 3px;
+      background-color: #3cb7f5;
+      color: white;
+      margin-right: 10px;
+    }
+    .avatars {
+      img {
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+      }
+    }
+    .radial-progress-container {
+      display: inline-block;
+      .radial-detail {
+        position: absolute;
+        bottom: -30px;
       }
     }
   }
 }
+* {
+  font-size: 12px;
+}
+</style>
 
-.add-friend {
-  width: 424px;
-  background-color: white;
-  #number {
-    width: 232px;
-    background-color: #f1f5f8;
-    margin-left: 10px;
-  }
-  .search-icon {
-    width: 16px;
-    height: 16px;
-    margin-left: 10px;
+<style lang="scss">
+.dd-btn-3 {
+  &.small {
+    button {
+      width: 50px;
+    }
   }
 }
 </style>
