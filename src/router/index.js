@@ -133,11 +133,11 @@ export default new Router({
       children: [
         {
           path: 'home',
-          component: () => import('@/pages/log/Home.vue'),
+          component: () => import('@/pages/trace/TraceHome.vue'),
         },
         {
-          path: 'docmanage',
-          component: () => import('@/pages/log/DocumentManagement.vue'),
+          path: 'manage',
+          component: () => import('@/pages/trace/TraceDocManage.vue'),
         }
       ]
     }
