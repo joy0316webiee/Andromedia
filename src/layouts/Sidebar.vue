@@ -3,7 +3,7 @@
     <div class="sidebar-list">
       <div class="sidebar-list-item" v-for="(item, index) in menu" :key="index">
         <a
-          :class="[item.class, {active: activeIndex === index, hover: hoverIndex === index}]"
+          :class="[item.class, {active: activeIndex === index, hover: hoverIndex === index, collapse: collapse1}]"
           href="#"
           @click="handleChangeMenu(index)"
           @mouseover="hoverMenu(index)"
@@ -15,7 +15,7 @@
         </a>
         <div
           class="submenu"
-          v-show="(activeIndex === index || (hoverIndex === index && collapse)) && item.child"
+          v-show="(activeIndex === index || (hoverIndex === index && collapse)) && item.child && !collapse1"
         >
           <div class="sidebar-list-item" v-for="(item1, index1) in item.child" :key="index1">
             <a
@@ -66,6 +66,9 @@ export default {
       hoverIndex: -1,
       hoverIndex1: -1,
       hoverIndex2: -1,
+      collapse1: false,
+      collapse2: false,
+      collapse3: false,
       menu: [
         {
           class: "list-home",
@@ -103,8 +106,7 @@ export default {
           label: "自动回复",
           child: [
             {
-              label: "弹窗",
-              child: [{ label: "child1" }, { label: "child2" }]
+              label: "弹窗"
             },
             {
               label: "首页"
@@ -138,19 +140,29 @@ export default {
       return require("@/assets/images/" + imgName + "_white.png");
     },
     handleChangeMenu(index) {
+      if (this.activeIndex !== index) {
+        this.activeIndex1 = -1;
+        this.activeIndex2 = -1;
+      }
       this.activeIndex = index;
-      this.activeIndex1 = -1;
-      this.activeIndex2 = -1;
+      this.collapse1 = !this.collapse1;
+      if (this.collapse) this.collapse1 = false;
     },
     handleChangeMenu1(index, index1) {
+      if (this.activeIndex1 !== index1) {
+        this.activeIndex2 = -1;
+      }
       this.activeIndex = index;
       this.activeIndex1 = index1;
-      this.activeIndex2 = -1;
+      if (this.collapse) this.collapse1 = true;
+      console.log(this.collapse1);
+      this.collapse2 = !this.collapse2;
     },
     handleChangeMenu2(index, index1, index2) {
       this.activeIndex = index;
       this.activeIndex1 = index1;
       this.activeIndex2 = index2;
+      this.collapse3 = !this.collapse3;
     },
     hoverMenu(index) {
       this.hoverIndex = index;
@@ -183,34 +195,12 @@ export default {
   background-color: #217af9;
   min-width: 143px;
   width: 143px;
+  transition: width 0.3s ease-out;
 
   .sidebar-list {
-    transition: width 1s ease-out;
+    // transition: width 1s ease-out;
     width: 100%;
 
-    & > .sidebar-list-item {
-      & > a {
-        &.active,
-        &:hover {
-          // background: white;
-          // color: #217af9;
-          background-color: darken(#217af9, 10%);
-        }
-        &.active {
-          // background: white;
-          // color: #217af9;
-          background-color: darken(#217af9, 10%);
-          &::before {
-            content: " ";
-            width: 3px;
-            height: 45px;
-            background-color: white;
-            position: absolute;
-            left: 0;
-          }
-        }
-      }
-    }
     .sidebar-list-item {
       position: relative;
 
@@ -248,47 +238,60 @@ export default {
             width: 0px;
           }
         }
+
+        &:hover {
+          background-color: darken(#217af9, 5%);
+        }
         &.active,
-        &:hover,
-        &.hover {
-          background-color: darken(#217af9, 10%);
-          transition: all ease 0.3s;
-          .fa-chevron-right {
-            transition: all ease 0.3s;
+        &.active:hover,
+        &.active.hover {
+          // background: white;
+          // color: #217af9;
+          background-color: darken(#217af9, 15%);
+          &::before {
+            content: " ";
+            width: 3px;
+            height: 45px;
+            background-color: white;
+            position: absolute;
+            left: 0;
           }
         }
         &.active {
           .fa-chevron-right {
+            transition: transform ease 0.3s;
             transform: rotate(90deg);
           }
-        }
-        &.hover {
-          background-color: darken(#217af9, 10%);
-          .fa-chevron-right {
-            transform: rotate(90deg);
-          }
-        }
-        &:hover {
-          background-color: darken(#217af9, 10%);
-          .fa-chevron-right {
-            transform: rotate(90deg);
+          &.collapse {
+            .fa-chevron-right {
+              transition: transform ease 0.3s;
+              transform: rotate(0deg);
+            }
           }
         }
       }
       .submenu {
-        background-color: #80b4ff;
         z-index: 10;
 
         .sidebar-list-item {
           a {
             font-size: 12px;
             padding-left: 60px;
-            border-top: 1px solid darken(#80b4ff, 20%);
+            background-color: #217af9;
 
-            &.active,
             &:hover,
             &.hover {
-              background-color: darken(#80b4ff, 10%);
+              background-color: darken(#217af9, 5%);
+            }
+            &.active:hover {
+              background-color: darken(#217af9, 5%) !important;
+            }
+            &.active {
+              font-weight: bold;
+              &::before {
+                width: 0;
+              }
+              background-color: #217af9 !important;
             }
 
             &.deep2 {
@@ -308,6 +311,7 @@ export default {
   &.collapse {
     width: 60px;
     min-width: 60px !important;
+
     a {
       .fa-chevron-right {
         transform: unset !important;
