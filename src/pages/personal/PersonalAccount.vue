@@ -72,7 +72,7 @@
 export default {
   data() {
     return {
-      openedModal: 1,
+      openedModal: -1,
       accountNodes: [
         {
           label: "单个添加",

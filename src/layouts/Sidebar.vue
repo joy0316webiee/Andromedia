@@ -5,7 +5,7 @@
         <a
           :class="[item.class, {active: activeIndex === index, hover: hoverIndex === index, collapse: collapse1}]"
           href="#"
-          @click="handleChangeMenu(index)"
+          @click="handleChangeMenu(index, item.href)"
           @mouseover="hoverMenu(index)"
           @mouseout="hoverMenu(-1)"
         >
@@ -20,7 +20,7 @@
             <a
               :class="{active: activeIndex1 === index1, hover: hoverIndex1 === index1}"
               href="#"
-              @click="handleChangeMenu1(index, index1)"
+              @click="handleChangeMenu1(index, index1, item1.href)"
               @mouseover="hoverMenu1(index, index1)"
               @mouseout="hoverMenu1(index, -1)"
             >
@@ -56,6 +56,7 @@
 <script>
 export default {
   name: "Sidebar",
+  props: ["Router"],
   data() {
     return {
       collapse: false,
@@ -77,12 +78,40 @@ export default {
         {
           class: "list-chat",
           image: "ic_chat",
-          label: "聊天室"
+          label: "聊天室",
+          child: [
+            {
+              label: "好友",
+              href: "/chat/friend"
+            },
+            {
+              label: "聊天室",
+              href: "/chat/room"
+            }
+          ]
         },
         {
           class: "list-user",
           image: "ic_user",
-          label: "用户"
+          label: "用户",
+          child: [
+            {
+              label: "基本信息",
+              href: "/personal/account"
+            },
+            {
+              label: "个人信息",
+              href: "/personal/user"
+            },
+            {
+              label: "客户信息",
+              href: "/personal/customer"
+            },
+            {
+              label: "客户",
+              href: "/personal/client"
+            }
+          ]
         },
         {
           class: "list-ecommerce",
@@ -92,12 +121,48 @@ export default {
         {
           class: "list-content",
           image: "ic_content",
-          label: "内容"
+          label: "设备",
+          child: [
+            {
+              label: "拷贝",
+              href: "/device/list"
+            },
+            {
+              label: "设备",
+              href: "/device/gallery"
+            },
+            {
+              label: "悬浮",
+              href: "/device/suspension"
+            },
+            {
+              label: "详细",
+              href: "/device/details"
+            },
+            {
+              label: "配置",
+              href: "/device/manage"
+            },
+            {
+              label: "恢復",
+              href: "/device/restore"
+            }
+          ]
         },
         {
           class: "list-label",
           image: "ic_label",
-          label: "标签"
+          label: "标签",
+          child: [
+            {
+              label: "日志",
+              href: "/trace/home"
+            },
+            {
+              label: "文件管理",
+              href: "/trace/manage"
+            }
+          ]
         },
         {
           class: "list-auto",
@@ -105,27 +170,59 @@ export default {
           label: "自动回复",
           child: [
             {
-              label: "弹窗"
+              label: "弹窗",
+              href: "/auto/replyblast"
             },
             {
-              label: "首页"
+              label: "机器人",
+              href: "/auto/replyrobot"
             }
           ]
         },
         {
           class: "list-task",
           image: "ic_task",
-          label: "标配任务"
+          label: "标配任务",
+          child: [
+            {
+              label: "商品",
+              href: "/task/goods"
+            },
+            {
+              label: "订单",
+              href: "/task/order"
+            }
+          ]
         },
         {
           class: "list-script",
           image: "ic_script",
-          label: "自定义脚本"
+          label: "自定义脚本",
+          child: [
+            {
+              label: "编辑脚本",
+              href: "/code/edit"
+            },
+            {
+              label: "运行脚本",
+              href: "/code/run"
+            }
+          ]
         },
         {
           class: "list-bigdata",
           image: "ic_bigdata",
-          label: "大数据"
+          label: "大数据",
+          child: [
+            {
+              label: "大数据",
+              href: "/bigdata/home"
+            },
+            {
+              label: "搜索",
+              href: "/bigdata/search"
+            }
+          ]
         }
       ]
     };
@@ -138,7 +235,7 @@ export default {
     imgUrl(imgName) {
       return require("@/assets/images/" + imgName + "_white.png");
     },
-    handleChangeMenu(index) {
+    handleChangeMenu(index, href) {
       if (this.activeIndex !== index) {
         this.activeIndex1 = -1;
         this.activeIndex2 = -1;
@@ -146,8 +243,10 @@ export default {
       this.activeIndex = index;
       this.collapse1 = !this.collapse1;
       if (this.collapse) this.collapse1 = false;
+      // Routing
+      href && this.Router(href);
     },
-    handleChangeMenu1(index, index1) {
+    handleChangeMenu1(index, index1, href) {
       if (this.activeIndex1 !== index1) {
         this.activeIndex2 = -1;
       }
@@ -156,6 +255,8 @@ export default {
       if (this.collapse) this.collapse1 = true;
       console.log(this.collapse1);
       this.collapse2 = !this.collapse2;
+      // Routing
+      href && this.Router(href);
     },
     handleChangeMenu2(index, index1, index2) {
       this.activeIndex = index;

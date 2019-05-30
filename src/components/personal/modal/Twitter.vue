@@ -81,7 +81,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  // background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.6);
 
   .modal {
     width: 238px;
