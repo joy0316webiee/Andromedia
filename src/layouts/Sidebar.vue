@@ -14,8 +14,7 @@
           <font-awesome-icon class="right" v-if="item.child && !collapse" icon="chevron-right"/>
         </a>
         <div
-          class="submenu"
-          v-show="(activeIndex === index || (hoverIndex === index && collapse)) && item.child && !collapse1"
+          :class="{submenu: true, display: ((activeIndex === index || (hoverIndex === index && collapse)) && item.child && !collapse1)}"
         >
           <div class="sidebar-list-item" v-for="(item1, index1) in item.child" :key="index1">
             <a
@@ -66,9 +65,9 @@ export default {
       hoverIndex: -1,
       hoverIndex1: -1,
       hoverIndex2: -1,
-      collapse1: false,
-      collapse2: false,
-      collapse3: false,
+      collapse1: true,
+      collapse2: true,
+      collapse3: true,
       menu: [
         {
           class: "list-home",
@@ -272,26 +271,33 @@ export default {
       }
       .submenu {
         z-index: 10;
+        background-color: darken(#217af9, 10%);
+        transition: all ease 0.3s;
+        max-height: 0;
+        overflow: hidden;
+
+        &.display {
+          max-height: calc(100px);
+        }
 
         .sidebar-list-item {
           a {
             font-size: 12px;
             padding-left: 60px;
-            background-color: #217af9;
 
             &:hover,
             &.hover {
               background-color: darken(#217af9, 5%);
             }
             &.active:hover {
-              background-color: darken(#217af9, 5%) !important;
+              background-color: unset;
             }
             &.active {
               font-weight: bold;
               &::before {
                 width: 0;
               }
-              background-color: #217af9 !important;
+              background-color: unset;
             }
 
             &.deep2 {
@@ -318,15 +324,20 @@ export default {
       }
     }
     .submenu {
-      width: 155px;
+      width: 0;
       position: absolute;
       top: 0px;
       left: 60px;
+      max-height: unset !important;
+
       a {
         padding-left: 20px !important;
       }
       &.deep2 {
         left: 156px;
+      }
+      &.display {
+        width: 155px;
       }
     }
   }
