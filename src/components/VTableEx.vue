@@ -1,25 +1,19 @@
 <template>
   <div class="table" :class="{'table-grey': grey}">
     <div class="table-header" :style="gridStyle">
+      <div class="column" v-if="checkbox">
+        <v-round-check class="check-all" :onChange="onChangeCheckAll" style="margin-right: 16px"/>
+      </div>
       <div class="column" v-for="(col, index) in header" :key="index">
-        <v-round-check
-          v-if="checkbox && !index"
-          class="check-all"
-          :onChange="onChangeCheckAll"
-          style="margin-right: 16px"
-        />
         <label>{{col}}</label>
       </div>
     </div>
     <div class="table-body">
       <div class="row" :style="gridStyle" v-for="(row, index) in data" :key="index">
+        <div class="column" v-if="checkbox">
+          <v-round-check class="check-one" :initState="checkedAll" style="margin-right: 16px"/>
+        </div>
         <div v-if="!withID" class="column">
-          <v-round-check
-            v-if="checkbox"
-            class="check-one"
-            :initState="checkedAll"
-            style="margin-right: 16px"
-          />
           <label>{{index + 1}}</label>
         </div>
         <div class="column" v-for="(objectArry, key) in row" :key="key">
@@ -64,6 +58,18 @@ export default {
         return {
           width: "25px",
           height: "25px"
+        };
+      } else if (type === "avatar") {
+        return {
+          width: "38px",
+          height: "38px",
+          marginRight: "14px"
+        };
+      } else if (type === "icon") {
+        return {
+          width: "17px",
+          height: "15px",
+          marginRight: "8px"
         };
       }
     }
@@ -111,10 +117,14 @@ export default {
   .table-header,
   .row {
     @include grid;
+    height: 50px;
 
     .column {
+      display: flex;
+      align-items: center;
+
       .object {
-        display: inline-block;
+        display: flex;
 
         label {
           // margin-left: 16px;
