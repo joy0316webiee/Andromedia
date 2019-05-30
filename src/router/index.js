@@ -128,12 +128,16 @@ export default new Router({
       ]
     },
     {
-      path: '/log',
+      path: '/trace',
       component: () => import('@/layouts/Layout.vue'),
       children: [
         {
           path: 'home',
-          component: () => import('@/pages/log/Home.vue'),
+          component: () => import('@/pages/trace/TraceHome.vue'),
+        },
+        {
+          path: 'manage',
+          component: () => import('@/pages/trace/TraceDocManage.vue'),
         }
       ]
     }
