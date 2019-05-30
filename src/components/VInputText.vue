@@ -14,6 +14,8 @@ export default {
 <style lang="scss" scoped>
 .input-text {
   label {
+    display: inline-block;
+    width: 58px;
     font-size: 14px;
     font-weight: bold;
     color: #606672;

@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown" v-click-outside="hide">
     <div class="dropdown-toggle" @click="toggle()">
-      <v-button :class="classes" v-html="text"></v-button>
+      <v-button :class="classes" v-html="text" :style="buttonStyle"></v-button>
     </div>
     <div class="dropdown-menu" :class="{right: right}" v-show="opened">
       <v-tree-menu :nodes="nodes" :depth="0" :toggle="toggle"/>
@@ -15,10 +15,13 @@ import ClickOutside from "vue-click-outside";
 export default {
   props: {
     text: String,
+    width: String,
     nodes: Array,
+    primary: Boolean,
     right: Boolean,
     light: Boolean,
-    transparent: Boolean
+    transparent: Boolean,
+    textLeft: Boolean
   },
   data() {
     return {
@@ -37,9 +40,16 @@ export default {
     classes() {
       return [
         { "v-button-transparent": this.transparent },
+        { "v-button-primary": this.primary },
         { "v-button-light": this.light },
         { right: this.right },
         { active: this.opened }
+      ];
+    },
+    buttonStyle() {
+      return [
+        this.width && { width: this.width },
+        this.textLeft && { "text-align": "left" }
       ];
     }
   },
@@ -78,6 +88,9 @@ export default {
           background-color: #0f7bf9;
           color: white;
         }
+      }
+      &.v-button-primary {
+        background-image: none;
       }
     }
   }

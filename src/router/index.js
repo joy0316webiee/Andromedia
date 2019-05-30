@@ -9,7 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: 'device/suspension'
+      redirect: 'task/goods'
     },
     {
       path: '/device',
@@ -74,6 +74,20 @@ export default new Router({
         {
           path: 'replyrobot',
           component: () => import('@/pages/auto/AutoReplyRobot.vue')
+        }
+      ]
+    },
+    {
+      path: '/task',
+      component: () => import('@/layouts/Layout.vue'),
+      children: [
+        {
+          path: 'goods',
+          component: () => import('@/pages/task/TaskPushGoods.vue')
+        },
+        {
+          path: 'order',
+          component: () => import('@/pages/task/TaskPushOrder.vue')
         }
       ]
     },

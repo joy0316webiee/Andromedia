@@ -1991,5 +1991,231 @@
         }
       ]
     }
+  ],
+  "goods": [
+    {
+      "name": [
+        {
+          "type": "text",
+          "value": "北方 大苹果"
+        }
+      ],
+      "profit": [
+        {
+          "type": "text",
+          "value": "2 33746875"
+        }
+      ],
+      "payment": [
+        {
+          "type": "text",
+          "value": "12 人"
+        }
+      ],
+      "browse": [
+        {
+          "type": "text",
+          "value": "120 人"
+        }
+      ],
+      "types": [
+        {
+          "type": "text",
+          "value": "大数据推送"
+        }
+      ],
+      "object": [
+        {
+          "type": "text",
+          "value": "微信  标签选择： 大学生   I   深圳   I   20-30   I   女   I   设计   I   未婚   I   消费能力 "
+        }
+      ],
+      "state": [
+        {
+          "type": "text",
+          "value": "启用"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2019.06.06"
+        }
+      ],
+      "times": [
+        {
+          "type": "text",
+          "value": "290 次"
+        }
+      ]
+    },
+    {
+      "name": [
+        {
+          "type": "text",
+          "value": "北方 大苹果"
+        }
+      ],
+      "profit": [
+        {
+          "type": "text",
+          "value": "2 33746875"
+        }
+      ],
+      "payment": [
+        {
+          "type": "text",
+          "value": "12 人"
+        }
+      ],
+      "browse": [
+        {
+          "type": "text",
+          "value": "120 人"
+        }
+      ],
+      "types": [
+        {
+          "type": "text",
+          "value": "大数据推送"
+        }
+      ],
+      "object": [
+        {
+          "type": "text",
+          "value": "微信  标签选择： 大学生   I   深圳   I   20-30   I   女   I   设计   I   未婚   I   消费能力 "
+        }
+      ],
+      "state": [
+        {
+          "type": "text",
+          "value": "启用"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2019.06.06"
+        }
+      ],
+      "times": [
+        {
+          "type": "text",
+          "value": "290 次"
+        }
+      ]
+    },
+    {
+      "name": [
+        {
+          "type": "text",
+          "value": "北方 大苹果"
+        }
+      ],
+      "profit": [
+        {
+          "type": "text",
+          "value": "2 33746875"
+        }
+      ],
+      "payment": [
+        {
+          "type": "text",
+          "value": "12 人"
+        }
+      ],
+      "browse": [
+        {
+          "type": "text",
+          "value": "120 人"
+        }
+      ],
+      "types": [
+        {
+          "type": "text",
+          "value": "大数据推送"
+        }
+      ],
+      "object": [
+        {
+          "type": "text",
+          "value": "微信  标签选择： 大学生   I   深圳   I   20-30   I   女   I   设计   I   未婚   I   消费能力 "
+        }
+      ],
+      "state": [
+        {
+          "type": "text",
+          "value": "启用"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2019.06.06"
+        }
+      ],
+      "times": [
+        {
+          "type": "text",
+          "value": "290 次"
+        }
+      ]
+    },
+    {
+      "name": [
+        {
+          "type": "text",
+          "value": "北方 大苹果"
+        }
+      ],
+      "profit": [
+        {
+          "type": "text",
+          "value": "2 33746875"
+        }
+      ],
+      "payment": [
+        {
+          "type": "text",
+          "value": "12 人"
+        }
+      ],
+      "browse": [
+        {
+          "type": "text",
+          "value": "120 人"
+        }
+      ],
+      "types": [
+        {
+          "type": "text",
+          "value": "大数据推送"
+        }
+      ],
+      "object": [
+        {
+          "type": "text",
+          "value": "微信  标签选择： 大学生   I   深圳   I   20-30   I   女   I   设计   I   未婚   I   消费能力 "
+        }
+      ],
+      "state": [
+        {
+          "type": "text",
+          "value": "启用"
+        }
+      ],
+      "date": [
+        {
+          "type": "text",
+          "value": "2019.06.06"
+        }
+      ],
+      "times": [
+        {
+          "type": "text",
+          "value": "290 次"
+        }
+      ]
+    }
   ]
 }
