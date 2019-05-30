@@ -82,6 +82,10 @@ export default new Router({
       component: () => import('@/layouts/Layout.vue'),
       children: [
         {
+          path: 'home',
+          component: () => import('@/pages/bigdata/BigDataHome.vue')
+        },
+        {
           path: 'search',
           component: () => import('@/pages/bigdata/BigDataSearch.vue')
         }

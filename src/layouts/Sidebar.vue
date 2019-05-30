@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar">
+  <div :class="{sidebar: true, collapse: collapse}">
     <div class="sidebar-list">
       <div class="sidebar-list-item" v-for="(item, index) in menu" :key="index">
         <a
@@ -9,10 +9,29 @@
         >
           <img :src="imgUrl(item.image)" :alt="item.image">
           <span :class="{collapse: collapse}">{{item.label}}</span>
+          <span class="right" v-if="item.child">></span>
         </a>
-        <!-- <div class="submenu">
-          <v-tree-menu primary :nodes="item.submenu" :depth="0"/>
-        </div>-->
+        <div class="submenu" v-if="activeIndex === index && item.child">
+          <div class="sidebar-list-item" v-for="(item1, index1) in item.child" :key="index1">
+            <a
+              :class="{active: activeIndex1 === index1}"
+              href="#"
+              @click="handleChangeMenu1(index1)"
+            >
+              {{item1.label}}
+              <span class="right" v-if="item1.child">></span>
+            </a>
+            <div class="submenu deep2" v-if="activeIndex1 === index1 && item1.child">
+              <div class="sidebar-list-item" v-for="(item2, index2) in item1.child" :key="index2">
+                <a
+                  :class="{active: activeIndex2 === index2, deep2: true}"
+                  href="#"
+                  @click="handleChangeMenu2(index2)"
+                >{{item1.label}}</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="toggle">
@@ -30,6 +49,8 @@ export default {
     return {
       collapse: false,
       activeIndex: 0,
+      activeIndex1: -1,
+      activeIndex2: -1,
       menu: [
         {
           class: "list-home",
@@ -64,17 +85,16 @@ export default {
         {
           class: "list-auto",
           image: "ic_auto",
-          label: "自动回复"
-          // submenu: [
-          //   {
-          //     label: "弹窗",
-          //     action: undefined
-          //   },
-          //   {
-          //     label: "首页",
-          //     action: undefined
-          //   }
-          // ]
+          label: "自动回复",
+          child: [
+            {
+              label: "弹窗",
+              child: [{ label: "child1" }, { label: "child2" }]
+            },
+            {
+              label: "首页"
+            }
+          ]
         },
         {
           class: "list-task",
@@ -100,10 +120,19 @@ export default {
       console.log("###", this.collapse);
     },
     imgUrl(imgName) {
-      return require("@/assets/images/" + imgName + "_blue.png");
+      return require("@/assets/images/" + imgName + "_white.png");
     },
     handleChangeMenu(index) {
       this.activeIndex = index;
+      this.activeIndex1 = -1;
+      this.activeIndex2 = -1;
+    },
+    handleChangeMenu1(index1) {
+      this.activeIndex1 = index1;
+      this.activeIndex2 = -1;
+    },
+    handleChangeMenu2(index2) {
+      this.activeIndex2 = index2;
     }
   }
 };
@@ -118,29 +147,39 @@ export default {
   justify-content: space-between;
   align-items: center;
   border-right: 1px solid #eef0f5;
+  background-color: #217af9;
+  min-width: 143px;
+  width: 143px;
 
   .sidebar-list {
     transition: width 1s ease-out;
+    width: 100%;
+
     .sidebar-list-item {
       position: relative;
+
+      // &.active {
+      //   // background: white;
+      //   // color: #217af9;
+      //   background-color: darken(#217af9, 10%);
+      // }
+      // &:hover {
+      //   background-color: darken(#217af9, 5%);
+      // }
 
       a {
         display: flex;
         align-items: center;
         text-decoration: none;
-        color: black;
+        color: white;
         height: 44px;
         padding: 14px 0px;
         overflow: hidden;
 
-        &:hover {
-          background: #eef0f5;
-        }
-
         img {
           width: 16px;
           height: 16px;
-          margin: 0px 24px;
+          margin: 0px 12px 0 20px;
         }
         span {
           width: 78px;
@@ -153,106 +192,49 @@ export default {
             width: 0px;
           }
         }
+        &.active,
+        &:hover {
+          // background: white;
+          // color: #217af9;
+          background-color: darken(#217af9, 10%);
+        }
+      }
+      .submenu {
+        background-color: #217af9;
+        z-index: 10;
 
-        &.active {
-          background: #0f7bf9;
-          color: white;
+        .sidebar-list-item {
+          a {
+            font-size: 12px;
+            padding-left: 60px;
+            border-bottom: 1px solid darken(#80b4ff, 20%);
 
-          &.list-home {
-            img {
-              display: block;
-              background: url("~@/assets/images/ic_home_white.png") no-repeat;
-              background-size: contain;
-              padding-left: 16px;
-            }
-          }
-          &.list-chat {
-            img {
-              display: block;
-              background: url("~@/assets/images/ic_chat_white.png") no-repeat;
-              background-size: contain;
-              padding-left: 16px;
-            }
-          }
-          &.list-user {
-            img {
-              display: block;
-              background: url("~@/assets/images/ic_user_white.png") no-repeat;
-              background-size: contain;
-              padding-left: 16px;
-            }
-          }
-          &.list-ecommerce {
-            img {
-              display: block;
-              background: url("~@/assets/images/ic_ecommerce_white.png")
-                no-repeat;
-              background-size: contain;
-              padding-left: 16px;
-            }
-          }
-          &.list-content {
-            img {
-              display: block;
-              background: url("~@/assets/images/ic_content_white.png") no-repeat;
-              background-size: contain;
-              padding-left: 16px;
-            }
-          }
-          &.list-label {
-            img {
-              display: block;
-              background: url("~@/assets/images/ic_label_white.png") no-repeat;
-              background-size: contain;
-              padding-left: 16px;
-            }
-          }
-          &.list-auto {
-            img {
-              display: block;
-              background: url("~@/assets/images/ic_auto_white.png") no-repeat;
-              background-size: contain;
-              padding-left: 16px;
-            }
-          }
-          &.list-task {
-            img {
-              display: block;
-              background: url("~@/assets/images/ic_task_white.png") no-repeat;
-              background-size: contain;
-              padding-left: 16px;
-            }
-          }
-          &.list-script {
-            img {
-              display: block;
-              background: url("~@/assets/images/ic_script_white.png") no-repeat;
-              background-size: contain;
-              padding-left: 16px;
-            }
-          }
-          &.list-bigdata {
-            img {
-              display: block;
-              background: url("~@/assets/images/ic_bigdata_white.png") no-repeat;
-              background-size: contain;
-              padding-left: 16px;
+            &.deep2 {
+              padding-left: 90px;
             }
           }
         }
       }
-
-      // .submenu {
-      //   position: absolute;
-      //   top: 0px;
-      //   left: calc(100% + 1px);
-      //   z-index: 8;
-      //   display: none;
-      // }
-
-      // &:hover .submenu {
-      //   display: block;
-      // }
+      .right {
+        position: absolute;
+        right: 10px;
+        width: unset;
+      }
+    }
+  }
+  &.collapse {
+    width: 60px;
+    .submenu {
+      width: 155px;
+      position: absolute;
+      top: 0px;
+      left: 57px;
+      a {
+        padding-left: 20px !important;
+      }
+      &.deep2 {
+        left: 156px;
+      }
     }
   }
   .toggle {
