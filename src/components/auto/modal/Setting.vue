@@ -355,7 +355,7 @@ export default {
             .title {
               display: flex;
               flex-direction: column;
-              align-items: start;
+              align-items: flex-start;
 
               .btn-ctrl {
                 margin-top: 21px;

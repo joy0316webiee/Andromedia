@@ -25,7 +25,7 @@ export default {
   name: "TaskPush",
   data() {
     return {
-      openedModal: 1,
+      openedModal: -1,
       dutyNodes: [
         {
           label: "任务组1",
@@ -77,6 +77,7 @@ export default {
       ],
       goods: [],
       dimens: [
+        "30px",
         "172px",
         "130px",
         "157px",

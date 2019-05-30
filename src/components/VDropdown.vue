@@ -4,7 +4,7 @@
       <v-button :class="classes" v-html="text" :style="buttonStyle"></v-button>
     </div>
     <div class="dropdown-menu" :class="{right: right}" v-show="opened">
-      <v-tree-menu :nodes="nodes" :depth="0" :toggle="toggle"/>
+      <v-tree-menu :width="width" :nodes="nodes" :depth="0" :toggle="toggle"/>
     </div>
   </div>
 </template>

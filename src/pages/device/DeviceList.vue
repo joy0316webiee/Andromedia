@@ -27,6 +27,7 @@ export default {
       ],
       devices: [],
       dimens: [
+        "30px",
         "134px",
         "164px",
         "99px",
