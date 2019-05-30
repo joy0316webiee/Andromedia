@@ -9,7 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: 'task/goods'
+      redirect: '/device/list'
     },
     {
       path: '/device',
@@ -36,16 +36,22 @@ export default new Router({
           component: () => import('@/pages/device/DeviceManage.vue')
         },
         {
-          path: 'editscript',
-          component: () => import('@/pages/device/DeviceEditScript.vue')
-        },
-        {
-          path: 'runscript',
-          component: () => import('@/pages/device/DeviceRunScript.vue')
-        },
-        {
           path: 'restore',
           component: () => import('@/pages/device/DeviceRestore.vue')
+        }
+      ]
+    },
+    {
+      path: '/code',
+      component: () => import('@/layouts/Layout.vue'),
+      children: [
+        {
+          path: 'edit',
+          component: () => import('@/pages/code/ScriptEdit.vue')
+        },
+        {
+          path: 'run',
+          component: () => import('@/pages/code/ScriptRun.vue')
         }
       ]
     },
@@ -133,11 +139,11 @@ export default new Router({
       children: [
         {
           path: 'home',
-          component: () => import('@/pages/trace/TraceHome.vue'),
+          component: () => import('@/pages/trace/TraceHome.vue')
         },
         {
           path: 'manage',
-          component: () => import('@/pages/trace/TraceDocManage.vue'),
+          component: () => import('@/pages/trace/TraceDocManage.vue')
         }
       ]
     }

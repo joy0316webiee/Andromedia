@@ -2,8 +2,10 @@
   <div class="layout">
     <Header/>
     <Container>
-      <Sidebar/>
-      <router-view/>
+      <Sidebar :Router="Router"/>
+      <transition name="fade-anim">
+        <router-view/>
+      </transition>
     </Container>
   </div>
 </template>
@@ -12,6 +14,7 @@
 import Header from "@/layouts/Header";
 import Sidebar from "@/layouts/Sidebar";
 import Container from "@/layouts/Container";
+import router from "@/router";
 
 export default {
   name: "Layout",
@@ -19,12 +22,32 @@ export default {
     Header,
     Sidebar,
     Container
+  },
+  methods: {
+    Router(href) {
+      this.$router.push(href);
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "@/assets/sass/base.scss";
+
+fade-anim-enter-active {
+  animation: coming 0.5s;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes coming {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 .layout {
   display: flex;
