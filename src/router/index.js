@@ -110,8 +110,8 @@ export default new Router({
       component: () => import('@/layouts/Layout.vue'),
       children: [
         {
-          path: 'basic',
-          component: () => import('@/pages/personal/PersonalBasic.vue')
+          path: 'account',
+          component: () => import('@/pages/personal/PersonalAccount.vue')
         },
         {
           path: 'user',
