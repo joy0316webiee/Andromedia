@@ -3,30 +3,41 @@
     <div class="sidebar-list">
       <div class="sidebar-list-item" v-for="(item, index) in menu" :key="index">
         <a
-          :class="[item.class, {active: activeIndex === index}]"
+          :class="[item.class, {active: activeIndex === index, hover: hoverIndex === index, collapse: collapse1}]"
           href="#"
           @click="handleChangeMenu(index)"
+          @mouseover="hoverMenu(index)"
+          @mouseout="hoverMenu(-1)"
         >
           <img :src="imgUrl(item.image)" :alt="item.image">
           <span :class="{collapse: collapse}">{{item.label}}</span>
-          <span class="right" v-if="item.child">></span>
+          <font-awesome-icon class="right" v-if="item.child && !collapse" icon="chevron-right"/>
         </a>
-        <div class="submenu" v-if="activeIndex === index && item.child">
+        <div
+          :class="{submenu: true, display: ((activeIndex === index || (hoverIndex === index && collapse)) && item.child && !collapse1)}"
+        >
           <div class="sidebar-list-item" v-for="(item1, index1) in item.child" :key="index1">
             <a
-              :class="{active: activeIndex1 === index1}"
+              :class="{active: activeIndex1 === index1, hover: hoverIndex1 === index1}"
               href="#"
-              @click="handleChangeMenu1(index1)"
+              @click="handleChangeMenu1(index, index1)"
+              @mouseover="hoverMenu1(index, index1)"
+              @mouseout="hoverMenu1(index, -1)"
             >
               {{item1.label}}
-              <span class="right" v-if="item1.child">></span>
+              <font-awesome-icon class="right" v-if="item1.child" icon="chevron-right"/>
             </a>
-            <div class="submenu deep2" v-if="activeIndex1 === index1 && item1.child">
+            <div
+              class="submenu deep2"
+              v-show="(activeIndex1 === index1 || (hoverIndex1 === index1 && collapse)) && item1.child"
+            >
               <div class="sidebar-list-item" v-for="(item2, index2) in item1.child" :key="index2">
                 <a
-                  :class="{active: activeIndex2 === index2, deep2: true}"
+                  :class="{active: activeIndex2 === index2, hover: hoverIndex2 === index2, deep2: true}"
                   href="#"
-                  @click="handleChangeMenu2(index2)"
+                  @click="handleChangeMenu2(index, index1, index2)"
+                  @mouseover="hoverMenu2(index, index1, index2)"
+                  @mouseout="hoverMenu2(index, index1, -1)"
                 >{{item1.label}}</a>
               </div>
             </div>
@@ -51,6 +62,12 @@ export default {
       activeIndex: 0,
       activeIndex1: -1,
       activeIndex2: -1,
+      hoverIndex: -1,
+      hoverIndex1: -1,
+      hoverIndex2: -1,
+      collapse1: true,
+      collapse2: true,
+      collapse3: true,
       menu: [
         {
           class: "list-home",
@@ -88,8 +105,7 @@ export default {
           label: "自动回复",
           child: [
             {
-              label: "弹窗",
-              child: [{ label: "child1" }, { label: "child2" }]
+              label: "弹窗"
             },
             {
               label: "首页"
@@ -123,16 +139,44 @@ export default {
       return require("@/assets/images/" + imgName + "_white.png");
     },
     handleChangeMenu(index) {
+      if (this.activeIndex !== index) {
+        this.activeIndex1 = -1;
+        this.activeIndex2 = -1;
+      }
       this.activeIndex = index;
-      this.activeIndex1 = -1;
-      this.activeIndex2 = -1;
+      this.collapse1 = !this.collapse1;
+      if (this.collapse) this.collapse1 = false;
     },
-    handleChangeMenu1(index1) {
+    handleChangeMenu1(index, index1) {
+      if (this.activeIndex1 !== index1) {
+        this.activeIndex2 = -1;
+      }
+      this.activeIndex = index;
       this.activeIndex1 = index1;
-      this.activeIndex2 = -1;
+      if (this.collapse) this.collapse1 = true;
+      console.log(this.collapse1);
+      this.collapse2 = !this.collapse2;
     },
-    handleChangeMenu2(index2) {
+    handleChangeMenu2(index, index1, index2) {
+      this.activeIndex = index;
+      this.activeIndex1 = index1;
       this.activeIndex2 = index2;
+      this.collapse3 = !this.collapse3;
+    },
+    hoverMenu(index) {
+      this.hoverIndex = index;
+      this.hoverIndex1 = -1;
+      this.hoverIndex2 = -1;
+    },
+    hoverMenu1(index, index1) {
+      this.hoverIndex = index;
+      this.hoverIndex1 = index1;
+      this.hoverIndex2 = -1;
+    },
+    hoverMenu2(index, index1, index2) {
+      this.hoverIndex = index;
+      this.hoverIndex1 = index1;
+      this.hoverIndex2 = index2;
     }
   }
 };
@@ -150,9 +194,10 @@ export default {
   background-color: #217af9;
   min-width: 143px;
   width: 143px;
+  transition: width 0.3s ease-out;
 
   .sidebar-list {
-    transition: width 1s ease-out;
+    // transition: width 1s ease-out;
     width: 100%;
 
     .sidebar-list-item {
@@ -192,22 +237,68 @@ export default {
             width: 0px;
           }
         }
-        &.active,
+
         &:hover {
+          background-color: darken(#217af9, 5%);
+        }
+        &.active,
+        &.active:hover,
+        &.active.hover {
           // background: white;
           // color: #217af9;
-          background-color: darken(#217af9, 10%);
+          background-color: darken(#217af9, 15%);
+          &::before {
+            content: " ";
+            width: 3px;
+            height: 45px;
+            background-color: white;
+            position: absolute;
+            left: 0;
+          }
+        }
+        &.active {
+          .fa-chevron-right {
+            transition: transform ease 0.3s;
+            transform: rotate(90deg);
+          }
+          &.collapse {
+            .fa-chevron-right {
+              transition: transform ease 0.3s;
+              transform: rotate(0deg);
+            }
+          }
         }
       }
       .submenu {
-        background-color: #217af9;
         z-index: 10;
+        background-color: darken(#217af9, 10%);
+        transition: all ease 0.3s;
+        max-height: 0;
+        overflow: hidden;
+
+        &.display {
+          max-height: calc(100px);
+        }
 
         .sidebar-list-item {
           a {
             font-size: 12px;
             padding-left: 60px;
-            border-bottom: 1px solid darken(#80b4ff, 20%);
+
+            &:hover,
+            &.hover {
+              background-color: darken(#217af9, 5%);
+            }
+            &.active:hover {
+              background-color: unset;
+            }
+            &.active {
+              font-weight: bold;
+              &::before {
+                width: 0;
+              }
+              background-color: unset;
+            }
 
             &.deep2 {
               padding-left: 90px;
@@ -218,22 +309,35 @@ export default {
       .right {
         position: absolute;
         right: 10px;
+        font-size: 12px;
         width: unset;
       }
     }
   }
   &.collapse {
     width: 60px;
+    min-width: 60px !important;
+
+    a {
+      .fa-chevron-right {
+        transform: unset !important;
+      }
+    }
     .submenu {
-      width: 155px;
+      width: 0;
       position: absolute;
       top: 0px;
-      left: 57px;
+      left: 60px;
+      max-height: unset !important;
+
       a {
         padding-left: 20px !important;
       }
       &.deep2 {
         left: 156px;
+      }
+      &.display {
+        width: 155px;
       }
     }
   }
