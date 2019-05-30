@@ -126,6 +126,16 @@ export default new Router({
           component: () => import('@/pages/personal/PersonalClient.vue')
         }
       ]
+    },
+    {
+      path: '/log',
+      component: () => import('@/layouts/Layout.vue'),
+      children: [
+        {
+          path: 'home',
+          component: () => import('@/pages/log/Home.vue'),
+        }
+      ]
     }
   ]
 });
