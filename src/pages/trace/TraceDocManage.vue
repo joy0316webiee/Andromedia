@@ -17,7 +17,7 @@
       </ul>
     </div>
     <div class="docs">
-      <div class="doc-item-wrapper" v-for="(doc, index) in docs">
+      <div class="doc-item-wrapper" v-for="(doc, index) in docs" :key="index">
         <div class="doc-item">
           <img :src="require(`@/assets/images/ic_${doc.icon}.png`)">
           <div class="doc-description">
@@ -26,6 +26,10 @@
             <span>{{ doc.detail }}</span>
             <span>{{ doc.mark }}</span>
           </div>
+          <v-button width="5px;" transparent :onClick="() => showTree = index">
+            <img src="@/assets/images/ic_3dot.png" alt="3dot">
+          </v-button>
+          <v-tree-menu v-if="showTree === index" width="100px" :nodes="dropdown" :depth="0"></v-tree-menu>
         </div>
       </div>
     </div>
@@ -47,59 +51,90 @@ export default {
         { text: "链接" },
         { text: "录像" }
       ],
+      dropdown: [
+        {
+          label: "修改",
+          action: () => {
+            this.showTree = -1;
+          }
+        },
+        {
+          label: "重命名",
+          action: () => {
+            this.showTree = -1;
+          }
+        },
+        {
+          label: "删除",
+          action: () => {
+            this.showTree = -1;
+          }
+        },
+        {
+          label: "推送",
+          action: () => {
+            this.showTree = -1;
+          }
+        },
+        {
+          label: "查看日志",
+          action: () => {
+            this.showTree = -1;
+          }
+        }
+      ],
       activeMenu: 1,
-      dropdown1: [],
       docs: [
         {
-          icon: "doc1",
+          icon: "doc6",
           title: "微信朋友圈点赞!",
           detail: "批量点赞"
         },
         {
-          icon: "doc1",
+          icon: "doc7",
           title: "微信朋友圈点赞!",
           detail: "批量点赞"
         },
         {
-          icon: "doc2",
+          icon: "doc8",
+          title: "语音",
+          detail: "对淘宝的操作"
+        },
+        {
+          icon: "doc9",
           title: "淘宝脚本",
           detail: "对淘宝的操作"
         },
         {
-          icon: "doc2",
-          title: "淘宝脚本",
-          detail: "对淘宝的操作"
-        },
-        {
-          icon: "doc3",
+          icon: "doc10",
           title: "QQ脚本",
           detail: "对QQ的操作"
         },
         {
-          icon: "doc3",
+          icon: "doc11",
           title: "QQ脚本",
           detail: "对QQ的操作"
         },
         {
-          icon: "doc4",
-          title: "百度脚本",
-          detail: "对百度的操作"
+          icon: "doc12",
+          title: "图片",
+          detail: "对QQ的操作"
         },
         {
-          icon: "doc4",
-          title: "百度脚本",
-          detail: "对百度的操作"
-        },
-        {
-          icon: "doc5",
-          title: "通用",
-          detail: "对百度的操作",
-          mark: "自定义"
+          icon: "doc13",
+          title: "视频",
+          detail: "对QQ的操作"
         }
-      ]
+      ],
+      showTree: -1
     };
   },
-  methods: {}
+  methods: {
+    clickDropdown(index) {
+      console.log(index);
+      this.showTree = index;
+    }
+  }
 };
 </script>
 
@@ -191,13 +226,16 @@ export default {
       .doc-item {
         background-color: white;
         display: flex;
+        align-items: center;
         padding: 5px;
+        position: relative;
+
         img {
           margin-top: 5px;
         }
         .doc-description {
           flex: auto;
-          padding-top: 10px;
+
           margin-left: 14px;
           label {
             font-size: 14px;
@@ -217,6 +255,16 @@ export default {
             margin-top: 3px;
             margin-right: 16px;
           }
+        }
+        .v-button {
+          position: relative;
+          margin-right: 20px;
+          display: none;
+        }
+        & > .tree-menu {
+          position: absolute;
+          right: 20px;
+          top: 55px;
         }
       }
     }

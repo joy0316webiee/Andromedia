@@ -143,7 +143,11 @@ export default new Router({
         },
         {
           path: 'manage',
-          component: () => import('@/pages/trace/TraceDocManage.vue')
+          component: () => import('@/pages/trace/TraceDocManage.vue'),
+        },
+        {
+          path: 'task',
+          component: () => import('@/pages/trace/TraceTask.vue'),
         }
       ]
     }
