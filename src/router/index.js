@@ -142,6 +142,16 @@ export default new Router({
           component: () => import('@/pages/trace/TraceTask.vue'),
         }
       ]
+    },
+    {
+      path: '/help',
+      component: () => import('@/layouts/Layout.vue'),
+      children: [
+        {
+          path: 'home',
+          component: () => import('@/pages/help/HelpHome.vue')
+        }
+      ]
     }
   ]
 });
