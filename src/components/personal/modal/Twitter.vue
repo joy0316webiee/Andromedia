@@ -5,6 +5,7 @@
       role="dialog"
       aria-labelledby="modalTitle"
       aria-describedby="modalDescription"
+      :class="{simple: simple}"
     >
       <div class="modal-header" id="modalTitle">
         <div class="title">
@@ -44,6 +45,9 @@
 
 <script>
 export default {
+  props: {
+    simple: Boolean
+  },
   data() {
     return {
       paginationStyle: {
@@ -91,6 +95,13 @@ export default {
     overflow: auto;
     display: flex;
     flex-direction: column;
+
+    &.simple {
+      height: 230px;
+      .modal-header {
+        display: none;
+      }
+    }
 
     .modal-header {
       padding: 14px 20px;
