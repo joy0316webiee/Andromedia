@@ -101,15 +101,7 @@ export default {
             },
             {
               label: "个人信息",
-              href: "/personal/user"
-            },
-            {
-              label: "客户信息",
               href: "/personal/customer"
-            },
-            {
-              label: "客户",
-              href: "/personal/client"
             }
           ]
         },

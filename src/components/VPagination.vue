@@ -51,7 +51,7 @@ export default {
         cursor: pointer;
 
         &.active {
-          background: #55a8fe;
+          background: #55a8fe !important;
           border-radius: 3px;
           color: white;
         }

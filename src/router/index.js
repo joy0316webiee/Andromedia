@@ -120,16 +120,8 @@ export default new Router({
           component: () => import('@/pages/personal/PersonalAccount.vue')
         },
         {
-          path: 'user',
-          component: () => import('@/pages/personal/PersonalUser.vue')
-        },
-        {
           path: 'customer',
           component: () => import('@/pages/personal/PersonalCustomer.vue')
-        },
-        {
-          path: 'client',
-          component: () => import('@/pages/personal/PersonalClient.vue')
         }
       ]
     },

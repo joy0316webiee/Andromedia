@@ -34,7 +34,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/sass/base.scss";
 
-fade-anim-enter-active {
+.fade-anim-enter-active {
   animation: coming 0.5s;
   animation-delay: 0.3s;
   opacity: 0;
