@@ -9,7 +9,17 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/device/list'
+      redirect: '/home/'
+    },
+    {
+      path: '/home',
+      component: () => import('@/layouts/Layout.vue'),
+      children: [
+        {
+          path: '/',
+          component: () => import('@/pages/home/Home.vue')
+        }
+      ]
     },
     {
       path: '/device',
@@ -122,6 +132,10 @@ export default new Router({
         {
           path: 'customer',
           component: () => import('@/pages/personal/PersonalCustomer.vue')
+        },
+        {
+          path: 'user',
+          component: () => import('@/pages/personal/PersonalUser.vue')
         }
       ]
     },
@@ -135,11 +149,11 @@ export default new Router({
         },
         {
           path: 'manage',
-          component: () => import('@/pages/trace/TraceDocManage.vue'),
+          component: () => import('@/pages/trace/TraceDocManage.vue')
         },
         {
           path: 'task',
-          component: () => import('@/pages/trace/TraceTask.vue'),
+          component: () => import('@/pages/trace/TraceTask.vue')
         }
       ]
     }
