@@ -94,6 +94,10 @@ export default new Router({
         {
           path: 'order',
           component: () => import('@/pages/task/TaskPushOrder.vue')
+        },
+        {
+          path: 'shop',
+          component: () => import('@/pages/task/TaskPushShop.vue')
         }
       ]
     },
