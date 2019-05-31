@@ -152,6 +152,16 @@ export default new Router({
           component: () => import('@/pages/help/HelpHome.vue')
         }
       ]
+    },
+    {
+      path: '/label',
+      component: () => import('@/layouts/Layout.vue'),
+      children: [
+        {
+          path: 'grouping',
+          component: () => import('@/pages/label/LabelGrouping.vue')
+        }
+      ]
     }
   ]
 });

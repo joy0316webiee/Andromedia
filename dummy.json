@@ -554,6 +554,110 @@
       ]
     }
   ],
+  "keywords": [
+    {
+      "name": "小学",
+      "field1": "朋友圈",
+      "field2": "1230 组",
+      "field3": "1230 人"
+    },
+    {
+      "name": "初中",
+      "field1": "朋友圈",
+      "field2": "1230 组",
+      "field3": "1230 人"
+    },
+    {
+      "name": "高中",
+      "field1": "朋友圈",
+      "field2": "1230 组",
+      "field3": "1230 人"
+    },
+    { "name": "中专", "field1": "朋友圈", "field2": "", "field3": "" },
+    {
+      "name": "大专",
+      "field1": "朋友圈",
+      "field2": "230 组",
+      "field3": "1230 人"
+    },
+    {
+      "name": "小学",
+      "field1": "朋友圈",
+      "field2": "1230 组",
+      "field3": "1230 人"
+    },
+    {
+      "name": "初中",
+      "field1": "朋友圈",
+      "field2": "1230 组",
+      "field3": "1230 人"
+    },
+    {
+      "name": "高中",
+      "field1": "朋友圈",
+      "field2": "1230 组",
+      "field3": "1230 人"
+    },
+    { "name": "中专", "field1": "朋友圈", "field2": "", "field3": "" },
+    {
+      "name": "大专",
+      "field1": "朋友圈",
+      "field2": "230 组",
+      "field3": "1230 人"
+    }
+  ],
+  "labelList": [
+    {
+      "name": "小学",
+      "field1": "",
+      "field2": "1230 组",
+      "field3": "1230 人"
+    },
+    {
+      "name": "初中",
+      "field1": "",
+      "field2": "1230 组",
+      "field3": "1230 人"
+    },
+    {
+      "name": "高中",
+      "field1": "",
+      "field2": "1230 组",
+      "field3": "1230 人"
+    },
+    { "name": "中专", "field1": "", "field2": "", "field3": "" },
+    {
+      "name": "大专",
+      "field1": "",
+      "field2": "230 组",
+      "field3": "1230 人"
+    },
+    {
+      "name": "小学",
+      "field1": "",
+      "field2": "1230 组",
+      "field3": "1230 人"
+    },
+    {
+      "name": "初中",
+      "field1": "",
+      "field2": "1230 组",
+      "field3": "1230 人"
+    },
+    {
+      "name": "高中",
+      "field1": "",
+      "field2": "1230 组",
+      "field3": "1230 人"
+    },
+    { "name": "中专", "field1": "", "field2": "", "field3": "" },
+    {
+      "name": "大专",
+      "field1": "",
+      "field2": "230 组",
+      "field3": "1230 人"
+    }
+  ],
   "devicelist": [
     {
       "equip": [
