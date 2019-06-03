@@ -104,6 +104,10 @@ export default new Router({
         {
           path: 'order',
           component: () => import('@/pages/task/TaskPushOrder.vue')
+        },
+        {
+          path: 'shop',
+          component: () => import('@/pages/task/TaskPushShop.vue')
         }
       ]
     },
@@ -154,6 +158,26 @@ export default new Router({
         {
           path: 'task',
           component: () => import('@/pages/trace/TraceTask.vue')
+        }
+      ]
+    },
+    {
+      path: '/help',
+      component: () => import('@/layouts/Layout.vue'),
+      children: [
+        {
+          path: 'home',
+          component: () => import('@/pages/help/HelpHome.vue')
+        }
+      ]
+    },
+    {
+      path: '/label',
+      component: () => import('@/layouts/Layout.vue'),
+      children: [
+        {
+          path: 'grouping',
+          component: () => import('@/pages/label/LabelGrouping.vue')
         }
       ]
     }
