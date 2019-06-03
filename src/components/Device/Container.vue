@@ -12,7 +12,7 @@
           </select>
         </div>
         <input class="search" type="text" placeholder="请输入你想输入的关键词">
-        <v-button info class="btn-create">新加配置</v-button>
+        <v-button info class="btn-create" :onClick="() => {openedModal = 4}">新加配置</v-button>
         <v-button :light="lightButton" class="btn-import">导入配置</v-button>
         <v-dropdown class="dropdown-batch" text="批量操作" :light="lightButton" :nodes="batchDropdown"/>
         <v-dropdown class="dropdown-group" text="分组" :light="lightButton" :nodes="groupDropdown"/>
@@ -35,6 +35,9 @@
     <device-modal-create v-show="openedModal === 1" @close="closeModal"/>
     <device-modal-config v-show="openedModal === 2" @close="closeModal"/>
     <device-modal-select v-show="openedModal === 3" @close="closeModal"/>
+    <device-modal-task v-show="openedModal === 4" @close="closeModal"/>
+    <device-modal-virtual-position v-show="openedModal === 5" @close="closeModal"/>
+    <device-modal-virtual-config v-show="openedModal === 6" @close="closeModal"/>
   </div>
 </template>
 

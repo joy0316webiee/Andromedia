@@ -24,6 +24,7 @@
     "vue-radial-progress": "^0.2.10",
     "vue-router": "^3.0.3",
     "vue2-editor": "^2.7.2",
+    "vue2-google-maps": "^0.10.6",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
