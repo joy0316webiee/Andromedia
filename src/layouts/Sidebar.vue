@@ -44,8 +44,10 @@ export default {
     return {
       menu: [
         {
+          class: "list-home",
           icon: "ic_home",
-          label: "首页"
+          label: "首页",
+          href: "/home/"
         },
         {
           icon: "ic_chat",
@@ -80,8 +82,10 @@ export default {
           ]
         },
         {
+          class: "list-ecommerce",
           icon: "ic_ecommerce",
-          label: "电商"
+          label: "电商",
+          href: "/ecommerce/"
         },
         {
           icon: "ic_content",

@@ -38,6 +38,8 @@
     <device-modal-task v-show="openedModal === 4" @close="closeModal"/>
     <device-modal-virtual-position v-show="openedModal === 5" @close="closeModal"/>
     <device-modal-virtual-config v-show="openedModal === 6" @close="closeModal"/>
+    <device-modal-execute-history v-show="openedModal === 7" @close="closeModal"/>
+    <device-modal-execute-failed v-show="openedModal === 8" @close="closeModal"/>
   </div>
 </template>
 

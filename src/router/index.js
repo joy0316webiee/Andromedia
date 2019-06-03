@@ -180,6 +180,16 @@ export default new Router({
           component: () => import('@/pages/label/LabelGrouping.vue')
         }
       ]
+    },
+    {
+      path: '/ecommerce',
+      component: () => import('@/layouts/Layout.vue'),
+      children: [
+        {
+          path: '/',
+          component: () => import('@/pages/ecommerce/EcoContent.vue')
+        }
+      ]
     }
   ]
 });

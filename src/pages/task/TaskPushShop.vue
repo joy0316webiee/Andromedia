@@ -81,13 +81,13 @@
 
 <script>
 import DateRangePicker from "@gravitano/vue-date-range-picker";
-import PieChart from "@/components/Chart/PieChart.js";
+import PieChart from "@/components/chart/PieChart.js";
 export default {
   components: { DateRangePicker, PieChart },
   data() {
     return {
       labels: [
-        "（订单/时间）",
+        "(订单/时间)",
         "周一",
         "周二",
         "周三",
