@@ -113,7 +113,8 @@ export default {
         {
           class: "list-ecommerce",
           image: "ic_ecommerce",
-          label: "电商"
+          label: "电商",
+          href: "/ecommerce/"
         },
         {
           class: "list-content",
