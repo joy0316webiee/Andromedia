@@ -73,7 +73,8 @@ export default {
         {
           class: "list-home",
           image: "ic_home",
-          label: "首页"
+          label: "首页",
+          href: "/home/"
         },
         {
           class: "list-chat",
@@ -102,6 +103,10 @@ export default {
             {
               label: "个人信息",
               href: "/personal/customer"
+            },
+            {
+              label: "用户",
+              href: "/personal/user"
             }
           ]
         },
