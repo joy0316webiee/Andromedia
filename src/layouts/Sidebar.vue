@@ -1,84 +1,56 @@
 <template>
-  <div :class="{sidebar: true, collapse: collapse}">
-    <div class="sidebar-list">
-      <div class="sidebar-list-item" v-for="(item, index) in menu" :key="index">
-        <a
-          :class="[item.class, {active: activeIndex === index, hover: hoverIndex === index, collapse: collapse1}]"
-          href="#"
-          @click="handleChangeMenu(index, item.href)"
-          @mouseover="hoverMenu(index)"
-          @mouseout="hoverMenu(-1)"
-        >
-          <img :src="imgUrl(item.image)" :alt="item.image">
-          <span :class="{collapse: collapse}">{{item.label}}</span>
-          <font-awesome-icon class="right" v-if="item.child && !collapse" icon="chevron-right"/>
+  <div :class="{sidebar: true, collapse: collapseSidebar}">
+    <ul>
+      <li
+        v-for="(item, index) in menu"
+        :key="index"
+        :class="{active: activeMenu === index, collapse: collapseMenuItem}"
+      >
+        <a @click="handleActiveMenu(index, item.href)" @mouseover="hoverMenu">
+          <img class="icon" v-show="item.icon" :src="getIcon(item.icon)" alt="icon">
+          <span>{{ item.label }}</span>
+          <font-awesome-icon v-show="item.child" icon="chevron-right"/>
         </a>
-        <div
-          :class="{submenu: true, display: ((activeIndex === index || (hoverIndex === index && collapse)) && item.child && !collapse1)}"
-        >
-          <div class="sidebar-list-item" v-for="(item1, index1) in item.child" :key="index1">
+
+        <ul v-show="item.child">
+          <li v-for="(item1, index1) in item.child" :key="index1">
             <a
-              :class="{active: activeIndex1 === index1, hover: hoverIndex1 === index1}"
-              href="#"
-              @click="handleChangeMenu1(index, index1, item1.href)"
-              @mouseover="hoverMenu1(index, index1)"
-              @mouseout="hoverMenu1(index, -1)"
+              :class="{active: activeMenu1 === index1}"
+              @click="handleActiveMenu1(index, index1, item1.href)"
+              @mouseover="hoverMenu"
             >
-              {{item1.label}}
-              <font-awesome-icon class="right" v-if="item1.child" icon="chevron-right"/>
+              <img v-show="item1.icon" :src="getIcon(item1.icon, 2)" alt="icon">
+              <span>{{ item1.label }}</span>
             </a>
-            <div
-              class="submenu deep2"
-              v-show="(activeIndex1 === index1 || (hoverIndex1 === index1 && collapse)) && item1.child"
-            >
-              <div class="sidebar-list-item" v-for="(item2, index2) in item1.child" :key="index2">
-                <a
-                  :class="{active: activeIndex2 === index2, hover: hoverIndex2 === index2, deep2: true}"
-                  href="#"
-                  @click="handleChangeMenu2(index, index1, index2)"
-                  @mouseover="hoverMenu2(index, index1, index2)"
-                  @mouseout="hoverMenu2(index, index1, -1)"
-                >{{item1.label}}</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="toggle">
-      <a href="#" @click="onCollaspe()">
-        <img src="@/assets/images/ic_collapse_blue.png" alt="collapse">
-      </a>
-    </div>
+          </li>
+        </ul>
+      </li>
+      <li class="collapse-button-wrapper">
+        <button @click="collapseSidebar = !collapseSidebar">
+          <img src="@/assets/images/ic_collapse_blue.png" alt="collapse">
+        </button>
+      </li>
+    </ul>
+    <!-- <div class="btn-collapse">
+      <font-awesome-icon icon="chevron-right"/>
+    </div>-->
   </div>
 </template>
-
 <script>
 export default {
   name: "Sidebar",
   props: ["Router"],
   data() {
     return {
-      collapse: false,
-      activeIndex: 0,
-      activeIndex1: -1,
-      activeIndex2: -1,
-      hoverIndex: -1,
-      hoverIndex1: -1,
-      hoverIndex2: -1,
-      collapse1: true,
-      collapse2: true,
-      collapse3: true,
       menu: [
         {
           class: "list-home",
-          image: "ic_home",
+          icon: "ic_home",
           label: "首页",
           href: "/home/"
         },
         {
-          class: "list-chat",
-          image: "ic_chat",
+          icon: "ic_chat",
           label: "聊天室",
           child: [
             {
@@ -92,8 +64,7 @@ export default {
           ]
         },
         {
-          class: "list-user",
-          image: "ic_user",
+          icon: "ic_user",
           label: "用户",
           child: [
             {
@@ -112,13 +83,12 @@ export default {
         },
         {
           class: "list-ecommerce",
-          image: "ic_ecommerce",
+          icon: "ic_ecommerce",
           label: "电商",
           href: "/ecommerce/"
         },
         {
-          class: "list-content",
-          image: "ic_content",
+          icon: "ic_content",
           label: "设备",
           child: [
             {
@@ -148,8 +118,7 @@ export default {
           ]
         },
         {
-          class: "list-label",
-          image: "ic_label",
+          icon: "ic_label",
           label: "标签",
           child: [
             {
@@ -163,8 +132,7 @@ export default {
           ]
         },
         {
-          class: "list-auto",
-          image: "ic_auto",
+          icon: "ic_auto",
           label: "自动回复",
           child: [
             {
@@ -178,8 +146,7 @@ export default {
           ]
         },
         {
-          class: "list-task",
-          image: "ic_task",
+          icon: "ic_task",
           label: "标配任务",
           child: [
             {
@@ -193,8 +160,7 @@ export default {
           ]
         },
         {
-          class: "list-script",
-          image: "ic_script",
+          icon: "ic_script",
           label: "自定义脚本",
           child: [
             {
@@ -208,8 +174,7 @@ export default {
           ]
         },
         {
-          class: "list-bigdata",
-          image: "ic_bigdata",
+          icon: "ic_bigdata",
           label: "大数据",
           child: [
             {
@@ -222,60 +187,46 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      activeMenu: -1,
+      activeMenu1: -1,
+      activeMenu2: -1,
+      collapseSidebar: false,
+      collapseMenuItem: false
     };
   },
   methods: {
-    onCollaspe() {
-      this.collapse = !this.collapse;
-      console.log("###", this.collapse);
+    getIcon(icon) {
+      if (!icon) return;
+      return require(`@/assets/images/${icon}_white.png`);
     },
-    imgUrl(imgName) {
-      return require("@/assets/images/" + imgName + "_white.png");
+    toggle(value) {
+      value = !value;
     },
-    handleChangeMenu(index, href) {
-      if (this.activeIndex !== index) {
-        this.activeIndex1 = -1;
-        this.activeIndex2 = -1;
+    handleActiveMenu(index, href) {
+      if (this.activeMenu === index) {
+        this.collapseMenuItem = !this.collapseMenuItem;
+      } else {
+        this.activeMenu = index;
+        this.collapseMenuItem = false;
+        this.activeMenu1 = -1;
       }
-      this.activeIndex = index;
-      this.collapse1 = !this.collapse1;
-      if (this.collapse) this.collapse1 = false;
-      // Routing
       href && this.Router(href);
     },
-    handleChangeMenu1(index, index1, href) {
-      if (this.activeIndex1 !== index1) {
-        this.activeIndex2 = -1;
-      }
-      this.activeIndex = index;
-      this.activeIndex1 = index1;
-      if (this.collapse) this.collapse1 = true;
-      console.log(this.collapse1);
-      this.collapse2 = !this.collapse2;
-      // Routing
+    handleActiveMenu1(index, index1, href) {
+      this.activeMenu = index;
+      this.activeMenu1 = index1;
+      if (this.collapseSidebar) this.collapseMenuItem = true;
+      else this.collapseMenuItem = false;
       href && this.Router(href);
     },
-    handleChangeMenu2(index, index1, index2) {
-      this.activeIndex = index;
-      this.activeIndex1 = index1;
-      this.activeIndex2 = index2;
-      this.collapse3 = !this.collapse3;
+    handleActiveMenu2(index, href) {
+      this.activeMenu2 = index;
+      href && this.Router(href);
     },
-    hoverMenu(index) {
-      this.hoverIndex = index;
-      this.hoverIndex1 = -1;
-      this.hoverIndex2 = -1;
-    },
-    hoverMenu1(index, index1) {
-      this.hoverIndex = index;
-      this.hoverIndex1 = index1;
-      this.hoverIndex2 = -1;
-    },
-    hoverMenu2(index, index1, index2) {
-      this.hoverIndex = index;
-      this.hoverIndex1 = index1;
-      this.hoverIndex2 = index2;
+    hoverMenu() {
+      if (!collapseSidebar) return;
+      this.collapseMenuItem = true;
     }
   }
 };
@@ -284,171 +235,153 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/sass/base.scss";
 
+$main_bg_color: #227bf9;
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+button {
+  cursor: pointer;
+}
 .sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  border-right: 1px solid #eef0f5;
-  background-color: #217af9;
-  min-width: 143px;
-  width: 143px;
-  transition: width 0.3s ease-out;
+  min-width: 141.59px;
+  background-color: $main_bg_color;
+  &.collapse {
+    max-width: 52px;
+    min-width: 52px;
 
-  .sidebar-list {
-    // transition: width 1s ease-out;
-    width: 100%;
-
-    .sidebar-list-item {
-      position: relative;
-
-      // &.active {
-      //   // background: white;
-      //   // color: #217af9;
-      //   background-color: darken(#217af9, 10%);
-      // }
-      // &:hover {
-      //   background-color: darken(#217af9, 5%);
-      // }
-
-      a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: white;
-        height: 44px;
-        padding: 14px 0px;
-        overflow: hidden;
-
-        img {
-          width: 16px;
-          height: 16px;
-          margin: 0px 12px 0 20px;
-        }
-        span {
-          width: 78px;
-          height: 16px;
-          font-size: 12px;
-          transition: width 0.3s ease-out;
-          overflow: hidden;
-
-          &.collapse {
-            width: 0px;
+    & > ul {
+      & > li {
+        position: relative;
+        & > a {
+          & > img {
+            margin-right: 0;
+          }
+          & > span {
+            display: none;
+          }
+          & > svg {
+            display: none;
           }
         }
-
-        &:hover {
-          background-color: darken(#217af9, 5%);
+        & > ul {
+          position: absolute;
+          top: 0;
+          left: 52px;
+          width: 141.59px;
+          z-index: 1;
+          max-height: unset !important;
+          width: 0px;
+          li {
+            a {
+              height: 40px;
+              padding: 20px;
+            }
+          }
         }
-        &.active,
-        &.active:hover,
-        &.active.hover {
-          // background: white;
-          // color: #217af9;
-          background-color: darken(#217af9, 15%);
-          &::before {
-            content: " ";
-            width: 3px;
-            height: 45px;
-            background-color: white;
-            position: absolute;
-            left: 0;
+        &.collapse {
+          ul {
+            width: 0px !important;
+            transition: width ease 0.3s;
           }
         }
         &.active {
-          .fa-chevron-right {
-            transition: transform ease 0.3s;
-            transform: rotate(90deg);
+          ul {
+            width: 141.59px;
+            transition: width ease 0.3s;
           }
-          &.collapse {
-            .fa-chevron-right {
-              transition: transform ease 0.3s;
-              transform: rotate(0deg);
-            }
+        }
+        &:hover {
+          ul {
+            width: 141.59px !important;
+            transition: width ease 0.3s;
           }
         }
       }
-      .submenu {
-        z-index: 10;
-        background-color: darken(#217af9, 10%);
-        transition: all ease 0.3s;
+    }
+  }
+
+  & > ul {
+    font-size: 12px;
+    position: relative;
+    padding-bottom: 36px;
+    cursor: pointer;
+    height: 100%;
+    li {
+      a {
+        padding: 10px 10px 10px 15px;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .icon {
+          margin-right: 10px;
+          width: 22px;
+          height: 20px;
+        }
+        svg {
+          position: absolute;
+          right: 10px;
+          transition: transform ease 0.3s;
+        }
+        &:hover {
+          background-color: darken($main_bg_color, 5%);
+        }
+      }
+      &.active {
+        & > a {
+          background-color: darken($main_bg_color, 20%);
+        }
+        svg {
+          transform: rotate(90deg);
+        }
+        &.collapse {
+          svg {
+            transform: unset;
+          }
+          ul {
+            max-height: 0px;
+          }
+        }
+        ul {
+          max-height: 800px;
+          transition: max-height ease 0.5s;
+        }
+      }
+      ul {
+        background-color: darken($main_bg_color, 15%) !important;
         max-height: 0;
         overflow: hidden;
 
-        &.display {
-          max-height: calc(100px);
-        }
-
-        .sidebar-list-item {
+        li {
           a {
-            font-size: 12px;
             padding-left: 60px;
-
-            &:hover,
-            &.hover {
-              background-color: darken(#217af9, 5%);
-            }
-            &.active:hover {
-              background-color: unset;
-            }
             &.active {
               font-weight: bold;
-              &::before {
-                width: 0;
-              }
-              background-color: unset;
-            }
-
-            &.deep2 {
-              padding-left: 90px;
+              background-color: darken($main_bg_color, 30%) !important;
             }
           }
         }
       }
-      .right {
-        position: absolute;
-        right: 10px;
-        font-size: 12px;
-        width: unset;
+    }
+    .collapse-button-wrapper {
+      position: absolute !important;
+      bottom: 5px;
+      width: 100%;
+      text-align: center;
+      button {
+        width: 25px;
+        height: 25px;
+        padding: 0;
+        background-color: transparent;
+        border: none;
       }
     }
   }
-  &.collapse {
-    width: 60px;
-    min-width: 60px !important;
-
-    a {
-      .fa-chevron-right {
-        transform: unset !important;
-      }
-    }
-    .submenu {
-      width: 0;
-      position: absolute;
-      top: 0px;
-      left: 60px;
-      max-height: unset !important;
-
-      a {
-        padding-left: 20px !important;
-      }
-      &.deep2 {
-        left: 156px;
-      }
-      &.display {
-        width: 155px;
-      }
-    }
-  }
-  .toggle {
-    margin-bottom: 17px;
-
-    a {
-      img {
-        width: 22px;
-        height: 22px;
-      }
-    }
+  .btn-collapse {
+    width: 10px;
   }
 }
 </style>
