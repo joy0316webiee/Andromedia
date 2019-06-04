@@ -3919,5 +3919,190 @@
         }
       ]
     }
+  ],
+  "roomUsers": [
+    {
+      "image": "avatar_group_1.png",
+      "name": "深圳群",
+      "time": "18:03",
+      "detail": "设备2GC12   I   微信"
+    },
+    {
+      "image": "avatar006.png",
+      "name": "高远方",
+      "time": "18:03",
+      "detail": "设备2GC12   I   微信"
+    },
+    {
+      "image": "avatar007.png",
+      "name": "高远方",
+      "time": "18:03",
+      "detail": "设备2GC12   I   微信"
+    },
+    {
+      "image": "avatar008.png",
+      "name": "高远方",
+      "time": "18:03",
+      "detail": "设备2GC12   I   微信"
+    },
+    {
+      "image": "avatar009.png",
+      "name": "高远方",
+      "time": "18:03",
+      "detail": "设备2GC12   I   微信"
+    },
+    {
+      "image": "avatar010.png",
+      "name": "高远方",
+      "time": "18:03",
+      "detail": "设备2GC12   I   微信"
+    }
+  ],
+  "roomCandidates": [
+    {
+      "image": "avatar_group_1.png",
+      "name": "深圳群"
+    },
+    {
+      "image": "avatar006.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar007.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar008.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar009.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar010.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar_group_1.png",
+      "name": "深圳群"
+    },
+    {
+      "image": "avatar006.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar007.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar008.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar009.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar010.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar_group_1.png",
+      "name": "深圳群"
+    },
+    {
+      "image": "avatar006.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar007.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar008.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar009.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar010.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar_group_1.png",
+      "name": "深圳群"
+    },
+    {
+      "image": "avatar006.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar007.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar008.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar009.png",
+      "name": "高远方"
+    },
+    {
+      "image": "avatar010.png",
+      "name": "高远方"
+    }
+  ],
+  "roomLogs": [
+    {
+      "who": "received",
+      "avatar": "avatar006.png",
+      "text": "高远方设备2GC12微信群500"
+    },
+    {
+      "who": "received",
+      "avatar": "avatar006.png",
+      "multi": {
+        "image": "image1.png",
+        "video": "thumbnail1.png"
+      }
+    },
+    {
+      "who": "received",
+      "avatar": "avatar006.png",
+      "link": "https://apple.com/#"
+    },
+    {
+      "who": "received",
+      "avatar": "avatar006.png",
+      "files": [
+        {
+          "ext": "psd",
+          "name": "信群.psd",
+          "size": "4.22MB",
+          "detail": "2019.3.6",
+          "checked": true
+        },
+        {
+          "ext": "psd",
+          "name": "信群.psd",
+          "size": "4.22MB",
+          "detail": "2019.3.6",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "who": "received",
+      "avatar": "avatar006.png",
+      "text": "高远方设备2GC12微信群500"
+    },
+    {
+      "who": "",
+      "date": "2019.3.19"
+    }
   ]
 }
