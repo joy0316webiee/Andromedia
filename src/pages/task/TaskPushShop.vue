@@ -81,7 +81,7 @@
 
 <script>
 import DateRangePicker from "@gravitano/vue-date-range-picker";
-import PieChart from "@/components/chart/PieChart.js";
+import PieChart from "@/components/Chart/PieChart.js";
 export default {
   components: { DateRangePicker, PieChart },
   data() {
