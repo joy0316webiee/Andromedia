@@ -8,7 +8,7 @@
       >
         <a @click="handleActiveMenu(index, item.href)" @mouseover="hoverMenu">
           <img class="icon" v-show="item.icon" :src="getIcon(item.icon)" alt="icon">
-          <label for="">
+          <label for>
             <span>{{ item.label }}</span>
             <font-awesome-icon v-show="item.child" icon="chevron-right"/>
           </label>
@@ -253,7 +253,7 @@ button {
 .sidebar {
   min-width: 141.59px;
   background-color: $main_bg_color;
-  transition: min-width ease .2s;
+  transition: min-width ease 0.2s;
   &.collapse {
     max-width: 52px;
     min-width: 52px;
@@ -264,7 +264,7 @@ button {
         & > a {
           width: 52px;
           overflow: hidden;
-          text-overflow:ellipsis;
+          text-overflow: ellipsis;
           & > img {
             margin-right: 20px;
             min-width: 22px;
@@ -315,6 +315,9 @@ button {
           }
         }
       }
+    }
+    .collapse-button-wrapper {
+      width: 52px !important;
     }
   }
 
@@ -382,10 +385,14 @@ button {
       }
     }
     .collapse-button-wrapper {
-      position: absolute !important;
+      position: fixed !important;
+      bottom: 10px;
+      left: 0;
+      width: 141px !important;
       bottom: 5px;
       width: 100%;
       text-align: center;
+      transition: width ease 0.3s;
       button {
         width: 25px;
         height: 25px;
