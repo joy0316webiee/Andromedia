@@ -1,5 +1,5 @@
 <template>
-  <div>chat room</div>
+  <div></div>
 </template>
 
 <script>
