@@ -38,7 +38,7 @@
                 </div>
                 <div class="item">
                   <img src="@/assets/images/avatar.png" alt="avatar">
-                  <span>Lola8713</span>
+                  <span @click="popupProfile = !popupProfile">Lola8713</span>
                 </div>
                 <div class="item">
                   <img src="@/assets/images/avatar_02.png" alt="avatar">
@@ -111,7 +111,28 @@
         <div class="conv-input-box">
           <div class="tools">
             <button class="emoticon"><img src="@/assets/images/ic_emo_sun.png"></button>
-            <button class="emoticon"><img src="@/assets/images/ic_emo_char.png"></button>
+            <button class="emoticon">
+              <img src="@/assets/images/ic_emo_char.png" @click="popup1 = !popup1">
+
+              <div class="popup1" v-show="popup1">
+                <div class="popup-header">
+                  <span class="title">常用语</span>
+                  <div class="fill-space"></div>
+                  <span class="plus">+ 增加新常用语</span> | <img class="setting" src="@/assets/images/ic_setting3.png" @click="settingMenu = !settingMenu">
+                  <div class="dropdown-menu" v-show="settingMenu">
+                    <div class="menu-item" @click="() => {settingMenu = false; deleteMode = true}">删除</div>
+                    <div class="menu-item" @click="() => {settingMenu = false; deleteMode = false}">管理</div>
+                  </div>
+                </div>
+                <div class="popup-body" @click="popup1 = false">
+                  <div class="menu">我不在公司下，等回公司回你...<img src="@/assets/images/ic_close_circle_blue.png" v-show="deleteMode"></div>
+                  <div class="menu">注册会员又注册了其他的名字...<img src="@/assets/images/ic_close_circle_blue.png" v-show="deleteMode"></div>
+                  <div class="menu">无任何实质内容的灌水，也说...<img src="@/assets/images/ic_close_circle_blue.png" v-show="deleteMode"></div>
+                  <div class="menu">注册会员又注册了其他的名字...<img src="@/assets/images/ic_close_circle_blue.png" v-show="deleteMode"></div>
+                </div>
+              </div>
+
+            </button>
             <button class="emoticon"><img src="@/assets/images/ic_emo_file.png"></button>
             <button class="phone"><img src="@/assets/images/ic_emo_phone.png"></button>
             <button class="emoticon"><img src="@/assets/images/ic_emo_msg.png"></button>
@@ -143,6 +164,57 @@
         </ul>
       </div>
     </div>
+    <div class="panel-right profile" v-show="popupProfile">
+      <div class="panel1">
+        <div>
+          <button class="top-button">群</button>
+        </div>
+        <div class="align-center">
+          <img class="profile-avatar" src="@/assets/images/avatars/avatar008.png" alt="avatar">
+          <h2>Maciej Kalska</h2>
+          <h3>广州 ，深圳 ，英国</h3>
+          <h5>18837456789</h5>
+          <h4>iwoekkkjs@gmail.com</h4>
+          <v-dropdown class="center-button" text="操作" :nodes="dropdown1" light></v-dropdown>
+        </div>
+      </div>
+      <div class="panel2">
+        标签<br><br>
+        <v-button light>大学生</v-button>
+      </div>
+      <div class="panel3">
+        所在的设备    设备ID<br><br>
+        <img src="@/assets/images/ic_bb.png" alt="icon">
+        微信 134群
+      </div>
+      <div class="panel4">
+        所在应用<br><br>
+        <a href="#"><img src="@/assets/images/ic_twitter.png">&nbsp;&nbsp;Twitter</a>
+        <a href="#"><img src="@/assets/images/ic_facebook.png">&nbsp;&nbsp;Facebook</a>
+        <a href="#"><img src="@/assets/images/ic_instagram.png">&nbsp;&nbsp;Instagram</a>
+        <a href="#"><img src="@/assets/images/ic_medium.png">&nbsp;&nbsp;Medium</a>
+        <a href="#"><img src="@/assets/images/ic_behance.png">&nbsp;&nbsp;Behance</a>
+        <a href="#"><img src="@/assets/images/ic_linkedin.png">&nbsp;&nbsp;Linkedin</a>
+      </div>
+      <div class="panel5">
+        日志消费<br><br>
+        <div class="berry">
+          <img src="@/assets/images/ic_cherry.png">
+          <div class="desc">
+            <div class="title">
+              东北大红苹果
+            </div>
+            <span class="date">2019.09.08</span>
+            <span class="text1">大数据推送</span>
+            <span class="text2">朋友圈</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="popup-image">
+      <img :src="require(`@/assets/images/${popupImage}`)">
+    </div> -->
   </div>
 </template>
 
@@ -155,7 +227,42 @@ export default {
       opened: false,
       users:[],
       candidates: [],
-      logs: []
+      logs: [],
+      settingMenu: false,
+      deleteMode: false,
+      popup1: false,
+      panelProfile: false,
+      dropdown1: [
+        {
+          label: "编辑信息",
+          action: () => {}
+        },
+        {
+          label: "发任务",
+          action: () => {}
+        },
+        {
+          label: "添加",
+          action: () => {}
+        },
+        {
+          label: "朋友圈",
+          action: () => {}
+        },
+        {
+          label: "删除好友",
+          action: () => {}
+        },
+        {
+          label: "分组",
+          action: () => {}
+        },
+        {
+          label: "设置标签",
+          action: () => {}
+        }
+      ],
+      popupProfile: false
     }
   },
   methods: {
@@ -401,6 +508,26 @@ export default {
             display: flex;
             padding: 10px;
 
+            &.sent {
+              justify-content: flex-end;
+              .text, .link {
+                background-color: #97F37D;
+                &::before {
+                  left: unset;
+                  right: -4px;
+                  transform: rotate(225deg);
+                  background-color: #97F37D;
+                }
+              }
+            }
+            .date {
+              margin: 0 auto;
+              span {
+                background-color: lightgrey;
+                padding: 5px 10px;
+                border-radius: 4px;
+              }
+            }
             .controls {
               display: flex;
               justify-content: flex-end;
@@ -543,6 +670,8 @@ export default {
           }
           .emoticon {
             margin-right: 20px;
+            position: relative;
+
             img {
               width: 22px;
               height: 22px;
@@ -650,5 +779,186 @@ export default {
       }
     }
   }
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .profile {
+    position: absolute !important;
+    background-color: white !important;
+    right: 0;
+    color: #767C91;
+    height: calc(100vh - 60px);
+    .panel1 {
+      padding: 20px 16px 10px 15px;
+      border-bottom: 1px solid #EEF0F5;
+      .top-button {
+        background-color: #CCCCCC;
+        padding: 5px 20px;
+        color: white;
+        font-size: 14px;
+      }
+      .profile-avatar {
+        width: 80px;
+        height: 80px;
+        margin-top: 10px;
+      }
+      h2 {
+        margin-top: 5px;
+      }
+      h3 {
+        margin-top: 5px;
+        color: lightgrey;
+        font-size: 14px;
+      }
+      h5 {
+        margin-top: 10px;
+      }
+      h4 {
+        margin-top: 4px;
+      }
+      .center-button {
+        border-radius: 4px;
+        height: 30px;
+        width: 130px;
+        font-size: 14px;
+        margin-top: 20px;
+      }
+    }
+    .panel2 {
+      padding: 20px 16px 10px 15px;
+      border-bottom: 1px solid #EEF0F5;
+    }
+    .panel3 {
+      padding: 20px 16px 10px 15px;
+      border-bottom: 1px solid #EEF0F5;
+      img {
+        margin-right: 20px;
+      }
+    }
+    .panel4 {
+      padding: 20px 16px 10px 15px;
+      border-bottom: 1px solid #EEF0F5;
+
+      a {
+        text-decoration: none;
+        color: #414A60;
+        display: flex;
+        align-items: center;
+        padding: 5px 0;
+        font-size: 12px;
+      }
+    }
+    .panel5 {
+      padding: 20px 16px 10px 15px;
+      
+      .berry {
+        display: flex;
+        align-items: center;
+        img {
+          margin-right: 10px;
+        }
+        .desc{
+          flex: auto;
+          .title {
+            font-size: 14px;
+          }
+          .date, .text1, .text2 {
+            color: #767C91;
+            font-size: 12px;
+          }
+          .text1 {
+            margin-left: 50px;
+          }
+          .text2 {
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+.popup1 {
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.24);
+  position: absolute;
+  top: -210px;
+  left: -140px;
+  width: 322px;
+  z-index: 1;
+  background-color: white;
+  text-align: left;
+
+  .popup-header {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .title {
+      font-size: 14px;
+      color: #9FADCC;
+    }
+    .fill-space {
+      flex: auto;
+    }
+    .plus {
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    .setting {
+      margin-left: 10px;
+    }
+    .dropdown-menu {
+      box-shadow: 0 0px 5px rgba(0, 0, 0, 0.24);
+      position: absolute;
+      background-color: white;
+      top: 40px;
+      right: 0;
+      .menu-item {
+        padding: 10px;
+        font-size: 12px;
+        &:hover {
+          background-color: #F3F9FF;
+        }
+      }
+    }
+  }
+  .popup-body {
+    .menu {
+      border-top: 1px solid #eef0f5;
+      padding: 10px 20px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      img {
+        width: 16px !important;
+        height: 16px !important;
+      }
+      &:hover {
+        background-color: #F3F9FF;
+      }
+    }
+  }
+  &::after {
+    content: "";
+    width:15px;
+    height: 15px;
+    border-radius: 3px;
+    transform: rotate(45deg);
+    background-color: white;
+    position: absolute;
+    bottom: -7px;
+    left: 150px;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.24);
+  }
+  
+}
+.popup-image {
+    
+  }
+
+.align-center {
+  text-align: center;
 }
 </style>
