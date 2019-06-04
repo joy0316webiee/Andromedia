@@ -28,7 +28,7 @@
       </div>
       <div class="progress">
         <h3>购买购买</h3>
-        <div class="row" v-for="(item, index) in progress2">
+        <div class="row" v-for="(item, index) in progress2" :key="index">
           <label>{{item.name}}</label>
           <div class="progress-bar">
             <div class="back-bar"></div>
@@ -81,7 +81,7 @@
 
 <script>
 import DateRangePicker from "@gravitano/vue-date-range-picker";
-import PieChart from "@/components/Chart/PieChart.js";
+import PieChart from "@/components/chart/PieChart.js";
 export default {
   components: { DateRangePicker, PieChart },
   data() {
