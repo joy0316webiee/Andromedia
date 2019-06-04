@@ -8,14 +8,16 @@
       >
         <a @click="handleActiveMenu(index, item.href)" @mouseover="hoverMenu">
           <img class="icon" v-show="item.icon" :src="getIcon(item.icon)" alt="icon">
-          <span>{{ item.label }}</span>
-          <font-awesome-icon v-show="item.child" icon="chevron-right"/>
+          <label for="">
+            <span>{{ item.label }}</span>
+            <font-awesome-icon v-show="item.child" icon="chevron-right"/>
+          </label>
         </a>
 
         <ul v-show="item.child">
           <li v-for="(item1, index1) in item.child" :key="index1">
             <a
-              :class="{active: activeMenu1 === index1}"
+              :class="{active: activeMenu1 === index1 && activeMenu === index}"
               @click="handleActiveMenu1(index, index1, item1.href)"
               @mouseover="hoverMenu"
             >
@@ -26,7 +28,7 @@
         </ul>
       </li>
       <li class="collapse-button-wrapper">
-        <button @click="collapseSidebar = !collapseSidebar">
+        <button @click="toggleSidebar">
           <img src="@/assets/images/ic_collapse_blue.png" alt="collapse">
         </button>
       </li>
@@ -225,8 +227,11 @@ export default {
       href && this.Router(href);
     },
     hoverMenu() {
-      if (!collapseSidebar) return;
+      if (!this.collapseSidebar) return;
       this.collapseMenuItem = true;
+    },
+    toggleSidebar() {
+      this.collapseSidebar = !this.collapseSidebar;
     }
   }
 };
@@ -248,6 +253,7 @@ button {
 .sidebar {
   min-width: 141.59px;
   background-color: $main_bg_color;
+  transition: min-width ease .2s;
   &.collapse {
     max-width: 52px;
     min-width: 52px;
@@ -256,15 +262,24 @@ button {
       & > li {
         position: relative;
         & > a {
+          width: 52px;
+          overflow: hidden;
+          text-overflow:ellipsis;
           & > img {
-            margin-right: 0;
+            margin-right: 20px;
+            min-width: 22px;
           }
-          & > span {
-            display: none;
+          label {
+            min-width: 80px;
+            position: relative;
+            height: 20px;
           }
-          & > svg {
-            display: none;
-          }
+          // & > span {
+          //   display: none;
+          // }
+          // & > svg {
+          //   display: none;
+          // }
         }
         & > ul {
           position: absolute;
