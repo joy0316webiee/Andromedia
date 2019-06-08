@@ -121,7 +121,6 @@ export default {
           }
           strong {
             font-size: 16px;
-            font-family: MicrosoftYaHei-Bold;
             font-weight: bold;
             color: #414a60;
             margin-left: 7px;
@@ -145,7 +144,6 @@ export default {
         p {
           margin: 0px;
           font-size: 12px;
-          font-family: MicrosoftYaHei;
           font-weight: 400;
           color: #414a60;
         }

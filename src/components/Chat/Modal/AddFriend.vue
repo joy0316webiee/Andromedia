@@ -31,7 +31,7 @@
           </div>
         </div>
         <div class="row check">
-          <div class="check-item" v-for="(friend, index) in searchedFriend">
+          <div class="check-item" v-for="(friend, index) in searchedFriend" :key="index">
             <v-round-check class="check-one" :initState="checkedAll"/>
             <div class="check-item-content">
               <img class="friend-avatar" :src="friend.avatar">
@@ -118,7 +118,7 @@ export default {
 @import "@/assets/sass/base.scss";
 
 .modal-backdrop {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -144,7 +144,6 @@ export default {
 
       span {
         font-size: 16px;
-        font-family: MicrosoftYaHei-Bold;
         font-weight: bold;
         color: #0e1726;
         line-height: 20px;

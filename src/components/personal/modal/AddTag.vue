@@ -97,7 +97,6 @@ export default {
 
       span {
         font-size: 16px;
-        font-family: MicrosoftYaHei-Bold;
         font-weight: bold;
         color: #0e1726;
         line-height: 20px;

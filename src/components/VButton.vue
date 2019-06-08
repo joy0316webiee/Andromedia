@@ -39,16 +39,17 @@ export default {
   height: 30px;
   font-size: 12px;
   border-radius: 4px;
-  font-family: MicrosoftYaHeiLight;
-  font-weight: 300;
   background-color: #f1f5f8;
   border-color: #f1f5f8;
+  color:rgba(14,23,38,1);
   cursor: pointer;
 }
 .v-button-primary {
   background-color: #0f7bf9;
   border-color: #0f7bf9;
   color: #ffffff;
+  font-family: "PingFang Light";
+  font-weight:300;
 }
 .v-button-info {
   background-color: #0395f9;
@@ -58,7 +59,7 @@ export default {
 .v-button-light {
   background-color: white;
   border: 1px solid #e9e9e9;
-  // border-color: #f1f5f8;
+  font-family: "PingFang Light";
   color: #6c6c6c;
 }
 .v-button-transparent {
