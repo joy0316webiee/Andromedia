@@ -70,9 +70,9 @@ export default {
     width: fit-content;
 
     button {
-      background-image: url("~@/assets/images/ic_down.png");
-      background-repeat: no-repeat;
-      background-position: 95% 50%;
+      // background-image: url("~@/assets/images/ic_down.png");
+      // background-repeat: no-repeat;
+      // background-position: 95% 50%;
 
       &.right {
         background-color: white;

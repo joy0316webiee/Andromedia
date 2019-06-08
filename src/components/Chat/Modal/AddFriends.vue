@@ -113,7 +113,7 @@ export default {
 @import "@/assets/sass/base.scss";
 
 .modal-backdrop {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -139,7 +139,6 @@ export default {
 
       span {
         font-size: 16px;
-        font-family: MicrosoftYaHei-Bold;
         font-weight: bold;
         color: #0e1726;
         line-height: 20px;

@@ -8,7 +8,7 @@
 @import "@/assets/sass/base.scss";
 
 #app {
-  -webkit-font-smoothing: antialiased;
+  // -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -17,7 +17,6 @@ body {
   padding: 0;
   overflow-x: hidden;
   min-width: $min-width;
-  font-family: YaHei;
 }
 
 * {

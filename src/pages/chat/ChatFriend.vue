@@ -6,7 +6,7 @@
       <v-dropdown class="dd-btn-1" text="推送消息" :nodes="dropdownItems1"></v-dropdown>
       <v-dropdown class="dd-btn-2" text="设置自动回复" :nodes="dropdownItems2"></v-dropdown>
 
-      <table style="margin-top: 20px;">
+      <table style="margin-top: 40px;">
         <thead>
           <tr>
             <th width="16%">ID</th>
@@ -30,7 +30,7 @@
             <td>{{user.t4}}</td>
             <td>{{user.t5}}</td>
             <td>
-              <v-dropdown light text="设置" :nodes="dropdownItems5"></v-dropdown>
+              <v-dropdown light text="设置" :nodes="dropdownItems5" width="92px"></v-dropdown>
             </td>
           </tr>
         </tbody>
@@ -43,7 +43,7 @@
         <v-dropdown
           v-show="showList === 1"
           class="dd-btn-3"
-          text="<span class='plus-symbol'>+</span>好友"
+          text="<span class='plus-symbol'>+</span>&nbsp;好友"
           :nodes="dropdownItems3"
         ></v-dropdown>
         <v-dropdown v-show="showList === 2" class="dd-btn-3 small" text="+" :nodes="dropdownItems6"></v-dropdown>
@@ -54,14 +54,14 @@
         <img src="@/assets/images/ic_search.png">
       </div>
       <div class="list list-friends" v-if="showList === 1">
-        <div class="list-item" v-for="(friend, index) in friends" :key="index">
+        <div v-for="(friend, index) in friends" :key="index" :class="{'list-item': true, active: activeIndex === index}" @click="activeIndex = index">
           <img class="avatar" :src="friend.avatar">
           <img class="online" src="@/assets/images/ic_phone.png" v-if="friend.online">
           <div class="list-item-content">
             <div>
               <span :class="friend.vip ? 'red' : ''">{{ friend.name }}</span>
-              ({{ friend.alias }})
-              <span v-if="friend.vip" class="vip">&nbsp;VIP&nbsp;</span>
+              <span class="detail">({{ friend.alias }})</span>
+              <span v-if="friend.vip" class="vip"><img src="@/assets/images/ic_vip.png" alt="vip"></span>
             </div>
             <div class="item-desc">{{ friend.desc }}</div>
           </div>
@@ -100,14 +100,73 @@
     <div class="panel blog-list" v-if="showBlogList">
       <div class="panel-title">朋友圈</div>
       <div class="blogs">
-        <div class="blog" v-for="(blog, index) in blogs" :key="index">
-          <img class="blog-avatar" :src="blog.writerImg">
+        <div class="blog">
+          <img class="blog-avatar" src="/img/user/user1.png">
           <div class="blog-container">
-            <div class="blog-writer">{{ blog.writer }}</div>
-            <div class="blog-content" v-html="blog.content"></div>
+            <div class="blog-writer">Lina</div>
+            <div class="blog-content">
+              <p class="image-text">
+                <img src="@/assets/images/blog_image1.png">
+                <span>&nbsp;[我的群]&nbsp;我的群我的!群我的,我的群群我的群</span>
+              </p>
+            </div>
             <div class="blog-footer">
-              <span class="time">{{ blog.time }}</span>
-              <button class="more">..</button>
+              <span class="time">47 minutes ago</span>
+              <button class="more">
+                <img src="@/assets/images/ic_dot.png" alt="dot">
+                <img src="@/assets/images/ic_dot.png" alt="dot">
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="blog">
+          <img class="blog-avatar" src="/img/user/user2.png">
+          <div class="blog-container">
+            <div class="blog-writer">A Elaine</div>
+            <div class="blog-content">
+              <p class="text">我的群我的!群我的</p>
+              <img src="@/assets/images/blog_image2.png" alt="">
+            </div>
+            <div class="blog-footer">
+              <span class="time">47 minutes ago</span>
+              <button class="more">
+                <img src="@/assets/images/ic_dot.png" alt="dot">
+                <img src="@/assets/images/ic_dot.png" alt="dot">
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="blog">
+          <img class="blog-avatar" src="/img/user/user3.png">
+          <div class="blog-container">
+            <div class="blog-writer">群我的 Joanna</div>
+            <div class="blog-content">
+              <p class="text">我的群我的!群我的我的群我的!群我的我的群我的!群我的我的群我的!群我的</p>
+              <img src="@/assets/images/blog_image3.png" alt="">
+            </div>
+            <div class="blog-footer">
+              <span class="time">47 minutes ago</span>
+              <button class="more">
+                <img src="@/assets/images/ic_dot.png" alt="dot">
+                <img src="@/assets/images/ic_dot.png" alt="dot">
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="blog">
+          <img class="blog-avatar" src="/img/user/user3.png">
+          <div class="blog-container">
+            <div class="blog-writer">群我的</div>
+            <div class="blog-content">
+              <p class="text">我的群我的!群我的我的群我的!群我的我的群我的!<br><br>群我的我的群我的!群我的</p>
+              <img src="@/assets/images/blog_image4.png" alt="">
+            </div>
+            <div class="blog-footer">
+              <span class="time">47 minutes ago</span>
+              <button class="more">
+                <img src="@/assets/images/ic_dot.png" alt="dot">
+                <img src="@/assets/images/ic_dot.png" alt="dot">
+              </button>
             </div>
           </div>
         </div>
@@ -191,7 +250,7 @@
           <v-button class="right-button2" primary>添加好友</v-button>
         </div>
         <div class="group-friends-list">
-          <div class="row" v-for="(friends, index) in 20">
+          <div class="row" v-for="(friends, index) in 20" :key="index">
             <v-round-check primary :initState="index%5 === 0 ? false : true"/>
             <img class="avatar" src="/img/avatar/avatar1.png">
             <label class="friend-name">搜索客户</label>
@@ -220,6 +279,7 @@ export default {
       friends: [],
       groups: [],
       blogs: [],
+      activeIndex: -1,
       dropdownItems1: [
         { label: "推送图文消息", action: () => {} },
         { label: "推送小程序", action: () => {} }
@@ -341,9 +401,18 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .page {
   display: flex;
+  position: relative;
+  &::before {
+    content: "";
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    background-image: linear-gradient(#F3F6FD, #ffffff);
+    z-index: -1;
+  }
 }
 .account-management {
   width: 720px;
@@ -354,17 +423,22 @@ export default {
   }
   .dd-btn-1 {
     margin-left: 18px;
+    button {
+      font-family: "PingFang Bold" !important;
+    }
   }
   .dd-btn-2 {
     margin-left: 18px;
+    button {
+      font-family: "PingFang Bold" !important;
+    }
   }
 }
 .panel-title {
   width: 72px;
   height: 18px;
   font-size: 18px;
-  font-family: PingFang-SC-Bold;
-  font-weight: bold;
+  font-family: "PingFang Bold";
   color: rgba(56, 59, 59, 1);
   margin-left: 48px;
   margin-top: 34px;
@@ -378,13 +452,25 @@ table {
   td {
     text-align: center;
     padding: 10px;
+    font-family: "PingFang Bold";
   }
   tr > td:nth-child(2),
   tr > th:nth-child(2) {
     text-align: left;
   }
+  td{
+    padding-top: 20px;
+  }
   thead {
     background-color: #f4f5f9;
+    tr {
+      height: 34px;
+      th {
+        padding-top: 12px;
+        padding-bottom: 10px;
+        line-height: 1;
+      }
+    }
   }
   button {
     font-size: 12px;
@@ -417,12 +503,14 @@ button:hover {
 }
 .my-group {
   width: 410px;
+  background-color: white;
   border: 2px solid #f1f5f8;
-  padding: 6px 0px;
+  
 
   .button-bar {
+    padding: 5px 10px;
     .btn-1 {
-      margin-left: 6px;
+      color: #63A2F4;
     }
     .btn-2 {
       margin-left: 18px;
@@ -443,17 +531,18 @@ button:hover {
   }
   .search-status {
     margin-top: 16px;
+    margin-bottom: 10px;
     padding: 0 6px;
 
     span {
       width: 78px;
       height: 12px;
       font-size: 12px;
-      font-family: MicrosoftYaHeiLight;
       font-weight: 300;
       color: rgba(0, 0, 0, 1);
     }
     img {
+      margin-left: 10px;
       width: 16px;
       height: 16px;
     }
@@ -468,22 +557,21 @@ button:hover {
     width: 36px;
     height: 12px;
     font-size: 12px;
-    font-family: MicrosoftYaHeiLight;
     font-weight: 300;
     color: rgba(0, 0, 0, 1);
   }
   .vip {
-    background-color: red;
-    font-size: 8px;
-    border-radius: 2px;
-    color: white;
-    font-weight: bold;
+    position: relative;
+    margin-left: 3px;
+    img {
+      width: 20px;
+      height: 10px;
+      position: absolute;
+      top: 4px;
+    }
   }
 }
 .list {
-  height: calc(100vh - 150px);
-  overflow-y: auto;
-
   .list-item {
     padding-left: 6px;
     position: relative;
@@ -491,6 +579,7 @@ button:hover {
     padding-bottom: 10px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     .avatar {
       width: 40px;
@@ -499,16 +588,25 @@ button:hover {
       margin-right: 10px;
     }
     .red {
-      color: red;
+      color: #FF5C60;
     }
     .online {
       position: absolute;
       width: 10px;
       height: 16px;
-      left: 30px;
+      left: 35px;
       top: 34px;
     }
+    .detail {
+      color: #7F7F7F;
+    }
+    .item-desc{
+      color: #7F7F7F;
+    }
     &:hover {
+      background-color: #f8f8f8;
+    }
+    &.active {
       background-color: #ebebeb;
       .list-item-menu {
         display: flex;
@@ -519,12 +617,12 @@ button:hover {
       position: absolute;
       right: 10px;
       background-color: inherit;
-      border-radius: 50%;
+      // border-radius: 50%;
       width: 20px;
       height: 20px;
       justify-content: center;
       align-items: center;
-      background-color: white;
+      // background-color: white;
 
       img {
         height: 3px;
@@ -550,9 +648,7 @@ button:hover {
     font-size: 12px;
   }
   .blogs {
-    height: calc(100vh - 102px);
-    overflow-y: auto;
-
+    
     .blog {
       padding: 10px 5px;
       display: flex;
@@ -577,24 +673,46 @@ button:hover {
         font-size: 16px;
 
         .blog-content {
-          margin-top: 20px;
-          img {
-            width: calc(100% - 200px);
+          margin-top: 15px;
+          font-family: "PingFang Bold";
+          font-size: 14px;
+          p {
+            margin: 0;
+            font-family: "PingFang Bold";
+            font-size: 14px;
           }
+          
+          .image-text {
+            background-color: #F7F7F7;
+            padding: 3px;
+            span {
+              padding: 5px;
+              font-family: "PingFang Bold";
+              font-size: 14px;
+            }
+          }
+          .text {
+            margin-bottom: 10px;
+          }
+        }
+        .blog-footer {
+          margin-top: 16px;
         }
       }
       .more {
         background-color: #f8f8f8;
         float: right;
+        padding-bottom: 5px;
+        img {
+          &:first-child{
+            margin-right: 5px;
+          }
+        }
       }
     }
   }
 }
-.blog-content {
-  img {
-    width: calc(100% - 200px);
-  }
-}
+
 
 .unknown1 {
   padding: 20px;
@@ -634,8 +752,7 @@ button:hover {
       }
     }
     .group-friends-list {
-      height: calc(100vh - 430px);
-      overflow-y: auto;
+      
     }
     .success {
       padding: 3px;

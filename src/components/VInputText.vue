@@ -15,7 +15,7 @@ export default {
 .input-text {
   label {
     display: inline-block;
-    width: 58px;
+    width: 70px;
     font-size: 14px;
     font-weight: bold;
     color: #606672;

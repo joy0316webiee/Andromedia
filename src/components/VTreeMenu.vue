@@ -109,7 +109,6 @@ export default {
       padding: 11px 0px 11px 20px;
       // color: #414a60;
       color: black;
-      font-family: MicrosoftYaHeiLight;
       font-size: 12px;
       font-weight: 400;
       cursor: pointer;

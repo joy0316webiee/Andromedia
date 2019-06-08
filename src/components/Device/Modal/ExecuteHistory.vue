@@ -81,7 +81,6 @@ export default {
 
       span {
         font-size: 16px;
-        font-family: MicrosoftYaHei-Bold;
         font-weight: bold;
         color: #0e1726;
         line-height: 20px;
@@ -108,7 +107,6 @@ export default {
 
           .column {
             font-size: 12px;
-            font-family: MicrosoftYaHei;
             font-weight: bold;
             justify-self: center;
             color: #767c91;
